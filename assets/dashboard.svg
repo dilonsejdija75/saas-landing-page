@@ -1,0 +1,28 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect x="50" y="50" width="700" height="400" fill="white" rx="10"/>
+  <rect x="70" y="70" width="660" height="60" fill="#f7fafc" rx="5"/>
+  <text x="90" y="105" font-family="Arial" font-size="24" font-weight="bold" fill="#2d3748">Dashboard Overview</text>
+  <rect x="70" y="150" width="200" height="120" fill="#667eea" rx="8"/>
+  <text x="170" y="215" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Conversion Rate</text>
+  <text x="170" y="235" font-family="Arial" font-size="20" font-weight="bold" fill="white" text-anchor="middle">22.4%</text>
+  <rect x="290" y="150" width="200" height="120" fill="#38b2ac" rx="8"/>
+  <text x="390" y="215" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Active Users</text>
+  <text x="390" y="235" font-family="Arial" font-size="20" font-weight="bold" fill="white" text-anchor="middle">2,847</text>
+  <rect x="510" y="150" width="200" height="120" fill="#48bb78" rx="8"/>
+  <text x="610" y="215" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Revenue</text>
+  <text x="610" y="235" font-family="Arial" font-size="20" font-weight="bold" fill="white" text-anchor="middle">£36.2K</text>
+  <rect x="70" y="290" width="660" height="140" fill="#f7fafc" rx="8"/>
+  <text x="90" y="315" font-family="Arial" font-size="16" font-weight="bold" fill="#2d3748">Recent Activity</text>
+  <line x1="90" y1="330" x2="710" y2="330" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="90" y="350" font-family="Arial" font-size="12" fill="#4a5568">User completed onboarding flow</text>
+  <text x="90" y="370" font-family="Arial" font-size="12" fill="#4a5568">A/B test "Welcome Message" started</text>
+  <text x="90" y="390" font-family="Arial" font-size="12" fill="#4a5568">New user signed up from organic search</text>
+  <text x="90" y="410" font-family="Arial" font-size="12" fill="#4a5568">Conversion rate increased by 3.2%</text>
+</svg>

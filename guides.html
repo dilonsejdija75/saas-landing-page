@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guides — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div id="user-profile" class="user-profile" style="display: none; position: relative;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span id="trial-days">13</span> days left</div>
+          <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+            <div id="profile-initials" style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+            <span id="profile-email" style="color: var(--text);">jane@company.com</span>
+            <span style="color: var(--muted);">▼</span>
+          </button>
+          <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+            <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📊 Dashboard</a>
+            <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">🔄 Flows</a>
+            <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📈 Analytics</a>
+            <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">⚙️ Settings</a>
+            <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">🚪 Logout</a>
+          </div>
+        </div>
+        <div id="logged-out-buttons" style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 4rem 2rem;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <h1>Conversion Guides</h1>
+      <p class="lede">In-depth guides to help you master SaaS conversion optimization</p>
+      
+      <div style="display: grid; gap: 2rem; margin: 3rem 0;">
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem; background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+          <div style="height: 150px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=200&h=150&fit=crop&crop=center'); background-size: cover; background-position: center; border-radius: var(--radius-sm);"></div>
+          <div>
+            <h3>Complete Guide to SaaS Onboarding</h3>
+            <p style="color: var(--muted); margin: 1rem 0;">Learn how to create onboarding experiences that activate users and drive long-term retention. Covers user psychology, flow design, and measurement.</p>
+            <div style="margin: 1rem 0;">
+              <span style="background: rgba(102, 126, 234, 0.1); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; margin-right: 0.5rem;">Onboarding</span>
+              <span style="background: rgba(102, 126, 234, 0.1); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">15 min read</span>
+            </div>
+            <a href="guide-onboarding.html" class="btn btn-outline">Read Guide</a>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem; background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+          <div style="height: 150px; background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%); background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=150&fit=crop&crop=center'); background-size: cover; background-position: center; border-radius: var(--radius-sm);"></div>
+          <div>
+            <h3>A/B Testing Mastery</h3>
+            <p style="color: var(--muted); margin: 1rem 0;">Master the art and science of A/B testing. From hypothesis formation to statistical analysis, learn how to run tests that drive real business results.</p>
+            <div style="margin: 1rem 0;">
+              <span style="background: rgba(102, 126, 234, 0.1); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; margin-right: 0.5rem;">Testing</span>
+              <span style="background: rgba(102, 126, 234, 0.1); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">12 min read</span>
+            </div>
+            <a href="guide-ab-testing.html" class="btn btn-outline">Read Guide</a>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem; background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+          <div style="height: 150px; background: linear-gradient(135deg, var(--success) 0%, #ffd93d 100%); background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=150&fit=crop&crop=center'); background-size: cover; background-position: center; border-radius: var(--radius-sm);"></div>
+          <div>
+            <h3>SaaS Metrics That Matter</h3>
+            <p style="color: var(--muted); margin: 1rem 0;">Understand which metrics actually predict business success. Learn how to measure activation, retention, and revenue impact effectively.</p>
+            <div style="margin: 1rem 0;">
+              <span style="background: rgba(102, 126, 234, 0.1); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; margin-right: 0.5rem;">Analytics</span>
+              <span style="background: rgba(102, 126, 234, 0.1); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">10 min read</span>
+            </div>
+            <a href="guide-metrics.html" class="btn btn-outline">Read Guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">🔒 SOC 2</span>
+          <span class="badge">🛡️ GDPR</span>
+          <span class="badge">⭐ 4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html#integrations">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© 2025 Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A/B Testing Mastery — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 4rem 2rem;">
+    <article style="max-width: 800px; margin: 0 auto;">
+      <div style="margin-bottom: 2rem;">
+        <a href="guides.html" style="color: var(--primary); text-decoration: none;">← Back to Guides</a>
+      </div>
+      
+      <header style="margin-bottom: 3rem;">
+        <h1>A/B Testing Mastery</h1>
+        <p style="color: var(--muted); font-size: 1.2rem;">Master the art and science of A/B testing to drive real business results</p>
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&crop=center" alt="A/B testing analytics" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius); margin: 2rem 0;">
+      </header>
+
+      <div style="line-height: 1.7; font-size: 1.1rem;">
+        <h2>The Scientific Method for Growth</h2>
+        <p>A/B testing isn't just about changing button colors. It's about applying scientific rigor to understand what drives user behavior and business outcomes.</p>
+
+        <h2>Building Strong Hypotheses</h2>
+        <p>Every test should start with a clear hypothesis:</p>
+        <blockquote style="border-left: 4px solid var(--primary); padding-left: 1rem; margin: 2rem 0; font-style: italic;">
+          "If we [make this change], then [this metric] will [increase/decrease] because [user behavior insight]."
+        </blockquote>
+
+        <h2>Test Design Principles</h2>
+        <h3>1. Isolate Variables</h3>
+        <p>Test one element at a time to understand what drives results.</p>
+
+        <h3>2. Ensure Statistical Power</h3>
+        <p>Calculate required sample sizes before starting. Don't call winners too early.</p>
+
+        <h3>3. Account for External Factors</h3>
+        <p>Consider seasonality, marketing campaigns, and product changes that might affect results.</p>
+
+        <h2>What to Test</h2>
+        <ul>
+          <li><strong>Headlines and copy:</strong> Value propositions, CTAs, error messages</li>
+          <li><strong>Visual elements:</strong> Images, colors, layout, forms</li>
+          <li><strong>User flows:</strong> Onboarding steps, checkout process, feature discovery</li>
+          <li><strong>Timing:</strong> Email send times, notification frequency, trial length</li>
+        </ul>
+
+        <h2>Common Pitfalls to Avoid</h2>
+        <ul>
+          <li>Testing without sufficient traffic</li>
+          <li>Stopping tests too early</li>
+          <li>Ignoring statistical significance</li>
+          <li>Testing vanity metrics instead of business outcomes</li>
+        </ul>
+
+        <div style="background: var(--border-light); padding: 2rem; border-radius: var(--radius); margin: 3rem 0;">
+          <h3>Run better experiments</h3>
+          <p>Boostly makes it easy to run statistically valid A/B tests on your onboarding and conversion flows.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">🔒 SOC 2</span>
+          <span class="badge">🛡️ GDPR</span>
+          <span class="badge">⭐ 4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="integrations.html">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© <span id="year"></span> Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

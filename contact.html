@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div id="user-profile" class="user-profile" style="display: none; position: relative;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span id="trial-days">13</span> days left</div>
+          <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+            <div id="profile-initials" style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+            <span id="profile-email" style="color: var(--text);">jane@company.com</span>
+            <span style="color: var(--muted);">▼</span>
+          </button>
+          <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+            <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📊 Dashboard</a>
+            <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">🔄 Flows</a>
+            <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📈 Analytics</a>
+            <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">⚙️ Settings</a>
+            <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">🚪 Logout</a>
+          </div>
+        </div>
+        <div id="logged-out-buttons" style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 6rem 0; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+      <div class="container">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+          <h1 style="color: white; font-size: 3rem; margin-bottom: 1.5rem;">Get in Touch</h1>
+          <p class="lede" style="color: rgba(255,255,255,0.9); font-size: 1.25rem;">Ready to boost your conversion rates? Our team of experts is here to help you succeed.</p>
+          <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; color: rgba(255,255,255,0.8); font-size: 0.95rem;">
+            <div>⚡ 2-hour response time</div>
+            <div>🎯 Conversion experts</div>
+            <div>🚀 Free consultation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="section" style="padding: 4rem 0; background: var(--border-light);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <h2>Choose How You'd Like to Connect</h2>
+          <p class="muted">Multiple ways to get the help you need, when you need it</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+
+          <div style="background: white; padding: 2rem; border-radius: var(--radius); text-align: center; border: 1px solid var(--border); transition: var(--transition);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--success) 0%, #ffd93d 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem;">📧</div>
+            <h3>Email Support</h3>
+            <p style="color: var(--muted); margin: 1rem 0;">Send us a detailed message and we'll respond within 2 hours</p>
+            <a href="mailto:support@boostly.com" class="btn btn-primary">Email Us</a>
+            <div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--muted);">support@boostly.com</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+          <div>
+            <h2>Send us a Message</h2>
+            <p style="color: var(--muted); margin-bottom: 2rem;">Have a specific question or need custom pricing? Fill out the form and our team will get back to you within 2 hours.</p>
+            <div style="background: white; padding: 2.5rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow);">
+              <form id="contact-form">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <div class="form-row">
+                    <label for="firstName">First Name</label>
+                    <input id="firstName" type="text" required placeholder="John">
+                  </div>
+                  <div class="form-row">
+                    <label for="lastName">Last Name</label>
+                    <input id="lastName" type="text" required placeholder="Smith">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="email">Work Email</label>
+                  <input id="email" type="email" required placeholder="john@company.com">
+                </div>
+                <div class="form-row">
+                  <label for="company">Company</label>
+                  <input id="company" type="text" required placeholder="Acme Corp">
+                </div>
+                <div class="form-row">
+                  <label for="subject">How can we help?</label>
+                  <select id="subject" required>
+                    <option value="">Select a topic</option>
+
+                    <option value="pricing">Custom Pricing</option>
+                    <option value="integration">Integration Questions</option>
+                    <option value="support">Technical Support</option>
+                    <option value="partnership">Partnership Inquiry</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="message">Message</label>
+                  <textarea id="message" rows="4" required placeholder="Tell us about your conversion challenges and goals..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Send Message</button>
+                <p style="font-size: 0.85rem; color: var(--muted); margin-top: 1rem; text-align: center;">We'll respond within 2 hours during business hours</p>
+              </form>
+            </div>
+          </div>
+          
+          <div>
+            <h2>Why Choose Boostly?</h2>
+            <p style="color: var(--muted); margin-bottom: 2rem;">Join thousands of companies that trust Boostly to drive their growth.</p>
+            
+            <div style="margin-bottom: 3rem;">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">1</div>
+                <div>
+                  <h4 style="margin: 0 0 0.25rem;">Expert Consultation</h4>
+                  <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Get personalized advice from conversion optimization experts</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="width: 40px; height: 40px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">2</div>
+                <div>
+                  <h4 style="margin: 0 0 0.25rem;">Fast Implementation</h4>
+                  <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Get up and running in under 5 minutes with zero infrastructure changes</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="width: 40px; height: 40px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">3</div>
+                <div>
+                  <h4 style="margin: 0 0 0.25rem;">Proven Results</h4>
+                  <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Average 22% increase in conversion rates within 6 weeks</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: var(--border-light); padding: 2rem; border-radius: var(--radius); margin-bottom: 2rem;">
+              <h4>Enterprise Support</h4>
+              <p style="margin: 1rem 0; color: var(--muted);">Need dedicated support or custom features?</p>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div>
+                  <div style="font-weight: 600;">📞 +44 20 7946 0958</div>
+                  <div style="font-size: 0.85rem; color: var(--muted);">Enterprise customers only</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+              <h4>🏢 Visit Our Office</h4>
+              <p style="margin: 1rem 0 0; color: var(--text);">123 Tech Street<br>London, UK EC2A 4NE</p>
+              <p style="margin: 1rem 0 0; font-size: 0.9rem; color: var(--muted);">Open Monday-Friday, 9 AM - 6 PM GMT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">SOC 2</span>
+          <span class="badge">GDPR</span>
+          <span class="badge">4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="integrations.html">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© 2025 Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contact-form');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const button = this.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        
+        // Show loading state
+        button.innerHTML = '<span style="display: inline-flex; align-items: center; gap: 0.5rem;">Sending... <div style="width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top: 2px solid white; border-radius: 50%; animation: spin 1s linear infinite;"></div></span>';
+        button.disabled = true;
+        
+        // Simulate form submission
+        setTimeout(() => {
+          button.innerHTML = '✓ Message Sent!';
+          button.style.background = 'var(--success)';
+          
+          // Show success message
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'background: rgba(72, 187, 120, 0.1); color: var(--success); padding: 1rem; border-radius: var(--radius-sm); margin-top: 1rem; text-align: center; border: 1px solid rgba(72, 187, 120, 0.2);';
+          successMsg.textContent = 'Thank you! We\'ll get back to you within 2 hours.';
+          form.appendChild(successMsg);
+          
+          setTimeout(() => {
+            this.reset();
+            button.textContent = originalText;
+            button.disabled = false;
+            button.style.background = '';
+            successMsg.remove();
+          }, 3000);
+        }, 1500);
+      });
+    });
+    
+
+  </script>
+  
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</body>
+</html>

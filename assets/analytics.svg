@@ -1,0 +1,40 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38a169;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg3)"/>
+  <rect x="50" y="50" width="700" height="400" fill="white" rx="10"/>
+  <rect x="70" y="70" width="660" height="60" fill="#f7fafc" rx="5"/>
+  <text x="90" y="105" font-family="Arial" font-size="24" font-weight="bold" fill="#2d3748">Analytics Dashboard</text>
+  <rect x="70" y="150" width="320" height="200" fill="#f7fafc" rx="8"/>
+  <text x="90" y="175" font-family="Arial" font-size="16" font-weight="bold" fill="#2d3748">Conversion Funnel</text>
+  <rect x="90" y="190" width="280" height="30" fill="#48bb78" rx="4"/>
+  <text x="95" y="210" font-family="Arial" font-size="12" fill="white">Visitors: 10,000 (100%)</text>
+  <rect x="90" y="230" width="224" height="30" fill="#38b2ac" rx="4"/>
+  <text x="95" y="250" font-family="Arial" font-size="12" fill="white">Signups: 800 (8%)</text>
+  <rect x="90" y="270" width="168" height="30" fill="#667eea" rx="4"/>
+  <text x="95" y="290" font-family="Arial" font-size="12" fill="white">Trials: 600 (6%)</text>
+  <rect x="90" y="310" width="112" height="30" fill="#9f7aea" rx="4"/>
+  <text x="95" y="330" font-family="Arial" font-size="12" fill="white">Paid: 200 (2%)</text>
+  <rect x="410" y="150" width="320" height="200" fill="#f7fafc" rx="8"/>
+  <text x="430" y="175" font-family="Arial" font-size="16" font-weight="bold" fill="#2d3748">Performance Over Time</text>
+  <polyline points="430,320 450,300 470,280 490,260 510,240 530,220 550,200 570,190 590,180 610,170 630,160 650,150 670,140 690,130 710,120" 
+            fill="none" stroke="#48bb78" stroke-width="3"/>
+  <circle cx="430" cy="320" r="4" fill="#48bb78"/>
+  <circle cx="490" cy="260" r="4" fill="#48bb78"/>
+  <circle cx="550" cy="200" r="4" fill="#48bb78"/>
+  <circle cx="610" cy="170" r="4" fill="#48bb78"/>
+  <circle cx="670" cy="140" r="4" fill="#48bb78"/>
+  <circle cx="710" cy="120" r="4" fill="#48bb78"/>
+  <text x="430" y="340" font-family="Arial" font-size="10" fill="#4a5568">Jan</text>
+  <text x="530" y="340" font-family="Arial" font-size="10" fill="#4a5568">Mar</text>
+  <text x="630" y="340" font-family="Arial" font-size="10" fill="#4a5568">May</text>
+  <text x="710" y="340" font-family="Arial" font-size="10" fill="#4a5568">Jul</text>
+  <rect x="70" y="370" width="660" height="60" fill="#e6fffa" rx="8"/>
+  <text x="90" y="390" font-family="Arial" font-size="14" font-weight="bold" fill="#2d3748">Key Insights</text>
+  <text x="90" y="410" font-family="Arial" font-size="12" fill="#4a5568">• Conversion rate improved 22% after implementing targeted onboarding</text>
+  <text x="90" y="425" font-family="Arial" font-size="12" fill="#4a5568">• Mobile users show 15% higher engagement with interactive flows</text>
+</svg>

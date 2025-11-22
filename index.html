@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Boostly — Convert more visitors into customers</title>
+    <meta name="description" content="Boostly helps SaaS teams increase trial-to-paid conversion with intelligent onboarding, in-app messaging and conversion experiments." />
+    <meta name="theme-color" content="#667eea" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Boostly — Convert more visitors into customers" />
+    <meta property="og:description" content="Increase conversion with targeted onboarding, product tours and A/B experiments built for SaaS." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Boostly — Convert more visitors into customers" />
+    <meta name="twitter:description" content="Increase conversion with targeted onboarding, product tours and A/B experiments built for SaaS." />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Boostly",
+      "description": "Convert more visitors into customers with targeted onboarding and A/B experiments",
+      "url": "https://boostly.com",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "79",
+        "priceCurrency": "GBP"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .testimonials-section {
+        background: var(--border-light);
+      }
+      
+      .testimonials-container {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        min-height: 300px;
+      }
+      
+      .testimonial-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+        padding: 2rem;
+        text-align: center;
+      }
+      
+      .testimonial-item.active {
+        opacity: 1;
+      }
+      
+      .testimonial-item blockquote {
+        background: white;
+        padding: 2rem;
+        border-radius: var(--radius);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin: 0;
+      }
+      
+      .testimonial-nav {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+      }
+      
+      .testimonial-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--muted);
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      
+      .testimonial-dot.active {
+        background: var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="brand" href="#">Boostly</a>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="customers.html">Customers</a>
+          <a href="demo.html">Demo</a>
+          <div id="user-profile" class="user-profile" style="display: none; position: relative;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span id="trial-days">13</span> days left</div>
+            <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+              <div id="profile-initials" style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+              <span id="profile-email" style="color: var(--text);">jane@company.com</span>
+              <span style="color: var(--muted);">▼</span>
+            </button>
+            <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+              <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📊 Dashboard</a>
+              <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">🔄 Flows</a>
+              <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📈 Analytics</a>
+              <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">⚙️ Settings</a>
+              <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">🚪 Logout</a>
+            </div>
+          </div>
+          <div id="logged-out-buttons" style="display: flex; gap: 0.5rem;">
+            <a class="btn btn-outline" href="signin.html">Sign In</a>
+            <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="hero" aria-labelledby="hero-heading">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1 id="hero-heading">Turn more sign-ups into paying customers</h1>
+            <p class="lede">Boostly helps SaaS teams increase conversion with targeted onboarding, contextual prompts, and experiment-driven copy—without engineering debt.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="trial-setup.html" data-ab="hero_primary">Get started now</a>
+            </div>
+            <ul class="trust">
+              <li><strong>3x</strong> faster activation</li>
+              <li><strong>+18%</strong> trial-to-paid</li>
+              <li><strong>Zero</strong> infrastructure changes</li>
+            </ul>
+            <div class="social-proof">
+              <p class="live-counter">Join <span id="user-count">2,847</span>+ teams already using Boostly</p>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="card">
+              <div class="card-header">
+                <div class="status-indicator"></div>
+                <h3>Welcome flow — A/B Variant A</h3>
+                <div class="card-actions">
+                  <span class="metric">+22% conversion</span>
+                </div>
+              </div>
+              <p>Quick, personal onboarding that increases activation.</p>
+              <div class="pill-list">
+                <span>Step 1</span><span>Step 2</span><span>Step 3</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Logos -->
+      <section class="logos-section">
+        <div class="container">
+          <p class="logos-text">Trusted by leading SaaS companies</p>
+          <div class="logos-grid">
+            <div class="logo">Stripe</div>
+            <div class="logo">Notion</div>
+            <div class="logo">Figma</div>
+            <div class="logo">Linear</div>
+            <div class="logo">Vercel</div>
+            <div class="logo">Framer</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROI Calculator -->
+      <section class="section" id="roi-calculator" style="background: var(--border-light);">
+        <div class="container">
+          <h2>Calculate your potential ROI</h2>
+          <p class="muted">See how much additional revenue Boostly could generate for your business</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 3rem;">
+            <div style="background: var(--bg-secondary); padding: 2.5rem; border-radius: var(--radius); border: 1px solid var(--border);">
+              <h3>Your Numbers</h3>
+              <div class="form-row">
+                <label for="monthly-visitors">Monthly visitors</label>
+                <input id="monthly-visitors" type="number" value="10000" min="100" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+              <div class="form-row">
+                <label for="conversion-rate">Current conversion rate (%)</label>
+                <input id="conversion-rate" type="number" value="2" min="0.1" max="50" step="0.1" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+              <div class="form-row">
+                <label for="avg-revenue">Average revenue per customer (£)</label>
+                <input id="avg-revenue" type="number" value="79" min="1" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+            </div>
+            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); padding: 2.5rem; border-radius: var(--radius); color: white;">
+              <h3>Your Potential with Boostly</h3>
+              <div style="margin: 2rem 0;">
+                <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem;">£<span id="additional-revenue">3,485</span></div>
+                <div style="opacity: 0.9;">Additional monthly revenue</div>
+              </div>
+              <div style="margin: 2rem 0;">
+                <div style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;"><span id="additional-customers">44</span></div>
+                <div style="opacity: 0.9;">Additional customers per month</div>
+              </div>
+              <div style="margin: 2rem 0;">
+                <div style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;"><span id="roi-percentage">4,400</span>%</div>
+                <div style="opacity: 0.9;">ROI in first month</div>
+              </div>
+              <a href="trial-setup.html" class="btn" style="background: white; color: var(--primary); margin-top: 1rem;">Start Free Trial</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="section" id="features">
+        <div class="container">
+          <h2>What Boostly does for your product</h2>
+          <p class="muted">Conversion-first features built for product teams and marketers.</p>
+          <div class="features-grid">
+            <article>
+              <div class="feature-icon">🎯</div>
+              <h3>Targeted onboarding</h3>
+              <p>Deliver the right message at the right time using user segments and behavior rules.</p>
+            </article>
+            <article>
+              <div class="feature-icon">🧪</div>
+              <h3>In-app experiments</h3>
+              <p>Run copy/flow experiments and measure revenue-driven KPIs—not just clicks.</p>
+            </article>
+            <article>
+              <div class="feature-icon">📚</div>
+              <h3>Template library</h3>
+              <p>High-converting templates for welcome flows, upgrade prompts, and pricing nudges.</p>
+            </article>
+            <article>
+              <div class="feature-icon">⚡</div>
+              <h3>Zero infra</h3>
+              <p>Plug-and-play: no backend changes, SDKs for common frameworks, and single-line snippet install.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Comparison -->
+      <section class="section comparison-section">
+        <div class="container">
+          <h2>How we compare</h2>
+          <div class="comparison-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Boostly</th>
+                  <th>Competitor A</th>
+                  <th>Competitor B</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>No-code setup</td>
+                  <td class="check">✅</td>
+                  <td class="cross">❌</td>
+                  <td class="check">✅</td>
+                </tr>
+                <tr>
+                  <td>A/B testing</td>
+                  <td class="check">✅</td>
+                  <td class="check">✅</td>
+                  <td class="cross">❌</td>
+                </tr>
+                <tr>
+                  <td>Revenue tracking</td>
+                  <td class="check">✅</td>
+                  <td class="cross">❌</td>
+                  <td class="cross">❌</td>
+                </tr>
+                <tr>
+                  <td>Template library</td>
+                  <td class="check">✅</td>
+                  <td class="partial">⚠️</td>
+                  <td class="check">✅</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- Testimonials -->
+      <section class="section" id="testimonials">
+        <div class="container">
+          <h2>Loved by product teams</h2>
+          <div class="testimonials">
+            <blockquote>
+              <div class="testimonial-content">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Our trial-to-paid rate increased 22% in 8 weeks. The templates are super practical."</p>
+                <cite>
+                  <div class="avatar">M</div>
+                  <div class="author-info">
+                    <strong>Maya Chen</strong>
+                    <span>Head of Growth at AcmeCRM</span>
+                  </div>
+                </cite>
+              </div>
+            </blockquote>
+            <blockquote>
+              <div class="testimonial-content">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Zero infra changes and immediate value — engineering loved it too."</p>
+                <cite>
+                  <div class="avatar">J</div>
+                  <div class="author-info">
+                    <strong>Jason Rodriguez</strong>
+                    <span>Product Manager at FlowOps</span>
+                  </div>
+                </cite>
+              </div>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Success Stories -->
+      <section class="section testimonials-section">
+        <div class="container">
+          <h2>Success stories from our customers</h2>
+          <div class="testimonials-container">
+            <div class="testimonial-item active">
+              <blockquote>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Boostly increased our trial-to-paid conversion by 34% in just 6 weeks. The A/B testing features are incredibly powerful."</p>
+                <cite>
+                  <div class="avatar">S</div>
+                  <div class="author-info">
+                    <strong>Sarah Kim</strong>
+                    <span>VP of Growth at TechFlow</span>
+                  </div>
+                </cite>
+              </blockquote>
+            </div>
+            <div class="testimonial-item">
+              <blockquote>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Setup took 5 minutes and we saw results immediately. Our activation rate went from 12% to 28%."</p>
+                <cite>
+                  <div class="avatar">D</div>
+                  <div class="author-info">
+                    <strong>David Chen</strong>
+                    <span>Product Manager at CloudBase</span>
+                  </div>
+                </cite>
+              </blockquote>
+            </div>
+            <div class="testimonial-item">
+              <blockquote>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"The template library saved us months of work. We launched 3 conversion experiments in our first week."</p>
+                <cite>
+                  <div class="avatar">L</div>
+                  <div class="author-info">
+                    <strong>Lisa Rodriguez</strong>
+                    <span>Head of Marketing at DataSync</span>
+                  </div>
+                </cite>
+              </blockquote>
+            </div>
+            <div class="testimonial-nav">
+              <button class="testimonial-dot active" onclick="showTestimonial(0)"></button>
+              <button class="testimonial-dot" onclick="showTestimonial(1)"></button>
+              <button class="testimonial-dot" onclick="showTestimonial(2)"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Integrations -->
+      <section class="section integrations-section">
+        <div class="container">
+          <h2>Integrates with your stack</h2>
+          <div class="integrations-grid">
+            <div class="integration">Segment</div>
+            <div class="integration">HubSpot</div>
+            <div class="integration">Salesforce</div>
+            <div class="integration">Mixpanel</div>
+            <div class="integration">Amplitude</div>
+            <div class="integration">Intercom</div>
+            <div class="integration">Slack</div>
+            <div class="integration">Zapier</div>
+          </div>
+        </div>
+      </section>
+
+
+    </main>
+
+    <!-- Sticky CTA -->
+    <div id="sticky-cta" class="sticky-cta" hidden>
+      <div class="sticky-content">
+        <span>Ready to boost conversions?</span>
+        <a href="trial-setup.html" class="btn btn-primary btn-sm">Get started</a>
+        <button id="close-sticky" class="close-sticky">×</button>
+      </div>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div id="exit-popup" class="exit-popup" hidden>
+      <div class="popup-content">
+        <button id="close-popup" class="close-popup">×</button>
+        <h3>Wait! Don't miss out</h3>
+        <p>Get 20% off your first month when you sign up today</p>
+        <div class="popup-cta">
+          <a href="trial-setup.html" class="btn btn-primary">Claim 20% off</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Cookie Preferences -->
+    <div id="cookie-banner" class="cookie-banner">
+      <div class="cookie-content">
+        <div class="cookie-info">
+          <div class="cookie-icon">🍪</div>
+          <div class="cookie-text">
+            <h4>Cookie Preferences</h4>
+            <p>We use essential cookies to ensure our website works properly and analytics cookies to understand how you interact with our site. You can customize your preferences below.</p>
+          </div>
+        </div>
+        <div class="cookie-actions">
+          <button id="customize-cookies" class="btn btn-ghost btn-sm">Customize</button>
+          <button id="decline-cookies" class="btn btn-outline btn-sm">Decline All</button>
+          <button id="accept-cookies" class="btn btn-primary btn-sm">Accept All</button>
+        </div>
+      </div>
+      <div id="cookie-details" class="cookie-details" hidden>
+        <div class="cookie-category">
+          <div class="category-header">
+            <label class="cookie-toggle">
+              <input type="checkbox" checked disabled>
+              <span class="toggle-slider"></span>
+            </label>
+            <div>
+              <h5>Essential Cookies</h5>
+              <p>Required for basic website functionality</p>
+            </div>
+          </div>
+        </div>
+        <div class="cookie-category">
+          <div class="category-header">
+            <label class="cookie-toggle">
+              <input type="checkbox" id="analytics-cookies" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <div>
+              <h5>Analytics Cookies</h5>
+              <p>Help us understand how visitors use our website</p>
+            </div>
+          </div>
+        </div>
+        <div class="cookie-category">
+          <div class="category-header">
+            <label class="cookie-toggle">
+              <input type="checkbox" id="marketing-cookies">
+              <span class="toggle-slider"></span>
+            </label>
+            <div>
+              <h5>Marketing Cookies</h5>
+              <p>Used to deliver personalized advertisements</p>
+            </div>
+          </div>
+        </div>
+        <div class="cookie-detail-actions">
+          <button id="save-preferences" class="btn btn-primary btn-sm">Save Preferences</button>
+          <a href="privacy.html" class="privacy-link">View Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="brand">Boostly</div>
+          <p>Convert more visitors into customers</p>
+          <div class="security-badges">
+            <span class="badge">SOC 2</span>
+            <span class="badge">GDPR</span>
+            <span class="badge">4.9/5 on G2</span>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Product</h4>
+            <a href="index.html#features">Features</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="integrations.html">Integrations</a>
+            <a href="changelog.html">Changelog</a>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <a href="blog.html">Blog</a>
+            <a href="guides.html">Guides</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="help.html">Help Center</a>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="careers.html">Careers</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div>© <span id="year"></span> Boostly — Built for conversion</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+
+    <!-- Analytics / experiment hook (placeholder) -->
+    <script>
+      // Add your analytics snippet here (GA, Segment, Plausible, etc.)
+      window._boostly = window._boostly || {events:[]};
+      function track(event, payload){
+        window._boostly.events.push({event, payload, ts: Date.now()});
+        // Hook: send to analytics provider
+        console.log('track', event, payload);
+      }
+
+      // Profile functionality
+      function toggleProfileMenu() {
+        const menu = document.getElementById('profile-menu');
+        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+      }
+
+      function logout() {
+        localStorage.removeItem('userLoggedIn');
+        showLoggedOutState();
+      }
+
+      function showLoggedInState() {
+        document.getElementById('user-profile').style.display = 'flex';
+        document.getElementById('logged-out-buttons').style.display = 'none';
+      }
+      
+      function updateProfileDisplay() {
+        const name = localStorage.getItem('userName') || 'Dilon Demo';
+        const email = localStorage.getItem('userEmail') || 'dilon@demo.com';
+        
+        // Update profile display
+        const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
+        document.getElementById('profile-initials').textContent = initials;
+        document.getElementById('profile-email').textContent = email;
+      }
+
+      function showLoggedOutState() {
+        document.getElementById('user-profile').style.display = 'none';
+        document.getElementById('logged-out-buttons').style.display = 'flex';
+      }
+
+      // Testimonials functionality
+      let currentTestimonial = 0;
+      const totalTestimonials = 3;
+      
+      function showTestimonial(index) {
+        currentTestimonial = index;
+        const items = document.querySelectorAll('.testimonial-item');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        
+        items.forEach((item, i) => {
+          item.classList.toggle('active', i === index);
+        });
+        
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+
+      // Check login state on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        if (localStorage.getItem('userLoggedIn') === 'true') {
+          showLoggedInState();
+          updateProfileDisplay();
+        }
+        
+
+        
+        // Start testimonial auto-rotation
+        setInterval(() => {
+          currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+          showTestimonial(currentTestimonial);
+        }, 4000);
+        
+        // ROI Calculator functionality
+        const monthlyVisitors = document.getElementById('monthly-visitors');
+        const conversionRate = document.getElementById('conversion-rate');
+        const avgRevenue = document.getElementById('avg-revenue');
+        const additionalRevenue = document.getElementById('additional-revenue');
+        const additionalCustomers = document.getElementById('additional-customers');
+        const roiPercentage = document.getElementById('roi-percentage');
+        
+        function calculateROI() {
+          const visitors = parseInt(monthlyVisitors.value) || 0;
+          const rate = parseFloat(conversionRate.value) || 0;
+          const revenue = parseInt(avgRevenue.value) || 0;
+          
+          // Assume 22% improvement in conversion rate
+          const improvement = 0.22;
+          const newRate = rate * (1 + improvement);
+          const additionalConversions = Math.round(visitors * (newRate - rate) / 100);
+          const additionalRev = additionalConversions * revenue;
+          const roi = revenue > 0 ? Math.round((additionalRev / 79) * 100) : 0;
+          
+          additionalRevenue.textContent = additionalRev.toLocaleString();
+          additionalCustomers.textContent = additionalConversions;
+          roiPercentage.textContent = roi.toLocaleString();
+        }
+        
+        if (monthlyVisitors && conversionRate && avgRevenue) {
+          monthlyVisitors.addEventListener('input', calculateROI);
+          conversionRate.addEventListener('input', calculateROI);
+          avgRevenue.addEventListener('input', calculateROI);
+          calculateROI(); // Initial calculation
+        }
+      });
+
+      // Close profile menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.user-profile')) {
+          document.getElementById('profile-menu').style.display = 'none';
+        }
+      });
+      
+      // Cookie banner functionality
+      const cookieBanner = document.getElementById('cookie-banner');
+      const acceptCookies = document.getElementById('accept-cookies');
+      const declineCookies = document.getElementById('decline-cookies');
+      
+      if (!localStorage.getItem('cookiesAccepted')) {
+        setTimeout(() => {
+          cookieBanner.style.display = 'block';
+        }, 2000);
+      }
+      
+      acceptCookies.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieBanner.style.display = 'none';
+      });
+      
+      declineCookies.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'false');
+        cookieBanner.style.display = 'none';
+      });
+      
+      // Exit intent popup
+      let exitIntentShown = false;
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0 && !exitIntentShown && !localStorage.getItem('userLoggedIn')) {
+          exitIntentShown = true;
+          const popup = document.getElementById('exit-popup');
+          if (popup) {
+            popup.hidden = false;
+            popup.style.display = 'flex';
+          }
+        }
+      });
+      
+      const closePopupBtn = document.getElementById('close-popup');
+      if (closePopupBtn) {
+        closePopupBtn.addEventListener('click', () => {
+          const popup = document.getElementById('exit-popup');
+          if (popup) {
+            popup.hidden = true;
+            popup.style.display = 'none';
+          }
+        });
+      }
+      
+      // Close popup when clicking outside
+      const exitPopup = document.getElementById('exit-popup');
+      if (exitPopup) {
+        exitPopup.addEventListener('click', (e) => {
+          if (e.target === exitPopup) {
+            exitPopup.hidden = true;
+            exitPopup.style.display = 'none';
+          }
+        });
+      }
+      
+      // Sticky CTA
+      let stickyShown = false;
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 1000 && !stickyShown && !localStorage.getItem('userLoggedIn')) {
+          stickyShown = true;
+          const stickyCta = document.getElementById('sticky-cta');
+          if (stickyCta) {
+            stickyCta.hidden = false;
+          }
+        }
+      });
+      
+      const closeStickyBtn = document.getElementById('close-sticky');
+      if (closeStickyBtn) {
+        closeStickyBtn.addEventListener('click', () => {
+          const stickyCta = document.getElementById('sticky-cta');
+          if (stickyCta) {
+            stickyCta.hidden = true;
+          }
+        });
+      }
+      
+      // Set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mainNav = document.getElementById('main-nav');
+      
+      if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+          mobileMenuToggle.classList.toggle('active');
+          mainNav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking nav links
+        mainNav.addEventListener('click', (e) => {
+          if (e.target.tagName === 'A') {
+            mobileMenuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

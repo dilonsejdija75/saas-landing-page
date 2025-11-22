@@ -1,0 +1,36 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg4)"/>
+  <rect x="50" y="50" width="700" height="400" fill="white" rx="10"/>
+  <rect x="70" y="70" width="660" height="60" fill="#f7fafc" rx="5"/>
+  <text x="90" y="105" font-family="Arial" font-size="24" font-weight="bold" fill="#2d3748">A/B Testing Results</text>
+  <rect x="70" y="150" width="320" height="180" fill="#f7fafc" rx="8"/>
+  <text x="90" y="175" font-family="Arial" font-size="16" font-weight="bold" fill="#2d3748">Variant A (Control)</text>
+  <rect x="90" y="190" width="280" height="60" fill="#e2e8f0" rx="4"/>
+  <text x="100" y="210" font-family="Arial" font-size="14" fill="#2d3748">Welcome Message: "Get Started"</text>
+  <text x="100" y="230" font-family="Arial" font-size="14" fill="#2d3748">Conversion Rate: 18.2%</text>
+  <text x="100" y="245" font-family="Arial" font-size="12" fill="#4a5568">Visitors: 1,247 | Conversions: 227</text>
+  <rect x="90" y="260" width="280" height="60" fill="#fed7d7" rx="4"/>
+  <text x="230" y="285" font-family="Arial" font-size="16" font-weight="bold" fill="#c53030" text-anchor="middle">LOSING</text>
+  <text x="230" y="305" font-family="Arial" font-size="14" fill="#c53030" text-anchor="middle">-12% vs Variant B</text>
+  <rect x="410" y="150" width="320" height="180" fill="#f7fafc" rx="8"/>
+  <text x="430" y="175" font-family="Arial" font-size="16" font-weight="bold" fill="#2d3748">Variant B (Test)</text>
+  <rect x="430" y="190" width="280" height="60" fill="#e2e8f0" rx="4"/>
+  <text x="440" y="210" font-family="Arial" font-size="14" fill="#2d3748">Welcome Message: "Start Free Trial"</text>
+  <text x="440" y="230" font-family="Arial" font-size="14" fill="#2d3748">Conversion Rate: 22.4%</text>
+  <text x="440" y="245" font-family="Arial" font-size="12" fill="#4a5568">Visitors: 1,253 | Conversions: 281</text>
+  <rect x="430" y="260" width="280" height="60" fill="#c6f6d5" rx="4"/>
+  <text x="570" y="285" font-family="Arial" font-size="16" font-weight="bold" fill="#22543d" text-anchor="middle">WINNING</text>
+  <text x="570" y="305" font-family="Arial" font-size="14" fill="#22543d" text-anchor="middle">+22% improvement</text>
+  <rect x="70" y="350" width="660" height="80" fill="#edf2f7" rx="8"/>
+  <text x="90" y="375" font-family="Arial" font-size="16" font-weight="bold" fill="#2d3748">Statistical Significance</text>
+  <rect x="90" y="385" width="500" height="20" fill="#e2e8f0" rx="10"/>
+  <rect x="90" y="385" width="450" height="20" fill="#48bb78" rx="10"/>
+  <text x="600" y="400" font-family="Arial" font-size="14" font-weight="bold" fill="#22543d">95% Confident</text>
+  <text x="90" y="420" font-family="Arial" font-size="12" fill="#4a5568">Test Duration: 14 days | Sample Size: 2,500 visitors | P-value: 0.003</text>
+</svg>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div id="user-profile" class="user-profile" style="display: none; position: relative;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span id="trial-days">13</span> days left</div>
+          <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+            <div id="profile-initials" style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+            <span id="profile-email" style="color: var(--text);">jane@company.com</span>
+            <span style="color: var(--muted);">▼</span>
+          </button>
+          <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+            <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📊 Dashboard</a>
+            <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">🔄 Flows</a>
+            <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📈 Analytics</a>
+            <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">⚙️ Settings</a>
+            <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">🚪 Logout</a>
+          </div>
+        </div>
+        <div id="logged-out-buttons" style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 4rem 2rem;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <h1>Boostly Blog</h1>
+      <p class="lede">Insights, tips, and strategies for SaaS conversion optimization</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin: 3rem 0;">
+        <article style="background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);">
+          <div style="height: 200px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop&crop=center'); background-size: cover; background-position: center;"></div>
+          <div style="padding: 2rem;">
+            <h3><a href="blog-post-1.html" style="text-decoration: none; color: var(--text);">10 Proven Strategies to Increase Trial-to-Paid Conversion</a></h3>
+            <p style="color: var(--muted); margin: 1rem 0;">Learn the tactics that top SaaS companies use to convert more trial users into paying customers.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--muted);">
+              <span>Jan 15, 2024</span>
+              <span>5 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article style="background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);">
+          <div style="height: 200px; background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%); background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=200&fit=crop&crop=center'); background-size: cover; background-position: center;"></div>
+          <div style="padding: 2rem;">
+            <h3><a href="blog-post-2.html" style="text-decoration: none; color: var(--text);">The Psychology of User Onboarding</a></h3>
+            <p style="color: var(--muted); margin: 1rem 0;">Understanding user psychology is key to creating onboarding experiences that drive activation.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--muted);">
+              <span>Jan 10, 2024</span>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article style="background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);">
+          <div style="height: 200px; background: linear-gradient(135deg, var(--success) 0%, var(--primary) 100%); background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop&crop=center'); background-size: cover; background-position: center;"></div>
+          <div style="padding: 2rem;">
+            <h3><a href="blog-post-3.html" style="text-decoration: none; color: var(--text);">A/B Testing Best Practices for SaaS</a></h3>
+            <p style="color: var(--muted); margin: 1rem 0;">How to design, run, and analyze A/B tests that actually move the needle on your key metrics.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--muted);">
+              <span>Jan 5, 2024</span>
+              <span>6 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article style="background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);">
+          <div style="height: 200px; background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%); background-image: url('https://images.unsplash.com/photo-1553484771-371a605b060b?w=400&h=200&fit=crop&crop=center'); background-size: cover; background-position: center;"></div>
+          <div style="padding: 2rem;">
+            <h3><a href="blog-post-4.html" style="text-decoration: none; color: var(--text);">Building Product-Led Growth Loops</a></h3>
+            <p style="color: var(--muted); margin: 1rem 0;">Create self-reinforcing growth loops that turn your product into your best marketing channel.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--muted);">
+              <span>Dec 28, 2023</span>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article style="background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);">
+          <div style="height: 200px; background: linear-gradient(135deg, #a8e6cf 0%, #88d8c0 100%); background-image: url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=200&fit=crop&crop=center'); background-size: cover; background-position: center;"></div>
+          <div style="padding: 2rem;">
+            <h3><a href="blog-post-5.html" style="text-decoration: none; color: var(--text);">Measuring What Matters: SaaS Metrics Guide</a></h3>
+            <p style="color: var(--muted); margin: 1rem 0;">The essential metrics every SaaS company should track to optimize their conversion funnel.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--muted);">
+              <span>Dec 20, 2023</span>
+              <span>10 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article style="background: var(--bg-secondary); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);">
+          <div style="height: 200px; background: linear-gradient(135deg, #ffd93d 0%, #ff6b6b 100%); background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&crop=center'); background-size: cover; background-position: center;"></div>
+          <div style="padding: 2rem;">
+            <h3><a href="blog-post-6.html" style="text-decoration: none; color: var(--text);">Customer Success Stories: 300% Conversion Increase</a></h3>
+            <p style="color: var(--muted); margin: 1rem 0;">How TechCorp used Boostly to triple their trial-to-paid conversion rate in just 6 weeks.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--muted);">
+              <span>Dec 15, 2023</span>
+              <span>4 min read</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin: 3rem 0;">
+        <h3>Want to stay updated?</h3>
+        <p>Subscribe to our newsletter for the latest conversion optimization insights.</p>
+        <form style="display: flex; gap: 1rem; justify-content: center; max-width: 400px; margin: 0 auto;">
+          <input type="email" placeholder="Enter your email" style="flex: 1; padding: 0.75rem; border: 2px solid var(--border); border-radius: var(--radius-sm);" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">SOC 2</span>
+          <span class="badge">GDPR</span>
+          <span class="badge">4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html#integrations">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© 2025 Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks for subscribing! You\'ll receive our latest insights in your inbox.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

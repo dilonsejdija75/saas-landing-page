@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>API Documentation — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 6rem 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <h1 style="color: white; font-size: 3rem; margin-bottom: 1.5rem;">API Documentation</h1>
+          <p class="lede" style="color: rgba(255,255,255,0.9); font-size: 1.25rem; margin-bottom: 2rem;">Build powerful integrations with the Boostly REST API</p>
+          <div style="display: flex; justify-content: center; gap: 3rem; color: rgba(255,255,255,0.8); font-size: 0.95rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">⚡ REST API</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">🔒 OAuth 2.0</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">📊 Real-time</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: #f8fafc;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start;">
+          <nav style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0; position: sticky; top: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+            <div style="margin-bottom: 2rem;">
+              <h4 style="color: #1e293b; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Getting Started</h4>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li><a href="#authentication" style="color: #475569; text-decoration: none; padding: 0.75rem 1rem; display: block; border-radius: 6px; transition: all 0.2s; margin-bottom: 0.25rem;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a'" onmouseout="this.style.background=''; this.style.color='#475569'">🔐 Authentication</a></li>
+                <li><a href="#rate-limits" style="color: #475569; text-decoration: none; padding: 0.75rem 1rem; display: block; border-radius: 6px; transition: all 0.2s; margin-bottom: 0.25rem;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a'" onmouseout="this.style.background=''; this.style.color='#475569'">⏱️ Rate Limits</a></li>
+                <li><a href="#errors" style="color: #475569; text-decoration: none; padding: 0.75rem 1rem; display: block; border-radius: 6px; transition: all 0.2s; margin-bottom: 0.25rem;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a'" onmouseout="this.style.background=''; this.style.color='#475569'">⚠️ Error Handling</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color: #1e293b; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">API Endpoints</h4>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li><a href="#users" style="color: #475569; text-decoration: none; padding: 0.75rem 1rem; display: block; border-radius: 6px; transition: all 0.2s; margin-bottom: 0.25rem;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a'" onmouseout="this.style.background=''; this.style.color='#475569'">👥 Users</a></li>
+                <li><a href="#events" style="color: #475569; text-decoration: none; padding: 0.75rem 1rem; display: block; border-radius: 6px; transition: all 0.2s; margin-bottom: 0.25rem;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a'" onmouseout="this.style.background=''; this.style.color='#475569'">📈 Events</a></li>
+                <li><a href="#flows" style="color: #475569; text-decoration: none; padding: 0.75rem 1rem; display: block; border-radius: 6px; transition: all 0.2s; margin-bottom: 0.25rem;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a'" onmouseout="this.style.background=''; this.style.color='#475569'">🔄 Flows</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <div style="background: white; padding: 4rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+            <div id="authentication" style="margin-bottom: 4rem;">
+              <h2 style="color: #0f172a; font-size: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0;">🔐 Authentication</h2>
+              <p style="color: #475569; font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">All API requests require authentication using your API key. Include your key in the Authorization header:</p>
+              <div style="background: #1e293b; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; position: relative;">
+                <div style="position: absolute; top: 1rem; right: 1rem; background: #334155; color: #94a3b8; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">HTTP</div>
+                <code style="color: #e2e8f0; font-family: 'Monaco', 'Menlo', monospace; font-size: 0.9rem;">Authorization: Bearer YOUR_API_KEY</code>
+              </div>
+              <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                <p style="color: #92400e; margin: 0; font-size: 0.9rem;">💡 <strong>Tip:</strong> Keep your API key secure and never expose it in client-side code.</p>
+              </div>
+            </div>
+
+            <div id="rate-limits" style="margin-bottom: 4rem;">
+              <h2 style="color: #0f172a; font-size: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0;">⏱️ Rate Limits</h2>
+              <p style="color: #475569; font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">API requests are limited to <strong>10,000 requests per hour</strong> per API key. Rate limit information is included in response headers:</p>
+              <div style="display: grid; gap: 1rem; margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1rem; border-radius: 6px;">
+                  <code style="color: #1e293b; font-weight: 600;">X-RateLimit-Limit</code>
+                  <span style="color: #64748b; margin-left: 1rem;">Request limit per hour</span>
+                </div>
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1rem; border-radius: 6px;">
+                  <code style="color: #1e293b; font-weight: 600;">X-RateLimit-Remaining</code>
+                  <span style="color: #64748b; margin-left: 1rem;">Remaining requests</span>
+                </div>
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1rem; border-radius: 6px;">
+                  <code style="color: #1e293b; font-weight: 600;">X-RateLimit-Reset</code>
+                  <span style="color: #64748b; margin-left: 1rem;">Time when limit resets</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="errors" style="margin-bottom: 4rem;">
+              <h2 style="color: #0f172a; font-size: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0;">⚠️ Error Handling</h2>
+              <p style="color: #475569; font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">The API uses standard HTTP status codes and returns JSON error responses:</p>
+              <div style="background: #1e293b; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; position: relative;">
+                <div style="position: absolute; top: 1rem; right: 1rem; background: #334155; color: #94a3b8; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">JSON</div>
+                <pre style="color: #e2e8f0; font-family: 'Monaco', 'Menlo', monospace; font-size: 0.9rem; margin: 0; line-height: 1.5;">{
+  "error": {
+    "code": "invalid_request",
+    "message": "The request is missing required parameters"
+  }
+}</pre>
+              </div>
+            </div>
+
+            <div id="users" style="margin-bottom: 4rem;">
+              <h2 style="color: #0f172a; font-size: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0;">👥 Users API</h2>
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h3 style="color: #1e293b; margin-bottom: 1rem;">Create User</h3>
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">POST</span>
+                  <code style="background: #e2e8f0; color: #1e293b; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600;">/api/v1/users</code>
+                </div>
+                <p style="color: #64748b; margin-bottom: 1.5rem;">Create a new user in your Boostly workspace.</p>
+                <div style="background: #1e293b; padding: 1.5rem; border-radius: 8px; position: relative;">
+                  <div style="position: absolute; top: 1rem; right: 1rem; background: #334155; color: #94a3b8; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Request Body</div>
+                  <pre style="color: #e2e8f0; font-family: 'Monaco', 'Menlo', monospace; font-size: 0.9rem; margin: 0; line-height: 1.5;">{
+  "email": "user@example.com",
+  "properties": {
+    "name": "John Doe",
+    "plan": "growth"
+  }
+}</pre>
+                </div>
+              </div>
+            </div>
+
+            <div id="events" style="margin-bottom: 4rem;">
+              <h2 style="color: #0f172a; font-size: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0;">📈 Events API</h2>
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h3 style="color: #1e293b; margin-bottom: 1rem;">Track Event</h3>
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">POST</span>
+                  <code style="background: #e2e8f0; color: #1e293b; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600;">/api/v1/events</code>
+                </div>
+                <p style="color: #64748b; margin-bottom: 1.5rem;">Track user events and behaviors for conversion optimization.</p>
+                <div style="background: #1e293b; padding: 1.5rem; border-radius: 8px; position: relative;">
+                  <div style="position: absolute; top: 1rem; right: 1rem; background: #334155; color: #94a3b8; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Request Body</div>
+                  <pre style="color: #e2e8f0; font-family: 'Monaco', 'Menlo', monospace; font-size: 0.9rem; margin: 0; line-height: 1.5;">{
+  "user_id": "user_123",
+  "event": "trial_started",
+  "properties": {
+    "plan": "growth",
+    "source": "website"
+  }
+}</pre>
+                </div>
+              </div>
+            </div>
+
+            <div id="flows" style="margin-bottom: 4rem;">
+              <h2 style="color: #0f172a; font-size: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0;">🔄 Flows API</h2>
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h3 style="color: #1e293b; margin-bottom: 1rem;">Trigger Flow</h3>
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">POST</span>
+                  <code style="background: #e2e8f0; color: #1e293b; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600;">/api/v1/flows/trigger</code>
+                </div>
+                <p style="color: #64748b; margin-bottom: 1.5rem;">Programmatically trigger conversion flows for specific users.</p>
+                <div style="background: #1e293b; padding: 1.5rem; border-radius: 8px; position: relative;">
+                  <div style="position: absolute; top: 1rem; right: 1rem; background: #334155; color: #94a3b8; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Request Body</div>
+                  <pre style="color: #e2e8f0; font-family: 'Monaco', 'Menlo', monospace; font-size: 0.9rem; margin: 0; line-height: 1.5;">{
+  "flow_id": "flow_456",
+  "user_id": "user_123",
+  "context": {
+    "page": "/dashboard"
+  }
+}</pre>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem; border-radius: 12px; text-align: center; color: white;">
+              <h3 style="margin-bottom: 1rem;">Need Help Getting Started?</h3>
+              <p style="margin-bottom: 2rem; opacity: 0.9;">Our developer support team is here to help you integrate quickly and efficiently.</p>
+              <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="contact.html" class="btn" style="background: white; color: #667eea; text-decoration: none; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 600;">Contact Support</a>
+                <a href="integrations.html" class="btn" style="background: rgba(255,255,255,0.2); color: white; text-decoration: none; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 600; border: 1px solid rgba(255,255,255,0.3);">View Integrations</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">SOC 2</span>
+          <span class="badge">GDPR</span>
+          <span class="badge">4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="integrations.html">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© <span id="year"></span> Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

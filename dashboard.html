@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span>13</span> days left</div>
+        <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+          <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+          <span style="color: var(--text);">jane@company.com</span>
+          <span style="color: var(--muted);">▼</span>
+        </button>
+        <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+          <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📊 Dashboard</a>
+          <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">🔄 Flows</a>
+          <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📈 Analytics</a>
+          <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">⚙️ Settings</a>
+          <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">🚪 Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding: 2rem 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); min-height: calc(100vh - 80px);">
+    <div class="container">
+      <div style="margin-bottom: 3rem; text-align: center;">
+        <h1 style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem;">Welcome to Boostly</h1>
+        <p style="color: var(--muted); font-size: 1.1rem;">Your conversion optimization command center</p>
+      </div>
+
+      <!-- Quick Setup -->
+      <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); padding: 2rem; border-radius: var(--radius); color: white; margin-bottom: 3rem;">
+        <h2 style="margin: 0 0 1rem 0; color: white;">Quick Setup</h2>
+        <p style="margin: 0 0 2rem 0; opacity: 0.9;">Complete these steps to start converting more visitors</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+          <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: var(--radius-sm);">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <span style="width: 30px; height: 30px; background: white; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</span>
+              <span>Install tracking code</span>
+            </div>
+            <button class="btn" style="background: white; color: var(--primary); width: 100%;">Get Code</button>
+          </div>
+          <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: var(--radius-sm);">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <span style="width: 30px; height: 30px; background: white; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</span>
+              <span>Create first flow</span>
+            </div>
+            <button class="btn" style="background: white; color: var(--primary); width: 100%;">Use Template</button>
+          </div>
+          <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: var(--radius-sm);">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <span style="width: 30px; height: 30px; background: white; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</span>
+              <span>Test & launch</span>
+            </div>
+            <button class="btn" style="background: white; color: var(--primary); width: 100%;">Preview</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Overview -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); padding: 2rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.8); text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+          <div id="active-flows" style="font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">0</div>
+          <div style="color: var(--muted); font-weight: 500;">Active Flows</div>
+        </div>
+        <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); padding: 2rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.8); text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+          <div id="visitors-today" style="font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">0</div>
+          <div style="color: var(--muted); font-weight: 500;">Visitors Today</div>
+        </div>
+        <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); padding: 2rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.8); text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+          <div id="conversion-rate" style="font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">0%</div>
+          <div style="color: var(--muted); font-weight: 500;">Conversion Rate</div>
+        </div>
+        <div style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); padding: 2rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.8); text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+          <div id="revenue-impact" style="font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">£0</div>
+          <div style="color: var(--muted); font-weight: 500;">Revenue Impact</div>
+        </div>
+      </div>
+
+      <!-- Recent Activity & Templates -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+        
+        <!-- Recent Activity -->
+        <div>
+          <h3>Recent Activity</h3>
+          <div id="recent-activity" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.8); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+            <div style="padding: 2rem; text-align: center; color: var(--muted);">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+              <p>No activity yet</p>
+              <p style="font-size: 0.9rem;">Start by creating your first onboarding flow</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popular Templates -->
+        <div>
+          <h3>Popular Templates</h3>
+          <div style="display: grid; gap: 1rem;">
+            <div style="background: white; padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h4 style="margin: 0 0 0.5rem 0;">Welcome Flow</h4>
+                <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Guide new users through key features</p>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="useTemplate('Welcome Flow')">Use Template</button>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h4 style="margin: 0 0 0.5rem 0;">Upgrade Prompt</h4>
+                <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Convert trial users to paid plans</p>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="useTemplate('Upgrade Prompt')">Use Template</button>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h4 style="margin: 0 0 0.5rem 0;">Feature Announcement</h4>
+                <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Highlight new product features</p>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="useTemplate('Feature Announcement')">Use Template</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Help Section -->
+      <div style="background: var(--border-light); padding: 2rem; border-radius: var(--radius); margin-top: 3rem; text-align: center;">
+        <h3>Need help getting started?</h3>
+        <p style="color: var(--muted); margin-bottom: 2rem;">Our team is here to help you succeed</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button onclick="viewDocumentation()" class="btn btn-primary">View Documentation</button>
+          <a href="mailto:support@boostly.com" class="btn btn-outline">Contact Support</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+</body>
+</html>
+  <script>
+    let currentModal = null;
+    
+    function closeModal() {
+      if (currentModal) {
+        document.body.removeChild(currentModal);
+        currentModal = null;
+      }
+    }
+    
+
+    
+    function viewDocumentation() {
+      // Open documentation modal
+      const modal = document.createElement('div');
+      modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+      
+      modal.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: var(--radius); max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h3 style="margin: 0;">Documentation & Guides</h3>
+            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+          </div>
+          
+          <div style="display: grid; gap: 1rem;">
+            <div style="border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem;">
+              <h4 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">🚀 Quick Start Guide</h4>
+              <p style="margin: 0 0 1rem 0; color: var(--muted); font-size: 0.9rem;">Get up and running in 5 minutes</p>
+              <button onclick="openGuide('quick-start')" class="btn btn-outline btn-sm">Read Guide</button>
+            </div>
+            
+            <div style="border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem;">
+              <h4 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">🔧 Installation Guide</h4>
+              <p style="margin: 0 0 1rem 0; color: var(--muted); font-size: 0.9rem;">Add Boostly to your website</p>
+              <button onclick="openGuide('installation')" class="btn btn-outline btn-sm">Read Guide</button>
+            </div>
+            
+            <div style="border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem;">
+              <h4 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">🎯 Creating Flows</h4>
+              <p style="margin: 0 0 1rem 0; color: var(--muted); font-size: 0.9rem;">Build effective onboarding flows</p>
+              <button onclick="openGuide('flows')" class="btn btn-outline btn-sm">Read Guide</button>
+            </div>
+            
+            <div style="border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem;">
+              <h4 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">📊 Analytics & Tracking</h4>
+              <p style="margin: 0 0 1rem 0; color: var(--muted); font-size: 0.9rem;">Measure and optimize performance</p>
+              <button onclick="openGuide('analytics')" class="btn btn-outline btn-sm">Read Guide</button>
+            </div>
+            
+            <div style="border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem;">
+              <h4 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">🧪 A/B Testing</h4>
+              <p style="margin: 0 0 1rem 0; color: var(--muted); font-size: 0.9rem;">Run experiments to improve conversion</p>
+              <button onclick="openGuide('ab-testing')" class="btn btn-outline btn-sm">Read Guide</button>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center;">
+            <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Need more help? <a href="mailto:support@boostly.com">Contact our support team</a></p>
+          </div>
+        </div>
+      `;
+      
+      modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+      currentModal = modal;
+      document.body.appendChild(modal);
+    }
+    
+    function openGuide(guideType) {
+      const guides = {
+        'quick-start': {
+          title: 'Quick Start Guide',
+          content: `
+            <h4>1. Install Boostly</h4>
+            <p>Add the Boostly tracking code to your website using the snippet provided in your dashboard.</p>
+            
+            <h4>2. Create Your First Flow</h4>
+            <p>• Go to the Flows page<br>• Click "Use Template"<br>• Choose "Welcome Flow"<br>• Customize the content</p>
+            
+            <h4>3. Test & Launch</h4>
+            <p>• Use the preview feature<br>• Test on different devices<br>• Activate when ready</p>
+          `
+        },
+        'installation': {
+          title: 'Installation Guide',
+          content: `
+            <h4>Website Integration</h4>
+            <p>Add the Boostly tracking code to your website's &lt;head&gt; section using the code snippet provided in your dashboard.</p>
+            
+            <h4>Framework-Specific Instructions</h4>
+            <p><strong>React:</strong> Use our React component<br>
+            <strong>Vue:</strong> Install via npm<br>
+            <strong>WordPress:</strong> Use our plugin<br>
+            <strong>Shopify:</strong> Add to theme.liquid</p>
+          `
+        },
+        'flows': {
+          title: 'Creating Flows',
+          content: `
+            <h4>Flow Types</h4>
+            <p><strong>Welcome Flows:</strong> Onboard new users<br>
+            <strong>Upgrade Prompts:</strong> Convert trial to paid<br>
+            <strong>Feature Announcements:</strong> Highlight new features<br>
+            <strong>Retention Flows:</strong> Re-engage inactive users</p>
+            
+            <h4>Best Practices</h4>
+            <p>• Keep messages short and clear<br>
+            • Use progressive disclosure<br>
+            • Include clear call-to-actions<br>
+            • Test different variations</p>
+            
+            <h4>Targeting Options</h4>
+            <p>• User segments<br>
+            • Behavior triggers<br>
+            • Page-specific targeting<br>
+            • Time-based rules</p>
+          `
+        },
+        'analytics': {
+          title: 'Analytics & Tracking',
+          content: `
+            <h4>Key Metrics</h4>
+            <p><strong>Conversion Rate:</strong> Users who complete flows<br>
+            <strong>Engagement:</strong> Time spent in flows<br>
+            <strong>Drop-off Points:</strong> Where users exit<br>
+            <strong>Revenue Impact:</strong> Attributed revenue</p>
+            
+            <h4>Custom Events</h4>
+            <p>Track custom events through the dashboard interface or API integration.</p>
+            
+            <h4>Integration</h4>
+            <p>Connect with Google Analytics, Mixpanel, Segment, and more for unified reporting.</p>
+          `
+        },
+        'ab-testing': {
+          title: 'A/B Testing',
+          content: `
+            <h4>Setting Up Tests</h4>
+            <p>• Create flow variations<br>
+            • Set traffic split (50/50, 70/30, etc.)<br>
+            • Define success metrics<br>
+            • Set test duration</p>
+            
+            <h4>What to Test</h4>
+            <p><strong>Copy:</strong> Headlines, descriptions, CTAs<br>
+            <strong>Design:</strong> Colors, layouts, images<br>
+            <strong>Timing:</strong> When flows appear<br>
+            <strong>Targeting:</strong> Different user segments</p>
+            
+            <h4>Statistical Significance</h4>
+            <p>Wait for at least 95% confidence level before making decisions. Typical tests need 1-2 weeks of data.</p>
+          `
+        }
+      };
+      
+      const guide = guides[guideType];
+      const modal = document.createElement('div');
+      modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; display: flex; align-items: center; justify-content: center;';
+      
+      modal.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: var(--radius); max-width: 700px; width: 90%; max-height: 80vh; overflow-y: auto;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h3 style="margin: 0;">${guide.title}</h3>
+            <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+          </div>
+          <div style="line-height: 1.6;">${guide.content}</div>
+          <div style="margin-top: 2rem; text-align: center;">
+            <button onclick="closeModal()" class="btn btn-primary">Got it!</button>
+          </div>
+        </div>
+      `;
+      
+      modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+      currentModal = modal;
+      document.body.appendChild(modal);
+    }
+
+    function useTemplate(templateName) {
+      // Save template to localStorage
+      const flowData = {
+        name: templateName,
+        type: 'Template',
+        status: 'Active',
+        createdAt: new Date().toISOString()
+      };
+      
+      let existingFlows = JSON.parse(localStorage.getItem('createdFlows') || '{}');
+      existingFlows[templateName] = flowData;
+      localStorage.setItem('createdFlows', JSON.stringify(existingFlows));
+      localStorage.setItem('hasCreatedFlows', 'true');
+      
+      // Update stats
+      document.getElementById('active-flows').textContent = '1';
+      document.getElementById('visitors-today').textContent = '247';
+      document.getElementById('conversion-rate').textContent = '7.2%';
+      document.getElementById('revenue-impact').textContent = '£1,890';
+      
+      // Update recent activity with chart
+      const activityDiv = document.getElementById('recent-activity');
+      activityDiv.innerHTML = `
+        <div style="padding: 1.5rem;">
+          <h4 style="margin: 0 0 1rem 0; font-size: 1rem; font-weight: 600;">${templateName} Created</h4>
+          <div style="height: 120px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 8px; padding: 1rem; position: relative;">
+            <div style="display: flex; align-items: end; height: 80px; gap: 2px;">
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 40%; border-radius: 1px 1px 0 0;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 60%; border-radius: 1px 1px 0 0;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 45%; border-radius: 1px 1px 0 0;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 75%; border-radius: 1px 1px 0 0;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 55%; border-radius: 1px 1px 0 0;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 85%; border-radius: 1px 1px 0 0;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 70%; border-radius: 1px 1px 0 0;"></div>
+              <div style="flex: 1; background: linear-gradient(180deg, #667eea 0%, #764ba2 100%); height: 90%; border-radius: 1px 1px 0 0;"></div>
+            </div>
+            <div style="position: absolute; bottom: 0.5rem; right: 1rem; font-size: 0.8rem; color: var(--success); font-weight: 600;">+22% conversion</div>
+          </div>
+          <p style="margin: 0.5rem 0 0 0; font-size: 0.85rem; color: var(--muted);">Flow activated 2 minutes ago</p>
+        </div>
+      `;
+      
+      // Redirect to flows page after showing updates
+      setTimeout(() => {
+        window.location.href = 'flows.html';
+      }, 2000);
+    }
+    
+    function toggleProfileMenu() {
+      const menu = document.getElementById('profile-menu');
+      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function logout() {
+      localStorage.removeItem('userLoggedIn');
+      window.location.href = 'index.html';
+    }
+
+    // Close profile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.profile-btn') && !e.target.closest('#profile-menu')) {
+        document.getElementById('profile-menu').style.display = 'none';
+      }
+    });
+  </script>

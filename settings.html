@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Settings — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span>13</span> days left</div>
+        <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+          <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+          <span style="color: var(--text);">jane@company.com</span>
+          <span style="color: var(--muted);">▼</span>
+        </button>
+        <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+          <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📊 Dashboard</a>
+          <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">🔄 Flows</a>
+          <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📈 Analytics</a>
+          <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">⚙️ Settings</a>
+          <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">🚪 Logout</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding: 2rem 0;">
+    <div class="container">
+      <div style="margin-bottom: 3rem;">
+        <h1>Account Settings</h1>
+        <p style="color: var(--muted);">Manage your account, billing, and preferences</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 250px 1fr; gap: 3rem;">
+        
+        <!-- Settings Navigation -->
+        <div>
+          <nav style="background: white; border-radius: var(--radius); border: 1px solid var(--border); padding: 1rem;">
+            <a href="#profile" onclick="showSection('profile')" class="settings-nav active" style="display: block; padding: 0.75rem; text-decoration: none; color: var(--text); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">Profile</a>
+            <a href="#billing" onclick="showSection('billing')" class="settings-nav" style="display: block; padding: 0.75rem; text-decoration: none; color: var(--text); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">Billing</a>
+            <a href="#integrations" onclick="showSection('integrations')" class="settings-nav" style="display: block; padding: 0.75rem; text-decoration: none; color: var(--text); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">Integrations</a>
+            <a href="#notifications" onclick="showSection('notifications')" class="settings-nav" style="display: block; padding: 0.75rem; text-decoration: none; color: var(--text); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">Notifications</a>
+            <a href="#security" onclick="showSection('security')" class="settings-nav" style="display: block; padding: 0.75rem; text-decoration: none; color: var(--text); border-radius: var(--radius-sm);">Security</a>
+          </nav>
+        </div>
+
+        <!-- Settings Content -->
+        <div>
+          
+          <!-- Profile Section -->
+          <div id="profile-section" class="settings-section">
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+              <h3>Profile Information</h3>
+              <form style="margin-top: 2rem;">
+                <div class="form-row">
+                  <label for="fullName">Full Name</label>
+                  <input id="fullName" type="text" value="Jane Developer" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                </div>
+                <div class="form-row">
+                  <label for="email">Email Address</label>
+                  <input id="email" type="email" value="jane@company.com" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                </div>
+                <div class="form-row">
+                  <label for="company">Company</label>
+                  <input id="company" type="text" value="AwesomeApps Inc." style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="saveProfile()">Save Changes</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Billing Section -->
+          <div id="billing-section" class="settings-section" style="display: none;">
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 2rem;">
+              <h3>Current Plan</h3>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                <div>
+                  <div style="font-size: 1.5rem; font-weight: 700;">Growth Plan</div>
+                  <div style="color: var(--muted);">£79/month • Trial ends in 13 days</div>
+                </div>
+                <button class="btn btn-outline" onclick="managePlan()">Manage Plan</button>
+              </div>
+            </div>
+            
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+              <h3>Payment Method</h3>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                <div>
+                  <div>•••• •••• •••• 3456</div>
+                  <div style="color: var(--muted);">Expires 12/25</div>
+                </div>
+                <button class="btn btn-outline" onclick="updatePayment()">Update</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Integrations Section -->
+          <div id="integrations-section" class="settings-section" style="display: none;">
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+              <h3>Connected Integrations</h3>
+              <div style="margin-top: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                  <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">GA</div>
+                    <div>
+                      <div style="font-weight: 600;">Google Analytics</div>
+                      <div style="color: var(--muted); font-size: 0.9rem;">Connected</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-outline btn-sm" onclick="disconnectIntegration('Google Analytics')">Disconnect</button>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                  <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 40px; height: 40px; background: var(--muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">HS</div>
+                    <div>
+                      <div style="font-weight: 600;">HubSpot</div>
+                      <div style="color: var(--muted); font-size: 0.9rem;">Not connected</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="connectIntegration('HubSpot')">Connect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications Section -->
+          <div id="notifications-section" class="settings-section" style="display: none;">
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+              <h3>Email Notifications</h3>
+              <div style="margin-top: 2rem;">
+                <label style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <input type="checkbox" checked>
+                  <span>Weekly performance reports</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <input type="checkbox" checked>
+                  <span>Flow completion alerts</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                  <input type="checkbox">
+                  <span>Marketing updates</span>
+                </label>
+                <button class="btn btn-primary" onclick="saveNotifications()">Save Preferences</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security Section -->
+          <div id="security-section" class="settings-section" style="display: none;">
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+              <h3>Change Password</h3>
+              <form style="margin-top: 2rem;">
+                <div class="form-row">
+                  <label for="currentPassword">Current Password</label>
+                  <input id="currentPassword" type="password" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                </div>
+                <div class="form-row">
+                  <label for="newPassword">New Password</label>
+                  <input id="newPassword" type="password" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                </div>
+                <div class="form-row">
+                  <label for="confirmPassword">Confirm New Password</label>
+                  <input id="confirmPassword" type="password" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="changePassword()">Update Password</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Plan Management Modal -->
+  <div id="plan-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: var(--radius); width: 90%; max-width: 800px; max-height: 90%; overflow-y: auto;">
+      <div style="padding: 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+        <h2>Manage Your Plan</h2>
+        <button onclick="closePlanModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+      </div>
+      <div style="padding: 2rem;">
+        <div id="plan-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionName) {
+      // Hide all sections
+      document.querySelectorAll('.settings-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      // Remove active class from all nav items
+      document.querySelectorAll('.settings-nav').forEach(nav => {
+        nav.style.background = 'transparent';
+      });
+      
+      // Show selected section
+      document.getElementById(sectionName + '-section').style.display = 'block';
+      
+      // Add active style to clicked nav item
+      event.target.style.background = 'var(--border-light)';
+    }
+
+    function saveProfile() {
+      alert('Profile updated successfully!');
+    }
+
+    function managePlan() {
+      showPlanModal();
+    }
+
+    function showPlanModal() {
+      let content = '';
+      
+      // Current Plan Overview
+      content += '<div style="background: var(--border-light); padding: 2rem; border-radius: var(--radius); margin-bottom: 2rem;">';
+      content += '<h3>Current Plan: Growth</h3>';
+      content += '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">';
+      content += '<div><strong>Monthly Cost:</strong> £79</div>';
+      content += '<div><strong>Billing Cycle:</strong> Monthly</div>';
+      content += '<div><strong>Trial Ends:</strong> 13 days</div>';
+      content += '<div><strong>Next Billing:</strong> ' + getNextBillingDate() + '</div>';
+      content += '</div></div>';
+      
+      // Plan Options
+      content += '<h3>Available Plans</h3>';
+      content += '<div style="display: grid; gap: 1.5rem; margin: 2rem 0;">';
+      
+      // Starter Plan
+      content += '<div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; position: relative;">';
+      content += '<div style="display: flex; justify-content: space-between; align-items: center;">';
+      content += '<div><h4 style="margin: 0;">Starter</h4><div style="color: var(--muted);">Free • Up to 1,000 MAUs</div></div>';
+      content += '<button onclick="changePlan(\'starter\')" class="btn btn-outline">Downgrade</button>';
+      content += '</div></div>';
+      
+      // Growth Plan (Current)
+      content += '<div style="border: 2px solid var(--primary); border-radius: var(--radius); padding: 1.5rem; position: relative;">';
+      content += '<div style="position: absolute; top: -10px; right: 1rem; background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.8rem;">Current Plan</div>';
+      content += '<div style="display: flex; justify-content: space-between; align-items: center;">';
+      content += '<div><h4 style="margin: 0;">Growth</h4><div style="color: var(--muted);">£79/month • Up to 10,000 MAUs</div></div>';
+      content += '<button class="btn btn-primary" disabled>Current Plan</button>';
+      content += '</div></div>';
+      
+      // Enterprise Plan
+      content += '<div style="border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; position: relative;">';
+      content += '<div style="display: flex; justify-content: space-between; align-items: center;">';
+      content += '<div><h4 style="margin: 0;">Enterprise</h4><div style="color: var(--muted);">Custom pricing • Unlimited MAUs</div></div>';
+      content += '<button onclick="changePlan(\'enterprise\')" class="btn btn-primary">Upgrade</button>';
+      content += '</div></div>';
+      
+      content += '</div>';
+      
+      // Billing Options
+      content += '<div style="background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-bottom: 2rem;">';
+      content += '<h3>Billing Options</h3>';
+      content += '<div style="margin-top: 1rem;">';
+      content += '<label style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer;">';
+      content += '<input type="radio" name="billing" value="monthly" checked>';
+      content += '<div><strong>Monthly Billing</strong><br><span style="color: var(--muted);">Pay monthly, cancel anytime</span></div>';
+      content += '</label>';
+      content += '<label style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer;">';
+      content += '<input type="radio" name="billing" value="annual">';
+      content += '<div><strong>Annual Billing</strong> <span style="background: var(--success); color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">Save 20%</span><br><span style="color: var(--muted);">Pay yearly, save £189 annually</span></div>';
+      content += '</label>';
+      content += '</div></div>';
+      
+      // Usage & Limits
+      content += '<div style="background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-bottom: 2rem;">';
+      content += '<h3>Current Usage</h3>';
+      content += '<div style="margin-top: 1rem;">';
+      content += '<div style="margin-bottom: 1rem;"><strong>Monthly Active Users:</strong> 2,847 / 10,000 (28%)</div>';
+      content += '<div style="background: var(--border-light); height: 8px; border-radius: 4px; margin-bottom: 1rem;"><div style="background: var(--primary); height: 100%; width: 28%; border-radius: 4px;"></div></div>';
+      content += '<div style="margin-bottom: 1rem;"><strong>Active Flows:</strong> 3 / Unlimited</div>';
+      content += '<div style="margin-bottom: 1rem;"><strong>Team Members:</strong> 1 / 5</div>';
+      content += '</div></div>';
+      
+      // Action Buttons
+      content += '<div style="display: flex; gap: 1rem; justify-content: flex-end;">';
+      content += '<button onclick="cancelSubscription()" class="btn btn-outline" style="color: #dc3545; border-color: #dc3545;">Cancel Subscription</button>';
+      content += '<button onclick="closePlanModal()" class="btn btn-outline">Close</button>';
+      content += '</div>';
+      
+      document.getElementById('plan-content').innerHTML = content;
+      document.getElementById('plan-modal').style.display = 'block';
+    }
+
+    function getNextBillingDate() {
+      const date = new Date();
+      date.setDate(date.getDate() + 13); // Trial ends in 13 days
+      return date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function changePlan(planType) {
+      if (planType === 'starter') {
+        showDowngradeModal();
+      } else if (planType === 'enterprise') {
+        showUpgradeModal();
+      }
+    }
+    
+    function showDowngradeModal() {
+      const modal = document.createElement('div');
+      modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2001; display: flex; align-items: center; justify-content: center;';
+      
+      modal.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: var(--radius); max-width: 500px; width: 90%; text-align: center;">
+          <div style="width: 60px; height: 60px; background: #fbbf24; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin: 0 auto 1.5rem;">⚠️</div>
+          
+          <h3 style="margin: 0 0 1rem 0;">Downgrade to Starter Plan?</h3>
+          <p style="color: var(--muted); margin-bottom: 2rem; line-height: 1.5;">You'll lose access to Growth features but keep your data. You can upgrade again anytime.</p>
+          
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 2rem; text-align: left;">
+            <h4 style="margin: 0 0 1rem 0; color: #dc3545;">You'll lose access to:</h4>
+            <ul style="margin: 0; padding-left: 1.5rem; color: var(--muted);">
+              <li>Advanced targeting & segmentation</li>
+              <li>A/B testing & experiments</li>
+              <li>Priority email support</li>
+              <li>Advanced analytics dashboard</li>
+              <li>Team collaboration tools</li>
+            </ul>
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+              <strong style="color: var(--success);">You'll keep:</strong> Basic flows, up to 1,000 MAUs, standard support
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 1rem;">
+            <button onclick="confirmDowngrade()" class="btn" style="flex: 1; background: #dc3545; color: white; border-color: #dc3545;">Confirm Downgrade</button>
+            <button onclick="document.body.removeChild(this.closest('[style*=\"z-index: 2001\"]'))" class="btn btn-outline" style="flex: 1;">Cancel</button>
+          </div>
+        </div>
+      `;
+      
+      modal.onclick = (e) => { if (e.target === modal) document.body.removeChild(modal); };
+      document.body.appendChild(modal);
+    }
+    
+    function confirmDowngrade() {
+      const button = event.target;
+      button.textContent = 'Processing...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '✓ Downgrade Scheduled';
+        button.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          document.body.removeChild(button.closest('[style*="z-index: 2001"]'));
+          closePlanModal();
+          
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000;';
+          successMsg.textContent = 'Downgrade scheduled for next billing cycle';
+          document.body.appendChild(successMsg);
+          
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 4000);
+        }, 1500);
+      }, 2000);
+    }
+    
+    function showUpgradeModal() {
+      const modal = document.createElement('div');
+      modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2001; display: flex; align-items: center; justify-content: center;';
+      
+      modal.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: var(--radius); max-width: 550px; width: 90%; text-align: center;">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin: 0 auto 1.5rem;">🚀</div>
+          
+          <h3 style="margin: 0 0 1rem 0;">Upgrade to Enterprise</h3>
+          <p style="color: var(--muted); margin-bottom: 2rem; line-height: 1.5;">Get unlimited users, advanced features, and dedicated support for your growing team.</p>
+          
+          <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); padding: 2rem; border-radius: var(--radius-sm); margin-bottom: 2rem; color: white; text-align: left;">
+            <h4 style="margin: 0 0 1rem 0; color: white;">Enterprise includes:</h4>
+            <ul style="margin: 0; padding-left: 1.5rem; color: white;">
+              <li>Unlimited monthly active users</li>
+              <li>Advanced security & compliance</li>
+              <li>Dedicated customer success manager</li>
+              <li>Custom integrations & API access</li>
+              <li>Priority phone & email support</li>
+              <li>Custom onboarding & training</li>
+            </ul>
+          </div>
+          
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 2rem;">
+            <h4 style="margin: 0 0 1rem 0;">Next Steps</h4>
+            <p style="margin: 0; color: var(--muted); font-size: 0.9rem;">Our sales team will contact you within 24 hours to discuss your needs and provide custom pricing.</p>
+          </div>
+          
+          <div style="display: flex; gap: 1rem;">
+            <button onclick="requestEnterprise()" class="btn btn-primary" style="flex: 1;">Request Enterprise Demo</button>
+            <button onclick="cancelUpgrade()" class="btn btn-outline" style="flex: 1;">Cancel</button>
+          </div>
+        </div>
+      `;
+      
+      modal.onclick = (e) => { if (e.target === modal) document.body.removeChild(modal); };
+      document.body.appendChild(modal);
+    }
+    
+    function requestEnterprise() {
+      const button = event.target;
+      button.textContent = 'Submitting Request...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '✓ Request Submitted';
+        button.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          document.body.removeChild(button.closest('[style*="z-index: 2001"]'));
+          closePlanModal();
+          
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000;';
+          successMsg.textContent = 'Enterprise demo requested! We\'ll contact you within 24 hours.';
+          document.body.appendChild(successMsg);
+          
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 5000);
+        }, 1500);
+      }, 2000);
+    }
+
+    function cancelSubscription() {
+      const modal = document.createElement('div');
+      modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2001; display: flex; align-items: center; justify-content: center;';
+      
+      modal.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: var(--radius); max-width: 600px; width: 90%; text-align: center;">
+          <div style="width: 60px; height: 60px; background: #dc3545; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin: 0 auto 1.5rem;">💔</div>
+          
+          <h3 style="margin: 0 0 1rem 0;">We're sorry to see you go!</h3>
+          <p style="color: var(--muted); margin-bottom: 2rem; line-height: 1.5;">Before you cancel, let us know how we can improve. We'd love to keep you as a customer.</p>
+          
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 2rem; text-align: left;">
+            <h4 style="margin: 0 0 1rem 0;">What happens when you cancel:</h4>
+            <ul style="margin: 0; padding-left: 1.5rem; color: var(--muted);">
+              <li>Access continues until ${getNextBillingDate()}</li>
+              <li>All flows and data will be preserved for 90 days</li>
+              <li>You can reactivate anytime during this period</li>
+              <li>No further charges will be made</li>
+            </ul>
+          </div>
+          
+          <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 2rem; color: white;">
+            <h4 style="margin: 0 0 1rem 0; color: white;">💡 Special Offer - Stay with us!</h4>
+            <p style="margin: 0; color: white;">Get 50% off your next 3 months (£39.50/month instead of £79)</p>
+          </div>
+          
+          <div style="margin-bottom: 2rem;">
+            <h4 style="margin: 0 0 1rem 0;">Tell us why you're leaving (optional):</h4>
+            <select style="width: 100%; padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 1rem;">
+              <option value="">Select a reason...</option>
+              <option value="too-expensive">Too expensive</option>
+              <option value="not-using">Not using it enough</option>
+              <option value="missing-features">Missing features I need</option>
+              <option value="switching">Switching to competitor</option>
+              <option value="business-change">Business needs changed</option>
+              <option value="other">Other</option>
+            </select>
+            <textarea placeholder="Additional feedback (optional)" style="width: 100%; padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); min-height: 80px; resize: vertical;"></textarea>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <button onclick="acceptOffer()" class="btn btn-primary">Accept 50% Off Offer</button>
+            <button onclick="proceedWithCancellation()" class="btn" style="background: #dc3545; color: white; border-color: #dc3545;">Cancel Subscription</button>
+          </div>
+          
+          <button onclick="keepSubscription()" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Keep My Subscription</button>
+        </div>
+      `;
+      
+      modal.onclick = (e) => { if (e.target === modal) document.body.removeChild(modal); };
+      document.body.appendChild(modal);
+    }
+    
+    function acceptOffer() {
+      const button = event.target;
+      button.textContent = 'Applying Discount...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '✓ Discount Applied!';
+        button.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          document.body.removeChild(button.closest('[style*="z-index: 2001"]'));
+          closePlanModal();
+          
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000;';
+          successMsg.textContent = '🎉 50% discount applied! Your next bill will be £39.50';
+          document.body.appendChild(successMsg);
+          
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 5000);
+        }, 1500);
+      }, 2000);
+    }
+    
+    function proceedWithCancellation() {
+      const button = event.target;
+      button.textContent = 'Processing Cancellation...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '✓ Subscription Cancelled';
+        button.style.background = '#6c757d';
+        
+        setTimeout(() => {
+          document.body.removeChild(button.closest('[style*="z-index: 2001"]'));
+          closePlanModal();
+          
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #6c757d; color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000;';
+          successMsg.textContent = `Subscription cancelled. Access until ${getNextBillingDate()}`;
+          document.body.appendChild(successMsg);
+          
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 5000);
+        }, 1500);
+      }, 2000);
+    }
+
+    function closePlanModal() {
+      document.getElementById('plan-modal').style.display = 'none';
+    }
+
+    function updatePayment() {
+      const modal = document.createElement('div');
+      modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+      
+      modal.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: var(--radius); max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h3 style="margin: 0;">Update Payment Method</h3>
+            <button onclick="document.body.removeChild(this.closest('[style*=\"position: fixed\"]'))" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+          </div>
+          
+          <div style="margin-bottom: 2rem;">
+            <h4>Current Payment Method</h4>
+            <div style="background: var(--border-light); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 40px; height: 25px; background: #1a1f71; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.7rem; font-weight: bold;">VISA</div>
+                <div>
+                  <div>•••• •••• •••• 3456</div>
+                  <div style="color: var(--muted); font-size: 0.9rem;">Expires 12/25</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <form>
+            <h4>Add New Payment Method</h4>
+            <div class="form-row">
+              <label>Card Number</label>
+              <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-row">
+                <label>Expiry Date</label>
+                <input type="text" placeholder="MM/YY" maxlength="5" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+              <div class="form-row">
+                <label>CVC</label>
+                <input type="text" placeholder="123" maxlength="4" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+            </div>
+            <div class="form-row">
+              <label>Cardholder Name</label>
+              <input type="text" placeholder="Jane Developer" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+            </div>
+            
+            <div style="background: var(--border-light); padding: 1rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+              <h4 style="margin: 0 0 0.5rem 0;">Billing Address</h4>
+              <div class="form-row">
+                <input type="text" placeholder="Address Line 1" style="padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius-sm); width: 100%; margin-bottom: 0.5rem;">
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <input type="text" placeholder="City" style="padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                <input type="text" placeholder="Postcode" style="padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+              <button type="button" onclick="updateCard()" class="btn btn-primary" style="flex: 1;">Update Payment Method</button>
+              <button type="button" onclick="document.body.removeChild(this.closest('[style*=\"position: fixed\"]'))" class="btn btn-outline">Cancel</button>
+            </div>
+          </form>
+          
+          <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+            <p style="margin: 0; font-size: 0.9rem; color: var(--muted); text-align: center;">🔒 Your payment information is encrypted and secure</p>
+          </div>
+        </div>
+      `;
+      
+      modal.onclick = (e) => { if (e.target === modal) document.body.removeChild(modal); };
+      document.body.appendChild(modal);
+    }
+    
+    function updateCard() {
+      // Simulate processing
+      const button = event.target;
+      button.textContent = 'Processing...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '✓ Updated!';
+        button.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          // Update the payment method display
+          const paymentDisplay = document.querySelector('#billing-section .settings-section div:last-child div div:first-child');
+          if (paymentDisplay) {
+            paymentDisplay.innerHTML = '<div>•••• •••• •••• 7890</div><div style="color: var(--muted);">Expires 08/28</div>';
+          }
+          
+          // Close modal
+          document.body.removeChild(button.closest('[style*="position: fixed"]'));
+          
+          // Show success message
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000;';
+          successMsg.textContent = 'Payment method updated successfully!';
+          document.body.appendChild(successMsg);
+          
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 3000);
+        }, 1000);
+      }, 2000);
+    }
+
+    function connectIntegration(name) {
+      if (name === 'Google Analytics') {
+        const modal = document.createElement('div');
+        modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+        
+        modal.innerHTML = `
+          <div style="background: white; padding: 2rem; border-radius: var(--radius); max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 40px; height: 40px; background: #4285f4; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">GA</div>
+                <h3 style="margin: 0;">Connect Google Analytics</h3>
+              </div>
+              <button onclick="document.body.removeChild(this.closest('[style*=\"position: fixed\"]'))" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            </div>
+            
+            <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 2rem;">
+              <h4 style="margin: 0 0 1rem 0;">What you'll get:</h4>
+              <ul style="margin: 0; padding-left: 1.5rem; color: var(--text);">
+                <li>Track conversion events in GA4</li>
+                <li>Monitor user journey through flows</li>
+                <li>Enhanced audience insights</li>
+                <li>Custom conversion goals</li>
+              </ul>
+            </div>
+            
+            <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem; margin-bottom: 2rem;">
+              <h4 style="margin: 0 0 1rem 0;">Google Analytics Setup</h4>
+              <div class="form-row">
+                <label>Measurement ID</label>
+                <input type="text" value="G-4B7X9M2K8P" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+              <div class="form-row">
+                <label>Property ID</label>
+                <input type="text" value="394827156" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+              <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--muted);">Find these in GA4 Admin → Property Settings → Property Details</p>
+            </div>
+            
+            <div style="display: flex; gap: 1rem;">
+              <button onclick="connectGA()" class="btn btn-primary" style="flex: 1;">Connect Google Analytics</button>
+              <button onclick="document.body.removeChild(this.closest('[style*=\"position: fixed\"]'))" class="btn btn-outline">Cancel</button>
+            </div>
+            
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center;">
+              <p style="margin: 0; font-size: 0.9rem; color: var(--muted);">🔒 Your credentials are encrypted and stored securely</p>
+            </div>
+          </div>
+        `;
+        
+        modal.onclick = (e) => { if (e.target === modal) document.body.removeChild(modal); };
+        document.body.appendChild(modal);
+      } else if (name === 'HubSpot') {
+        const modal = document.createElement('div');
+        modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+        
+        modal.innerHTML = `
+          <div style="background: white; padding: 2rem; border-radius: var(--radius); max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 40px; height: 40px; background: #ff7a59; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">HS</div>
+                <h3 style="margin: 0;">Connect HubSpot</h3>
+              </div>
+              <button onclick="document.body.removeChild(this.closest('[style*=\"position: fixed\"]'))" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            </div>
+            
+            <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 2rem;">
+              <h4 style="margin: 0 0 1rem 0;">What you'll get:</h4>
+              <ul style="margin: 0; padding-left: 1.5rem; color: var(--text);">
+                <li>Sync conversion data to HubSpot contacts</li>
+                <li>Track onboarding flow completions</li>
+                <li>Trigger automated workflows</li>
+                <li>Enhanced lead scoring</li>
+              </ul>
+            </div>
+            
+            <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem; margin-bottom: 2rem;">
+              <h4 style="margin: 0 0 1rem 0;">HubSpot Account</h4>
+              <div class="form-row">
+                <label>HubSpot Portal ID</label>
+                <input type="text" value="26394048" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+              <div class="form-row">
+                <label>API Key</label>
+                <input type="password" value="pat-na1-a8b9c2d3-e4f5-6789-abcd-ef1234567890" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+              <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--muted);">Find your API key in HubSpot Settings → Integrations → Private Apps</p>
+            </div>
+            
+            <div style="display: flex; gap: 1rem;">
+              <button onclick="connectHubSpot()" class="btn btn-primary" style="flex: 1;">Connect HubSpot</button>
+              <button onclick="document.body.removeChild(this.closest('[style*=\"position: fixed\"]'))" class="btn btn-outline">Cancel</button>
+            </div>
+            
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center;">
+              <p style="margin: 0; font-size: 0.9rem; color: var(--muted);">🔒 Your credentials are encrypted and stored securely</p>
+            </div>
+          </div>
+        `;
+        
+        modal.onclick = (e) => { if (e.target === modal) document.body.removeChild(modal); };
+        document.body.appendChild(modal);
+      } else {
+        alert(`Connecting to ${name}...`);
+      }
+    }
+    
+    function connectGA() {
+      const button = event.target;
+      button.textContent = 'Connecting...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '✓ Connected!';
+        button.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          // Update the Google Analytics integration display
+          const gaItems = document.querySelectorAll('#integrations-section div[style*="display: flex"]');
+          gaItems.forEach(item => {
+            if (item.textContent.includes('Google Analytics') && item.textContent.includes('Not connected')) {
+              item.outerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                  <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 40px; height: 40px; background: #4285f4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">GA</div>
+                    <div>
+                      <div style="font-weight: 600;">Google Analytics</div>
+                      <div style="color: var(--success); font-size: 0.9rem;">✓ Connected</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-outline btn-sm" onclick="disconnectIntegration('Google Analytics')">Disconnect</button>
+                </div>
+              `;
+            }
+          });
+          
+          // Close modal
+          document.body.removeChild(button.closest('[style*="position: fixed"]'));
+          
+          // Show success notification
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000;';
+          successMsg.textContent = 'Google Analytics connected successfully!';
+          document.body.appendChild(successMsg);
+          
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 3000);
+        }, 1000);
+      }, 2000);
+    }
+    
+    function connectHubSpot() {
+      const button = event.target;
+      button.textContent = 'Connecting...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '✓ Connected!';
+        button.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          // Update the HubSpot integration display
+          const hubspotItems = document.querySelectorAll('#integrations-section div[style*="display: flex"]');
+          hubspotItems.forEach(item => {
+            if (item.textContent.includes('HubSpot') && item.textContent.includes('Not connected')) {
+              item.outerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                  <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="width: 40px; height: 40px; background: #ff7a59; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">HS</div>
+                    <div>
+                      <div style="font-weight: 600;">HubSpot</div>
+                      <div style="color: var(--success); font-size: 0.9rem;">✓ Connected</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-outline btn-sm" onclick="disconnectIntegration('HubSpot')">Disconnect</button>
+                </div>
+              `;
+            }
+          });
+          
+          // Close modal
+          document.body.removeChild(button.closest('[style*="position: fixed"]'));
+          
+          // Show success notification
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000;';
+          successMsg.textContent = 'HubSpot connected successfully!';
+          document.body.appendChild(successMsg);
+          
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 3000);
+        }, 1000);
+      }, 2000);
+    }
+
+    function disconnectIntegration(name) {
+      const modal = document.createElement('div');
+      modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+      
+      const iconColor = name === 'HubSpot' ? '#ff7a59' : 'var(--primary)';
+      const iconText = name === 'HubSpot' ? 'HS' : 'GA';
+      
+      modal.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: var(--radius); max-width: 450px; width: 90%; text-align: center;">
+          <div style="width: 60px; height: 60px; background: ${iconColor}; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem; margin: 0 auto 1.5rem;">⚠️</div>
+          
+          <h3 style="margin: 0 0 1rem 0;">Disconnect ${name}?</h3>
+          <p style="color: var(--muted); margin-bottom: 2rem; line-height: 1.5;">This will stop syncing data between Boostly and ${name}. You can reconnect at any time.</p>
+          
+          <div style="background: var(--border-light); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 2rem; text-align: left;">
+            <h4 style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">What will happen:</h4>
+            <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.9rem; color: var(--muted);">
+              <li>Data sync will stop immediately</li>
+              <li>Existing data will remain in ${name}</li>
+              <li>Automated workflows may be affected</li>
+            </ul>
+          </div>
+          
+          <div style="display: flex; gap: 1rem;">
+            <button onclick="confirmDisconnect('${name}')" class="btn" style="flex: 1; background: #dc3545; color: white; border-color: #dc3545;">Disconnect</button>
+            <button onclick="document.body.removeChild(this.closest('[style*=\"position: fixed\"]'))" class="btn btn-outline" style="flex: 1;">Cancel</button>
+          </div>
+        </div>
+      `;
+      
+      modal.onclick = (e) => { if (e.target === modal) document.body.removeChild(modal); };
+      document.body.appendChild(modal);
+    }
+    
+    function confirmDisconnect(name) {
+      const button = event.target;
+      button.textContent = 'Disconnecting...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        // Update the integration display back to disconnected state
+        const connectedItems = document.querySelectorAll('#integrations-section div[style*="display: flex"]');
+        connectedItems.forEach(item => {
+          if (item.textContent.includes(name) && item.textContent.includes('Connected')) {
+            const iconColor = name === 'HubSpot' ? '#ff7a59' : 'var(--primary)';
+            const iconBg = name === 'HubSpot' ? 'var(--muted)' : 'var(--muted)';
+            const iconText = name === 'HubSpot' ? 'HS' : 'GA';
+            
+            item.outerHTML = `
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="width: 40px; height: 40px; background: ${iconBg}; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">${iconText}</div>
+                  <div>
+                    <div style="font-weight: 600;">${name}</div>
+                    <div style="color: var(--muted); font-size: 0.9rem;">Not connected</div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="connectIntegration('${name}')">Connect</button>
+              </div>
+            `;
+          }
+        });
+        
+        // Close modal
+        document.body.removeChild(button.closest('[style*="position: fixed"]'));
+        
+        // Show success notification
+        const successMsg = document.createElement('div');
+        successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000;';
+        successMsg.textContent = `${name} disconnected successfully!`;
+        document.body.appendChild(successMsg);
+        
+        setTimeout(() => {
+          document.body.removeChild(successMsg);
+        }, 3000);
+      }, 1500);
+    }
+
+    function saveNotifications() {
+      alert('Notification preferences saved!');
+    }
+
+    function changePassword() {
+      const button = event.target;
+      button.textContent = 'Updating Password...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '✓ Password Updated';
+        button.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          button.textContent = 'Update Password';
+          button.style.background = '';
+          button.disabled = false;
+          
+          // Clear form fields
+          document.getElementById('currentPassword').value = '';
+          document.getElementById('newPassword').value = '';
+          document.getElementById('confirmPassword').value = '';
+          
+          // Show professional notification
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000; display: flex; align-items: center; gap: 0.5rem;';
+          successMsg.innerHTML = '🔒 Password updated successfully!';
+          document.body.appendChild(successMsg);
+          
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 4000);
+        }, 1500);
+      }, 2000);
+    }
+
+    function keepSubscription() {
+      const button = event.target;
+      button.textContent = 'Great choice! 🎉';
+      button.style.background = 'var(--success)';
+      button.style.color = 'white';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        document.body.removeChild(button.closest('[style*="z-index: 2001"]'));
+        closePlanModal();
+        
+        const successMsg = document.createElement('div');
+        successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000;';
+        successMsg.textContent = '🎉 Thanks for staying! Your subscription continues as normal.';
+        document.body.appendChild(successMsg);
+        
+        setTimeout(() => {
+          document.body.removeChild(successMsg);
+        }, 4000);
+      }, 1500);
+    }
+    
+    function cancelUpgrade() {
+      document.body.removeChild(document.querySelector('[style*="z-index: 2001"]'));
+    }
+    
+    function toggleProfileMenu() {
+      const menu = document.getElementById('profile-menu');
+      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function logout() {
+      localStorage.removeItem('userLoggedIn');
+      window.location.href = 'index.html';
+    }
+
+    // Close profile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.profile-btn') && !e.target.closest('#profile-menu')) {
+        document.getElementById('profile-menu').style.display = 'none';
+      }
+    });
+
+    // Set initial active state
+    document.querySelector('.settings-nav').style.background = 'var(--border-light)';
+  </script>
+</body>
+</html>

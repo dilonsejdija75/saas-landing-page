@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Pricing — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div id="user-profile" class="user-profile" style="display: none; position: relative;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span id="trial-days">13</span> days left</div>
+          <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+            <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+            <span style="color: var(--text);">jane@company.com</span>
+            <span style="color: var(--muted);">▼</span>
+          </button>
+          <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+            <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📊 Dashboard</a>
+            <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">🔄 Flows</a>
+            <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📈 Analytics</a>
+            <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">⚙️ Settings</a>
+            <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">🚪 Logout</a>
+          </div>
+        </div>
+        <div id="logged-out-buttons" style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="index.html#signup">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 6rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h1 style="color: white; font-size: 3rem; margin-bottom: 1.5rem;">Simple, transparent pricing</h1>
+          <p class="lede" style="color: rgba(255,255,255,0.9);">Choose the plan that fits your needs. All plans include a 14-day free trial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+
+        <div class="pricing-grid">
+          <div class="plan">
+            <h3>Starter</h3>
+            <div class="price">Free</div>
+            <p style="color: var(--muted); margin: 1rem 0;">Perfect for getting started</p>
+            <ul>
+              <li>Up to 1,000 MAUs</li>
+              <li>Basic onboarding flows</li>
+              <li>Email support</li>
+              <li>Core analytics</li>
+              <li>Template library access</li>
+            </ul>
+            <a class="btn btn-primary" href="trial-setup.html" data-plan="starter">Start Free</a>
+          </div>
+
+          <div class="plan popular">
+            <h3>Growth</h3>
+            <div class="price">£79<span class="per">/mo</span></div>
+            <p style="color: white; margin: 1rem 0;">Most popular for growing teams</p>
+            <ul>
+              <li>Up to 10,000 MAUs</li>
+              <li>Advanced targeting</li>
+              <li>A/B testing & experiments</li>
+              <li>Priority support</li>
+              <li>Advanced analytics</li>
+              <li>Team collaboration</li>
+              <li>Custom integrations</li>
+            </ul>
+            <a class="btn btn-primary" href="trial-setup.html" data-plan="growth">Start Free Trial</a>
+          </div>
+
+          <div class="plan">
+            <h3>Enterprise</h3>
+            <div class="price">Custom</div>
+            <p style="color: var(--muted); margin: 1rem 0;">For large-scale operations</p>
+            <ul>
+              <li>Unlimited MAUs</li>
+              <li>White-label options</li>
+              <li>SLAs & SSO</li>
+              <li>Dedicated CSM</li>
+              <li>Custom development</li>
+              <li>Advanced security</li>
+              <li>Priority onboarding</li>
+            </ul>
+            <a class="btn btn-outline" href="#custom-plan" data-plan="enterprise">Create Custom Plan</a>
+          </div>
+        </div>
+
+        <div class="guarantee">
+          <p>💰 30-day money-back guarantee • 🔒 SOC 2 Type II certified • 🛡️ GDPR compliant</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom Plan Builder -->
+    <section class="section" id="custom-plan" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <h2>Build Your Custom Plan</h2>
+          <p class="muted">Configure a plan that fits your exact needs</p>
+        </div>
+        <div style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+          <form id="custom-plan-form">
+            <div class="form-row">
+              <label for="monthly-users">Monthly Active Users</label>
+              <select id="monthly-users" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                <option value="10000">Up to 10,000 MAUs</option>
+                <option value="50000">Up to 50,000 MAUs</option>
+                <option value="100000">Up to 100,000 MAUs</option>
+                <option value="unlimited">Unlimited MAUs</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label>Features</label>
+              <div style="display: grid; gap: 0.5rem; margin-top: 0.5rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" checked disabled> Basic onboarding flows</label>
+                <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" id="advanced-targeting"> Advanced targeting & segmentation</label>
+                <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" id="ab-testing"> A/B testing & experiments</label>
+                <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" id="white-label"> White-label options</label>
+                <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" id="sso"> SSO & advanced security</label>
+                <label style="display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" id="dedicated-csm"> Dedicated customer success manager</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="support-level">Support Level</label>
+              <select id="support-level" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                <option value="email">Email support</option>
+                <option value="priority">Priority support</option>
+                <option value="dedicated">Dedicated support team</option>
+              </select>
+            </div>
+            <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin: 2rem 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>Estimated monthly cost:</span>
+                <span style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">£<span id="estimated-cost">79</span>/mo</span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Get Custom Quote</button>
+          </form>
+          
+          <!-- Quote Modal -->
+          <div id="quote-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+            <div style="background: white; padding: 3rem; border-radius: var(--radius); max-width: 500px; width: 90%; text-align: center;">
+              <h3>Custom Quote Request</h3>
+              <p>Thank you for your interest! Our sales team will contact you within 24 hours with a personalized quote.</p>
+              <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin: 2rem 0; text-align: left;">
+                <h4>Your Configuration:</h4>
+                <div id="quote-summary"></div>
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-weight: 600;">Estimated: £<span id="final-cost">79</span>/month</div>
+              </div>
+              <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button onclick="closeQuoteModal()" class="btn btn-outline">Close</button>
+                <a href="mailto:sales@boostly.com?subject=Custom Quote Request" class="btn btn-primary">Contact Sales</a>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--border-light);">
+      <div class="container">
+        <h2 style="text-align: center;">Frequently Asked Questions</h2>
+        <div class="faq-grid" style="max-width: 800px; margin: 2rem auto;">
+          <div class="faq-item">
+            <button class="faq-question">Can I change plans anytime?</button>
+            <div class="faq-answer">
+              <p>Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately and we'll prorate your billing.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">What happens if I exceed my MAU limit?</button>
+            <div class="faq-answer">
+              <p>We'll notify you when you're approaching your limit. You can upgrade your plan or we'll automatically suggest the best plan for your usage.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you offer annual discounts?</button>
+            <div class="faq-answer">
+              <p>Yes! Save 20% when you pay annually. Contact our sales team for custom enterprise pricing.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Is there a setup fee?</button>
+            <div class="faq-answer">
+              <p>No setup fees, ever. You can start using Boostly immediately after signing up.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="text-align: center;">
+        <h2>Ready to get started?</h2>
+        <p class="muted">Join thousands of SaaS companies already using Boostly</p>
+        <div style="margin-top: 2rem;">
+          <a href="trial-setup.html" class="btn btn-primary" style="margin-right: 1rem;">Start Free Trial</a>
+          <a href="contact.html" class="btn btn-outline">Talk to Sales</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">🔒 SOC 2</span>
+          <span class="badge">🛡️ GDPR</span>
+          <span class="badge">⭐ 4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html#integrations">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© <span id="year"></span> Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Ensure FAQ works on pricing page
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          const isActive = question.classList.contains('active');
+          
+          // Close all FAQs
+          document.querySelectorAll('.faq-question').forEach(q => {
+            q.classList.remove('active');
+            q.nextElementSibling.classList.remove('active');
+          });
+          
+          // Open clicked FAQ if it wasn't active
+          if (!isActive) {
+            question.classList.add('active');
+            answer.classList.add('active');
+          }
+        });
+      });
+
+      // Custom plan pricing calculator
+      const monthlyUsers = document.getElementById('monthly-users');
+      const estimatedCost = document.getElementById('estimated-cost');
+      const checkboxes = document.querySelectorAll('#custom-plan-form input[type="checkbox"]:not([disabled])');
+      const supportLevel = document.getElementById('support-level');
+      
+      // Handle custom quote form submission
+      const customPlanForm = document.getElementById('custom-plan-form');
+      if (customPlanForm) {
+        customPlanForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          showQuoteModal();
+        });
+      }
+
+      function calculatePrice() {
+        const basePrices = {
+          '10000': 79,
+          '50000': 199,
+          '100000': 399,
+          'unlimited': 799
+        };
+
+        const featurePrices = {
+          'advanced-targeting': 50,
+          'ab-testing': 75,
+          'white-label': 150,
+          'sso': 100,
+          'dedicated-csm': 200
+        };
+
+        const supportPrices = {
+          'email': 0,
+          'priority': 50,
+          'dedicated': 150
+        };
+
+        let total = basePrices[monthlyUsers.value] || 79;
+        
+        checkboxes.forEach(checkbox => {
+          if (checkbox.checked && featurePrices[checkbox.id]) {
+            total += featurePrices[checkbox.id];
+          }
+        });
+
+        total += supportPrices[supportLevel.value] || 0;
+        
+        estimatedCost.textContent = total;
+      }
+
+      if (monthlyUsers && estimatedCost) {
+        monthlyUsers.addEventListener('change', calculatePrice);
+        supportLevel.addEventListener('change', calculatePrice);
+        checkboxes.forEach(checkbox => {
+          checkbox.addEventListener('change', calculatePrice);
+        });
+        calculatePrice();
+      }
+      
+      // Profile functionality
+      if (localStorage.getItem('userLoggedIn') === 'true') {
+        document.getElementById('user-profile').style.display = 'flex';
+        document.getElementById('logged-out-buttons').style.display = 'none';
+      }
+      
+      // Close profile menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.user-profile')) {
+          const menu = document.getElementById('profile-menu');
+          if (menu) menu.style.display = 'none';
+        }
+      });
+    });
+    
+    // Make functions global
+    function toggleProfileMenu() {
+      const menu = document.getElementById('profile-menu');
+      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function logout() {
+      localStorage.removeItem('userLoggedIn');
+      document.getElementById('user-profile').style.display = 'none';
+      document.getElementById('logged-out-buttons').style.display = 'flex';
+    }
+    
+    function showQuoteModal() {
+      const monthlyUsers = document.getElementById('monthly-users').value;
+      const checkboxes = document.querySelectorAll('#custom-plan-form input[type="checkbox"]:checked:not([disabled])');
+      const supportLevel = document.getElementById('support-level').value;
+      const estimatedCost = document.getElementById('estimated-cost').textContent;
+      
+      // Build summary
+      const userLabels = {
+        '10000': 'Up to 10,000 MAUs',
+        '50000': 'Up to 50,000 MAUs', 
+        '100000': 'Up to 100,000 MAUs',
+        'unlimited': 'Unlimited MAUs'
+      };
+      
+      const supportLabels = {
+        'email': 'Email support',
+        'priority': 'Priority support',
+        'dedicated': 'Dedicated support team'
+      };
+      
+      let summary = `<div>• ${userLabels[monthlyUsers]}</div>`;
+      summary += `<div>• ${supportLabels[supportLevel]}</div>`;
+      
+      checkboxes.forEach(checkbox => {
+        const label = checkbox.parentElement.textContent.trim();
+        summary += `<div>• ${label}</div>`;
+      });
+      
+      document.getElementById('quote-summary').innerHTML = summary;
+      document.getElementById('final-cost').textContent = estimatedCost;
+      document.getElementById('quote-modal').style.display = 'flex';
+    }
+    
+    function closeQuoteModal() {
+      document.getElementById('quote-modal').style.display = 'none';
+    }
+    
+    // Set current year in footer
+    document.getElementById('year').textContent = '2025';
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>

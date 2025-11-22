@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div id="user-profile" class="user-profile" style="display: none; position: relative;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span id="trial-days">13</span> days left</div>
+          <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+            <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+            <span style="color: var(--text);">jane@company.com</span>
+            <span style="color: var(--muted);">▼</span>
+          </button>
+          <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+            <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📊 Dashboard</a>
+            <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">🔄 Flows</a>
+            <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📈 Analytics</a>
+            <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">⚙️ Settings</a>
+            <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">🚪 Logout</a>
+          </div>
+        </div>
+        <div id="logged-out-buttons" style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="index.html#signup">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 6rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h1 style="color: white; font-size: 3rem; margin-bottom: 1.5rem;">See Boostly in action</h1>
+          <p class="lede" style="color: rgba(255,255,255,0.9);">Watch how easy it is to create high-converting onboarding flows</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div style="max-width: 900px; margin: 0 auto;">
+          <div class="demo-gallery" style="margin-bottom: 3rem;">
+            <div class="main-screenshot">
+              <img id="main-image" src="assets/dashboard.svg" alt="Boostly Dashboard" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg);">
+            </div>
+            <div class="screenshot-thumbnails" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1rem;">
+              <img src="assets/dashboard.svg" alt="Dashboard" class="thumbnail active" data-main="assets/dashboard.svg" style="cursor: pointer; border-radius: var(--radius-sm); border: 2px solid var(--primary); height: 80px; object-fit: cover;">
+              <img src="assets/flow-builder.svg" alt="Flow Builder" class="thumbnail" data-main="assets/flow-builder.svg" style="cursor: pointer; border-radius: var(--radius-sm); border: 2px solid transparent; height: 80px; object-fit: cover;">
+              <img src="assets/analytics.svg" alt="Analytics" class="thumbnail" data-main="assets/analytics.svg" style="cursor: pointer; border-radius: var(--radius-sm); border: 2px solid transparent; height: 80px; object-fit: cover;">
+              <img src="assets/ab-testing.svg" alt="A/B Tests" class="thumbnail" data-main="assets/ab-testing.svg" style="cursor: pointer; border-radius: var(--radius-sm); border: 2px solid transparent; height: 80px; object-fit: cover;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0;">
+            <div class="stat">
+              <div class="stat-number">22%</div>
+              <div class="stat-label">Average conversion increase</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">5 min</div>
+              <div class="stat-label">Setup time</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">99.9%</div>
+              <div class="stat-label">Uptime SLA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--border-light);">
+      <div class="container">
+        <h2 style="text-align: center;">What you'll see in the demo</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin: 3rem 0; max-width: 900px; margin-left: auto; margin-right: auto;">
+          <div style="display: flex; gap: 1rem;">
+            <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+            <div>
+              <h4>Flow Builder</h4>
+              <p style="color: var(--muted);">See how easy it is to create onboarding flows with our drag-and-drop builder</p>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 1rem;">
+            <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+            <div>
+              <h4>Targeting Options</h4>
+              <p style="color: var(--muted);">Learn about advanced targeting based on user behavior and attributes</p>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 1rem;">
+            <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+            <div>
+              <h4>A/B Testing</h4>
+              <p style="color: var(--muted);">Discover how to run experiments and measure their impact on conversions</p>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 1rem;">
+            <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">4</div>
+            <div>
+              <h4>Analytics Dashboard</h4>
+              <p style="color: var(--muted);">Explore the analytics that help you understand user behavior and optimize flows</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+          <div>
+            <h2>Want a personalized demo?</h2>
+            <p style="color: var(--muted); margin: 1.5rem 0;">Schedule a 30-minute call with our team to see how Boostly can work specifically for your product and use case.</p>
+            <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+              <li style="margin: 0.75rem 0;">✅ Personalized walkthrough</li>
+              <li style="margin: 0.75rem 0;">✅ Custom use case discussion</li>
+              <li style="margin: 0.75rem 0;">✅ Implementation planning</li>
+              <li style="margin: 0.75rem 0;">✅ Q&A with our experts</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">Schedule Demo</a>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+            <h3>Book a Demo</h3>
+            <form style="margin-top: 1.5rem;">
+              <div class="form-row">
+                <label for="demo-name">Name</label>
+                <input id="demo-name" type="text" required />
+              </div>
+              <div class="form-row">
+                <label for="demo-email">Email</label>
+                <input id="demo-email" type="email" required />
+              </div>
+              <div class="form-row">
+                <label for="demo-company">Company</label>
+                <input id="demo-company" type="text" required />
+              </div>
+              <div class="form-row">
+                <label for="demo-users">Monthly Active Users</label>
+                <select id="demo-users" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+                  <option>Less than 1,000</option>
+                  <option>1,000 - 10,000</option>
+                  <option>10,000 - 50,000</option>
+                  <option>50,000+</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Book Demo</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--border-light);">
+      <div class="container" style="text-align: center;">
+        <h2>Ready to get started?</h2>
+        <p class="muted">No demo needed? Jump right in with our free trial</p>
+        <div style="margin-top: 2rem;">
+          <a href="trial-setup.html" class="btn btn-primary" style="margin-right: 1rem;">Start Free Trial</a>
+          <a href="features.html" class="btn btn-outline">Explore Features</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">🔒 SOC 2</span>
+          <span class="badge">🛡️ GDPR</span>
+          <span class="badge">⭐ 4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html#integrations">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© 2025 Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Interactive image gallery
+    document.querySelectorAll('.thumbnail').forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        // Update main image
+        document.getElementById('main-image').src = this.dataset.main;
+        document.getElementById('main-image').alt = this.alt + ' - Full View';
+        
+        // Update active thumbnail
+        document.querySelectorAll('.thumbnail').forEach(t => {
+          t.classList.remove('active');
+          t.style.borderColor = 'transparent';
+        });
+        this.classList.add('active');
+        this.style.borderColor = 'var(--primary)';
+      });
+    });
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const button = this.querySelector('button[type="submit"]');
+      button.textContent = 'Booking Demo...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = '✓ Demo Booked!';
+        button.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          this.reset();
+          button.textContent = 'Book Demo';
+          button.style.background = '';
+          button.disabled = false;
+          
+          // Show professional notification
+          const successMsg = document.createElement('div');
+          successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 1rem 1.5rem; border-radius: var(--radius); z-index: 2000; display: flex; align-items: center; gap: 0.5rem;';
+          successMsg.innerHTML = '📅 Demo booked! We\'ll contact you within 24 hours.';
+          document.body.appendChild(successMsg);
+          
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 5000);
+        }, 1500);
+      }, 2000);
+    });
+    
+    // Profile functionality
+    function toggleProfileMenu() {
+      const menu = document.getElementById('profile-menu');
+      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function logout() {
+      localStorage.removeItem('userLoggedIn');
+      document.getElementById('user-profile').style.display = 'none';
+      document.getElementById('logged-out-buttons').style.display = 'flex';
+    }
+
+    // Check login state on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (localStorage.getItem('userLoggedIn') === 'true') {
+        document.getElementById('user-profile').style.display = 'flex';
+        document.getElementById('logged-out-buttons').style.display = 'none';
+      }
+      
+      // Close profile menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.user-profile')) {
+          const menu = document.getElementById('profile-menu');
+          if (menu) menu.style.display = 'none';
+        }
+      });
+    });
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>

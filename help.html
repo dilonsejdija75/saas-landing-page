@@ -1,0 +1,3064 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Help Center — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .help-sidebar {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      position: sticky;
+      top: 2rem;
+      height: fit-content;
+    }
+    
+    .help-content {
+      background: white;
+      padding: 3rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      min-height: 600px;
+    }
+    
+    .guide-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .guide-nav li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .guide-nav a {
+      display: block;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    
+    .guide-nav a:hover, .guide-nav a.active {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .guide-section {
+      margin-bottom: 1rem;
+    }
+    
+    .guide-section h4 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .code-block {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    
+    .step-list {
+      counter-reset: step-counter;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .step-list li {
+      counter-increment: step-counter;
+      margin-bottom: 1.5rem;
+      padding-left: 3rem;
+      position: relative;
+    }
+    
+    .step-list li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    
+    .metric-card {
+      background: var(--border-light);
+      padding: 1.5rem;
+      border-radius: var(--radius-sm);
+      margin: 1rem 0;
+    }
+    
+    .integration-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding: 2rem 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1>Help Center</h1>
+        <p class="muted">Everything you need to know about using Boostly</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 300px 1fr; gap: 3rem;">
+        <!-- Sidebar Navigation -->
+        <div class="help-sidebar">
+          <h3>Documentation</h3>
+          <nav>
+            <div class="guide-section">
+              <h4>🚀 Getting Started</h4>
+              <ul class="guide-nav">
+                <li><a href="#quick-start" onclick="showGuide('quick-start')" class="active">Quick Start Guide</a></li>
+                <li><a href="#installing-snippet" onclick="showGuide('installing-snippet')">Installing the Snippet</a></li>
+                <li><a href="#first-flow" onclick="showGuide('first-flow')">Creating Your First Flow</a></li>
+                <li><a href="#analytics-setup" onclick="showGuide('analytics-setup')">Setting Up Analytics</a></li>
+              </ul>
+            </div>
+            
+            <div class="guide-section">
+              <h4>🎯 Onboarding Flows</h4>
+              <ul class="guide-nav">
+                <li><a href="#flow-builder" onclick="showGuide('flow-builder')">Flow Builder Guide</a></li>
+                <li><a href="#targeting" onclick="showGuide('targeting')">Targeting & Segmentation</a></li>
+                <li><a href="#templates" onclick="showGuide('templates')">Template Library</a></li>
+                <li><a href="#best-practices" onclick="showGuide('best-practices')">Best Practices</a></li>
+              </ul>
+            </div>
+            
+            <div class="guide-section">
+              <h4>🧪 A/B Testing</h4>
+              <ul class="guide-nav">
+                <li><a href="#creating-experiments" onclick="showGuide('creating-experiments')">Creating Experiments</a></li>
+                <li><a href="#statistical-significance" onclick="showGuide('statistical-significance')">Statistical Significance</a></li>
+                <li><a href="#reading-results" onclick="showGuide('reading-results')">Reading Results</a></li>
+                <li><a href="#test-duration" onclick="showGuide('test-duration')">Test Duration</a></li>
+              </ul>
+            </div>
+            
+            <div class="guide-section">
+              <h4>📊 Analytics</h4>
+              <ul class="guide-nav">
+                <li><a href="#understanding-metrics" onclick="showGuide('understanding-metrics')">Understanding Metrics</a></li>
+                <li><a href="#custom-events" onclick="showGuide('custom-events')">Custom Events</a></li>
+                <li><a href="#conversion-funnels" onclick="showGuide('conversion-funnels')">Conversion Funnels</a></li>
+                <li><a href="#exporting-data" onclick="showGuide('exporting-data')">Exporting Data</a></li>
+              </ul>
+            </div>
+            
+            <div class="guide-section">
+              <h4>🔧 Integrations</h4>
+              <ul class="guide-nav">
+                <li><a href="#segment-integration" onclick="showGuide('segment-integration')">Segment Integration</a></li>
+                <li><a href="#hubspot-setup" onclick="showGuide('hubspot-setup')">HubSpot Setup</a></li>
+                <li><a href="#salesforce-connection" onclick="showGuide('salesforce-connection')">Salesforce Connection</a></li>
+                <li><a href="#webhook-configuration" onclick="showGuide('webhook-configuration')">Webhook Configuration</a></li>
+              </ul>
+            </div>
+            
+            <div class="guide-section">
+              <h4>💳 Billing & Account</h4>
+              <ul class="guide-nav">
+                <li><a href="#managing-plan" onclick="showGuide('managing-plan')">Managing Your Plan</a></li>
+                <li><a href="#usage-limits" onclick="showGuide('usage-limits')">Usage Limits</a></li>
+                <li><a href="#team-management" onclick="showGuide('team-management')">Team Management</a></li>
+                <li><a href="#cancellation-policy" onclick="showGuide('cancellation-policy')">Cancellation Policy</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <!-- Content Area -->
+        <div class="help-content" id="guide-content">
+          <!-- Quick Start Guide (Default) -->
+          <div id="quick-start-content">
+            <h1>Quick Start Guide</h1>
+            <p>Get up and running with Boostly in under 5 minutes. This guide will walk you through the essential steps to start converting more visitors.</p>
+            
+            <ol class="step-list">
+              <li>
+                <h3>Install the Boostly Snippet</h3>
+                <p>Contact our support team to get your custom installation code and API key.</p>
+              </li>
+              
+              <li>
+                <h3>Create Your First Flow</h3>
+                <p>Start with a proven template:</p>
+                <ul>
+                  <li>Go to <a href="flows.html">Flows</a> in your dashboard</li>
+                  <li>Click "Use Template" on the Welcome Flow</li>
+                  <li>Customize the messaging for your brand</li>
+                  <li>Set targeting rules (new users, specific pages)</li>
+                </ul>
+              </li>
+              
+              <li>
+                <h3>Test and Launch</h3>
+                <p>Before going live:</p>
+                <ul>
+                  <li>Use the preview feature to test your flow</li>
+                  <li>Check on different devices and browsers</li>
+                  <li>Activate when you're satisfied</li>
+                </ul>
+              </li>
+              
+              <li>
+                <h3>Monitor Performance</h3>
+                <p>Track your results in the <a href="analytics.html">Analytics</a> dashboard:</p>
+                <ul>
+                  <li>Conversion rates by flow</li>
+                  <li>User engagement metrics</li>
+                  <li>Revenue attribution</li>
+                </ul>
+              </li>
+            </ol>
+            
+            <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+              <h4 style="margin: 0 0 0.5rem 0;">🎉 You're all set!</h4>
+              <p style="margin: 0;">Your first flow should start showing results within 24 hours. Need help? <a href="contact.html" style="color: white;">Contact our support team</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">🔒 SOC 2</span>
+          <span class="badge">🛡️ GDPR</span>
+          <span class="badge">⭐ 4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html#integrations">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© <span id="year"></span> Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const guides = {
+      'quick-start': {
+        title: 'Quick Start Guide',
+        content: `
+          <h1>Quick Start Guide</h1>
+          <p>Get up and running with Boostly in under 5 minutes. This guide will walk you through the essential steps to start converting more visitors.</p>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Install the Boostly Snippet</h3>
+              <p>Contact our support team to get your custom installation code and API key.</p>
+            </li>
+            
+            <li>
+              <h3>Create Your First Flow</h3>
+              <p>Start with a proven template:</p>
+              <ul>
+                <li>Go to <a href="flows.html">Flows</a> in your dashboard</li>
+                <li>Click "Use Template" on the Welcome Flow</li>
+                <li>Customize the messaging for your brand</li>
+                <li>Set targeting rules (new users, specific pages)</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Test and Launch</h3>
+              <p>Before going live:</p>
+              <ul>
+                <li>Use the preview feature to test your flow</li>
+                <li>Check on different devices and browsers</li>
+                <li>Activate when you're satisfied</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Monitor Performance</h3>
+              <p>Track your results in the <a href="analytics.html">Analytics</a> dashboard:</p>
+              <ul>
+                <li>Conversion rates by flow</li>
+                <li>User engagement metrics</li>
+                <li>Revenue attribution</li>
+              </ul>
+            </li>
+          </ol>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4 style="margin: 0 0 0.5rem 0;">🎉 You're all set!</h4>
+            <p style="margin: 0;">Your first flow should start showing results within 24 hours. Need help? <a href="contact.html" style="color: white;">Contact our support team</a>.</p>
+          </div>
+        `
+      },
+      
+      'installing-snippet': {
+        title: 'Installing the Snippet',
+        content: `
+          <h1>Installing the Snippet</h1>
+          <p>The Boostly snippet is a small piece of JavaScript that enables all our features on your website.</p>
+          
+          <h2>Basic Installation</h2>
+          <p>Contact our support team to receive your personalized installation instructions and API key.</p>
+          
+          <h2>Framework-Specific Instructions</h2>
+          
+          <h3>React</h3>
+          <p>Contact support for React integration instructions.</p>
+          
+          <h3>WordPress</h3>
+          <p>Contact support for WordPress plugin installation.</p>
+          
+          <h3>Shopify</h3>
+          <p>Contact support for Shopify integration setup.</p>
+          
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>✅ Verification</h4>
+            <p>After installation, you should see a green "Connected" status in your dashboard within 5 minutes.</p>
+          </div>
+        `
+      },
+      
+      'first-flow': {
+        title: 'Creating Your First Flow',
+        content: `
+          <h1>Creating Your First Flow</h1>
+          <p>Flows are sequences of messages that guide users through your product. Let's create your first one.</p>
+          
+          <h2>Choosing a Flow Type</h2>
+          
+          <div class="metric-card">
+            <h3>🎉 Welcome Flow</h3>
+            <p><strong>Best for:</strong> New user onboarding</p>
+            <p><strong>Typical conversion lift:</strong> +15-25%</p>
+            <p><strong>Steps:</strong> Welcome → Profile Setup → First Action</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>⬆️ Upgrade Prompt</h3>
+            <p><strong>Best for:</strong> Trial to paid conversion</p>
+            <p><strong>Typical conversion lift:</strong> +30-45%</p>
+            <p><strong>Steps:</strong> Feature Highlight → Benefits → CTA</p>
+          </div>
+          
+          <h2>Step-by-Step Creation</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Start with a Template</h3>
+              <p>Go to <a href="flows.html">Flows</a> and click "Use Template" on the Welcome Flow.</p>
+            </li>
+            
+            <li>
+              <h3>Customize Content</h3>
+              <p>Edit each step to match your brand:</p>
+              <ul>
+                <li><strong>Step 1:</strong> Welcome message with your company name</li>
+                <li><strong>Step 2:</strong> Guide to key features</li>
+                <li><strong>Step 3:</strong> Encourage first meaningful action</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Set Targeting Rules</h3>
+              <p>Choose who sees your flow:</p>
+              <ul>
+                <li><strong>New users:</strong> First-time visitors</li>
+                <li><strong>Signed up:</strong> Users who just registered</li>
+                <li><strong>Page-specific:</strong> Visitors to certain pages</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Preview and Test</h3>
+              <p>Use the preview feature to see how your flow looks on different devices.</p>
+            </li>
+            
+            <li>
+              <h3>Launch</h3>
+              <p>Click "Activate" to start showing your flow to users.</p>
+            </li>
+          </ol>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>💡 Pro Tip</h4>
+            <p style="margin: 0;">Start with our proven templates, then customize based on your results. Most successful flows have 2-3 steps maximum.</p>
+          </div>
+        `
+      },
+      
+      'analytics-setup': {
+        title: 'Setting Up Analytics',
+        content: `
+          <h1>Setting Up Analytics</h1>
+          <p>Proper analytics setup ensures you can measure the impact of your flows and optimize for better results.</p>
+          
+          <h2>Automatic Tracking</h2>
+          <p>Boostly automatically tracks these events once the snippet is installed:</p>
+          
+          <ul>
+            <li>Flow views and completions</li>
+            <li>Button clicks and interactions</li>
+            <li>Time spent in each step</li>
+            <li>Drop-off points</li>
+          </ul>
+          
+          <h2>Revenue Tracking</h2>
+          <p>Contact support for revenue tracking implementation details.</p>
+          
+          <h2>Custom Events</h2>
+          <p>Contact support for custom event tracking setup.</p>
+          
+          <h2>Integration with Other Tools</h2>
+          
+          <h3>Google Analytics</h3>
+          <p>Contact support for Google Analytics integration setup.</p>
+          
+          <h3>Segment</h3>
+          <p>Contact support for Segment integration configuration.</p>
+          
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>📊 Data Retention</h4>
+            <p>We store your analytics data for 2 years. Export important data regularly for long-term analysis.</p>
+          </div>
+        `
+      },
+      
+      'flow-builder': {
+        title: 'Flow Builder Guide',
+        content: `
+          <h1>Flow Builder Guide</h1>
+          <p>The Flow Builder is your visual editor for creating engaging user experiences. Master these features to build high-converting flows.</p>
+          
+          <h2>Flow Builder Interface</h2>
+          
+          <h3>Canvas Area</h3>
+          <ul>
+            <li><strong>Drag & Drop:</strong> Move steps around to reorder</li>
+            <li><strong>Zoom Controls:</strong> Get a better view of complex flows</li>
+            <li><strong>Grid Snap:</strong> Align elements perfectly</li>
+          </ul>
+          
+          <h3>Step Types</h3>
+          
+          <div class="metric-card">
+            <h4>💬 Message Step</h4>
+            <p>Display text, images, or videos to users</p>
+            <p><strong>Best for:</strong> Explanations, welcomes, announcements</p>
+          </div>
+          
+          <div class="metric-card">
+            <h4>❓ Question Step</h4>
+            <p>Collect user input or preferences</p>
+            <p><strong>Best for:</strong> Personalization, feedback, segmentation</p>
+          </div>
+          
+          <div class="metric-card">
+            <h4>🎯 Action Step</h4>
+            <p>Guide users to perform specific actions</p>
+            <p><strong>Best for:</strong> Feature adoption, conversions</p>
+          </div>
+          
+          <div class="metric-card">
+            <h4>🔀 Conditional Step</h4>
+            <p>Branch flows based on user behavior or attributes</p>
+            <p><strong>Best for:</strong> Personalized experiences</p>
+          </div>
+          
+          <h2>Building Your Flow</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Plan Your Journey</h3>
+              <p>Map out the user journey before building:</p>
+              <ul>
+                <li>What's the main goal?</li>
+                <li>What steps lead to that goal?</li>
+                <li>Where might users drop off?</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Add Steps</h3>
+              <p>Drag step types from the sidebar onto the canvas. Connect them with arrows to show the flow.</p>
+            </li>
+            
+            <li>
+              <h3>Configure Each Step</h3>
+              <p>Click on a step to edit:</p>
+              <ul>
+                <li><strong>Content:</strong> Text, images, buttons</li>
+                <li><strong>Styling:</strong> Colors, fonts, positioning</li>
+                <li><strong>Behavior:</strong> Timing, triggers, animations</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Set Triggers</h3>
+              <p>Define when your flow starts:</p>
+              <ul>
+                <li><strong>Page load:</strong> When user visits a page</li>
+                <li><strong>Time delay:</strong> After X seconds on page</li>
+                <li><strong>Scroll depth:</strong> When user scrolls to X%</li>
+                <li><strong>Element click:</strong> When user clicks something</li>
+                <li><strong>Exit intent:</strong> When user tries to leave</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Preview and Test</h3>
+              <p>Use the preview mode to test your flow on different devices and screen sizes.</p>
+            </li>
+          </ol>
+          
+          <h2>Advanced Features</h2>
+          
+          <h3>Dynamic Content</h3>
+          <p>Contact support for dynamic content personalization setup.</p>
+          
+          <h3>A/B Testing</h3>
+          <p>Test different versions of your flow:</p>
+          <ul>
+            <li>Create variants with different messaging</li>
+            <li>Set traffic split (50/50, 70/30, etc.)</li>
+            <li>Monitor performance in real-time</li>
+          </ul>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>🎨 Design Tips</h4>
+            <p style="margin: 0;">Keep flows simple and focused. Use your brand colors and maintain consistent styling throughout the experience.</p>
+          </div>
+        `
+      },
+      
+      'targeting': {
+        title: 'Targeting & Segmentation',
+        content: `
+          <h1>Targeting & Segmentation</h1>
+          <p>Show the right message to the right users at the right time. Effective targeting can double your conversion rates.</p>
+          
+          <h2>Targeting Options</h2>
+          
+          <h3>User Attributes</h3>
+          <div class="metric-card">
+            <h4>👤 Demographics</h4>
+            <ul>
+              <li>New vs returning users</li>
+              <li>Geographic location</li>
+              <li>Device type (mobile, desktop, tablet)</li>
+              <li>Browser and OS</li>
+            </ul>
+          </div>
+          
+          <div class="metric-card">
+            <h4>📊 Behavioral</h4>
+            <ul>
+              <li>Pages visited</li>
+              <li>Time on site</li>
+              <li>Number of sessions</li>
+              <li>Referral source</li>
+            </ul>
+          </div>
+          
+          <div class="metric-card">
+            <h4>🎯 Custom Attributes</h4>
+            <ul>
+              <li>User plan (free, pro, enterprise)</li>
+              <li>Feature usage</li>
+              <li>Account age</li>
+              <li>Team size</li>
+            </ul>
+          </div>
+          
+          <h2>Setting Up Segments</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Define Your Segments</h3>
+              <p>Common high-value segments:</p>
+              <ul>
+                <li><strong>New Trial Users:</strong> Just signed up, need onboarding</li>
+                <li><strong>Power Users:</strong> High engagement, good for upsells</li>
+                <li><strong>At-Risk Users:</strong> Low activity, need re-engagement</li>
+                <li><strong>Enterprise Prospects:</strong> Large teams, custom messaging</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Create Segment Rules</h3>
+              <p>Contact support for segment rule configuration.</p>
+            </li>
+            
+            <li>
+              <h3>Test Segment Size</h3>
+              <p>Ensure your segments are large enough for meaningful results (minimum 100 users per week).</p>
+            </li>
+          </ol>
+          
+          <h2>Advanced Targeting</h2>
+          
+          <h3>Page-Level Targeting</h3>
+          <ul>
+            <li><strong>URL contains:</strong> /pricing, /signup, /dashboard</li>
+            <li><strong>URL matches:</strong> Exact page matches</li>
+            <li><strong>Page title:</strong> Target by page title</li>
+          </ul>
+          
+          <h3>Time-Based Targeting</h3>
+          <ul>
+            <li><strong>Day of week:</strong> Different messages for weekdays vs weekends</li>
+            <li><strong>Time of day:</strong> Business hours vs after hours</li>
+            <li><strong>User timezone:</strong> Respect user's local time</li>
+          </ul>
+          
+          <h3>Cohort Targeting</h3>
+          <ul>
+            <li><strong>Signup date:</strong> Users who joined in specific periods</li>
+            <li><strong>Feature release:</strong> Users before/after feature launches</li>
+            <li><strong>Campaign source:</strong> Users from specific marketing campaigns</li>
+          </ul>
+          
+          <h2>Best Practices</h2>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+            <h4>✅ Do This</h4>
+            <ul style="margin: 0;">
+              <li>Start with broad segments, then narrow down</li>
+              <li>Test one targeting change at a time</li>
+              <li>Use exclusion rules to avoid message fatigue</li>
+              <li>Regularly review and update segments</li>
+            </ul>
+          </div>
+          
+          <div style="background: #dc3545; color: white; padding: 1.5rem; border-radius: var(--radius-sm);">
+            <h4>❌ Avoid This</h4>
+            <ul style="margin: 0;">
+              <li>Over-segmenting (too many small groups)</li>
+              <li>Showing the same message repeatedly</li>
+              <li>Ignoring mobile vs desktop differences</li>
+              <li>Targeting without clear goals</li>
+            </ul>
+          </div>
+        `
+      },
+      
+      'creating-experiments': {
+        title: 'Creating Experiments',
+        content: `
+          <h1>Creating A/B Test Experiments</h1>
+          <p>A/B testing lets you compare different versions of your flows to see which performs better. Here's how to set up effective experiments.</p>
+          
+          <h2>Experiment Planning</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Define Your Hypothesis</h3>
+              <p>Start with a clear hypothesis about what change will improve your conversion rate and why.</p>
+            </li>
+            
+            <li>
+              <h3>Choose Your Metric</h3>
+              <p>Select one primary metric to optimize for:</p>
+              <ul>
+                <li><strong>Click-through rate:</strong> % who click the CTA</li>
+                <li><strong>Completion rate:</strong> % who finish the flow</li>
+                <li><strong>Conversion rate:</strong> % who take desired action</li>
+                <li><strong>Revenue per visitor:</strong> Average revenue generated</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Determine Sample Size</h3>
+              <p>Use our built-in calculator or this formula:</p>
+              <div class="metric-card">
+                <h4>Sample Size Calculator</h4>
+                <p><strong>Current conversion rate:</strong> 5%</p>
+                <p><strong>Minimum detectable effect:</strong> 20% improvement</p>
+                <p><strong>Statistical power:</strong> 80%</p>
+                <p><strong>Significance level:</strong> 95%</p>
+                <p><strong>Required sample size:</strong> ~2,400 visitors per variant</p>
+              </div>
+            </li>
+          </ol>
+          
+          <h2>Setting Up Your Test</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Create Variants</h3>
+              <p>In the Flow Builder, click "Create Variant" to duplicate your flow:</p>
+              <ul>
+                <li><strong>Control (A):</strong> Your original flow</li>
+                <li><strong>Variant (B):</strong> Your modified version</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Set Traffic Split</h3>
+              <p>Choose how to divide your traffic:</p>
+              <ul>
+                <li><strong>50/50:</strong> Equal split for maximum statistical power</li>
+                <li><strong>90/10:</strong> Conservative approach, minimal risk</li>
+                <li><strong>70/30:</strong> Balanced approach</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Configure Test Settings</h3>
+              <ul>
+                <li><strong>Test duration:</strong> Run for at least 1-2 weeks</li>
+                <li><strong>Minimum sample size:</strong> Wait for statistical significance</li>
+                <li><strong>Success criteria:</strong> Define when to declare a winner</li>
+              </ul>
+            </li>
+          </ol>
+          
+          <h2>What to Test</h2>
+          
+          <h3>High-Impact Elements</h3>
+          <div class="metric-card">
+            <h4>📝 Copy & Messaging</h4>
+            <ul>
+              <li>Headlines and value propositions</li>
+              <li>Button text and CTAs</li>
+              <li>Urgency and scarcity language</li>
+              <li>Social proof and testimonials</li>
+            </ul>
+          </div>
+          
+          <div class="metric-card">
+            <h4>🎨 Visual Design</h4>
+            <ul>
+              <li>Button colors and sizes</li>
+              <li>Images and videos</li>
+              <li>Layout and positioning</li>
+              <li>Typography and fonts</li>
+            </ul>
+          </div>
+          
+          <div class="metric-card">
+            <h4>⚡ User Experience</h4>
+            <ul>
+              <li>Number of steps in flow</li>
+              <li>Timing and triggers</li>
+              <li>Form fields and inputs</li>
+              <li>Progress indicators</li>
+            </ul>
+          </div>
+          
+          <h2>Running Your Test</h2>
+          
+          <h3>During the Test</h3>
+          <ul>
+            <li><strong>Don't peek too early:</strong> Wait for statistical significance</li>
+            <li><strong>Monitor for issues:</strong> Check for technical problems</li>
+            <li><strong>Document observations:</strong> Note any external factors</li>
+          </ul>
+          
+          <h3>When to Stop</h3>
+          <ul>
+            <li>✅ Reached statistical significance (95% confidence)</li>
+            <li>✅ Collected minimum sample size</li>
+            <li>✅ Run for minimum time period (1-2 weeks)</li>
+            <li>❌ Major technical issues discovered</li>
+            <li>❌ External factors affecting results</li>
+          </ul>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>🧪 Pro Testing Tips</h4>
+            <ul style="margin: 0;">
+              <li>Test one element at a time for clear insights</li>
+              <li>Run tests during normal business periods</li>
+              <li>Consider seasonal effects and external events</li>
+              <li>Document all tests for future reference</li>
+            </ul>
+          </div>
+        `
+      },
+      
+      'understanding-metrics': {
+        title: 'Understanding Metrics',
+        content: `
+          <h1>Understanding Your Analytics</h1>
+          <p>Master these key metrics to optimize your flows and drive better business results.</p>
+          
+          <h2>Core Metrics</h2>
+          
+          <div class="metric-card">
+            <h3>👀 Flow Views</h3>
+            <p><strong>Definition:</strong> Number of times your flow was displayed to users</p>
+            <p><strong>Good benchmark:</strong> Varies by targeting, but aim for steady growth</p>
+            <p><strong>Optimization tips:</strong> Improve targeting, adjust triggers, check technical issues</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>✅ Completion Rate</h3>
+            <p><strong>Definition:</strong> Percentage of users who complete your entire flow</p>
+            <p><strong>Good benchmark:</strong> 60-80% for onboarding flows, 40-60% for upgrade prompts</p>
+            <p><strong>Optimization tips:</strong> Reduce steps, improve copy, fix drop-off points</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>🎯 Conversion Rate</h3>
+            <p><strong>Definition:</strong> Percentage of flow viewers who take your desired action</p>
+            <p><strong>Good benchmark:</strong> 5-15% depending on action complexity</p>
+            <p><strong>Optimization tips:</strong> Stronger CTAs, better value proposition, reduce friction</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>💰 Revenue Attribution</h3>
+            <p><strong>Definition:</strong> Revenue generated by users who saw your flow</p>
+            <p><strong>Good benchmark:</strong> Positive ROI within 30 days</p>
+            <p><strong>Optimization tips:</strong> Target high-value segments, improve conversion quality</p>
+          </div>
+          
+          <h2>Advanced Metrics</h2>
+          
+          <h3>Engagement Metrics</h3>
+          <ul>
+            <li><strong>Time per step:</strong> How long users spend on each step</li>
+            <li><strong>Click-through rate:</strong> Percentage who click your CTAs</li>
+            <li><strong>Bounce rate:</strong> Users who leave immediately after seeing flow</li>
+            <li><strong>Return engagement:</strong> Users who engage with multiple flows</li>
+          </ul>
+          
+          <h3>Funnel Analysis</h3>
+          <div class="code-block">
+Step 1: Flow View        → 1,000 users (100%)
+Step 2: Engagement       →   750 users (75%)
+Step 3: CTA Click        →   450 users (45%)
+Step 4: Conversion       →   180 users (18%)
+
+Drop-off Analysis:
+• Step 1→2: 25% drop (250 users) - Attention/relevance issue?
+• Step 2→3: 40% drop (300 users) - Weak CTA or value prop?
+• Step 3→4: 60% drop (270 users) - Friction in conversion process?
+          </div>
+          
+          <h2>Segmented Analysis</h2>
+          
+          <h3>By User Type</h3>
+          <div class="metric-card">
+            <h4>New Users vs Returning Users</h4>
+            <p><strong>New users:</strong> Typically lower conversion but higher engagement</p>
+            <p><strong>Returning users:</strong> Higher conversion rates, more selective</p>
+          </div>
+          
+          <h3>By Device</h3>
+          <div class="metric-card">
+            <h4>Mobile vs Desktop Performance</h4>
+            <p><strong>Mobile:</strong> Often lower conversion, optimize for touch</p>
+            <p><strong>Desktop:</strong> Higher conversion, more screen real estate</p>
+          </div>
+          
+          <h3>By Traffic Source</h3>
+          <div class="metric-card">
+            <h4>Organic vs Paid vs Direct</h4>
+            <p><strong>Organic:</strong> Higher intent, better conversion</p>
+            <p><strong>Paid:</strong> Varies by campaign quality</p>
+            <p><strong>Direct:</strong> Highest intent and conversion</p>
+          </div>
+          
+          <h2>Setting Up Dashboards</h2>
+          
+          <h3>Executive Dashboard</h3>
+          <ul>
+            <li>Total conversions this month</li>
+            <li>Revenue attributed to flows</li>
+            <li>Overall conversion rate trend</li>
+            <li>Top performing flows</li>
+          </ul>
+          
+          <h3>Optimization Dashboard</h3>
+          <ul>
+            <li>Conversion rates by flow</li>
+            <li>Drop-off points analysis</li>
+            <li>A/B test results</li>
+            <li>Segment performance comparison</li>
+          </ul>
+          
+          <h2>Metric Interpretation</h2>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+            <h4>📈 Good Trends</h4>
+            <ul style="margin: 0;">
+              <li>Steady increase in completion rates</li>
+              <li>Decreasing cost per conversion</li>
+              <li>Growing revenue attribution</li>
+              <li>Improving user engagement scores</li>
+            </ul>
+          </div>
+          
+          <div style="background: #dc3545; color: white; padding: 1.5rem; border-radius: var(--radius-sm);">
+            <h4>⚠️ Warning Signs</h4>
+            <ul style="margin: 0;">
+              <li>Sudden drop in conversion rates</li>
+              <li>Increasing bounce rates</li>
+              <li>High drop-off at specific steps</li>
+              <li>Declining user engagement</li>
+            </ul>
+          </div>
+        `
+      },
+      
+      'segment-integration': {
+        title: 'Segment Integration',
+        content: `
+          <h1>Segment Integration</h1>
+          <p>Seamlessly connect Boostly with Segment to unify your customer data pipeline and create more personalized, data-driven experiences.</p>
+          
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: var(--radius); margin: 2rem 0;">
+            <h2 style="margin: 0 0 1rem 0; color: white;">🔗 Why Integrate with Segment?</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+              <div>
+                <h4 style="color: white; margin: 0 0 0.5rem 0;">📊 Unified Analytics</h4>
+                <p style="margin: 0; opacity: 0.9;">Send Boostly events to all your analytics tools automatically</p>
+              </div>
+              <div>
+                <h4 style="color: white; margin: 0 0 0.5rem 0;">🎯 Better Targeting</h4>
+                <p style="margin: 0; opacity: 0.9;">Use rich user data for more precise flow targeting</p>
+              </div>
+            </div>
+          </div>
+          
+          <h2>Quick Setup Guide</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>📋 Prepare Your Segment Workspace</h3>
+              <div class="metric-card">
+                <p><strong>Navigate to:</strong> Segment Dashboard → Connections → Sources</p>
+                <p><strong>Find:</strong> Your JavaScript source (usually your website)</p>
+                <p><strong>Copy:</strong> The Write Key (starts with 'wk_')</p>
+                <p><strong>Note:</strong> Keep this key secure - it identifies your Segment workspace</p>
+              </div>
+            </li>
+            
+            <li>
+              <h3>⚙️ Configure Boostly Integration</h3>
+              <p>Contact our support team to enable Segment integration with your Write Key. We'll handle the technical setup to ensure proper data flow.</p>
+            </li>
+            
+            <li>
+              <h3>✅ Verify Data Flow</h3>
+              <div class="metric-card">
+                <p><strong>Check:</strong> Segment Live Events debugger</p>
+                <p><strong>Timeline:</strong> Events should appear within 2-5 minutes</p>
+                <p><strong>Look for:</strong> "Flow Viewed", "Flow Completed" events</p>
+                <p><strong>Validate:</strong> Event properties match your expectations</p>
+              </div>
+            </li>
+          </ol>
+          
+          <h2>Event Mapping</h2>
+          
+          <h3>Automatic Events</h3>
+          <p>These events are automatically sent to Segment:</p>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="integration-card">
+              <h4>👁️ Flow Viewed</h4>
+              <p><strong>Triggered:</strong> When a user sees a flow</p>
+              <p><strong>Properties:</strong> Flow ID, name, user context</p>
+              <p><strong>Use case:</strong> Measure reach and exposure</p>
+            </div>
+            
+            <div class="integration-card">
+              <h4>✅ Flow Completed</h4>
+              <p><strong>Triggered:</strong> When user finishes entire flow</p>
+              <p><strong>Properties:</strong> Completion time, steps taken</p>
+              <p><strong>Use case:</strong> Track engagement quality</p>
+            </div>
+            
+            <div class="integration-card">
+              <h4>🎯 Flow Conversion</h4>
+              <p><strong>Triggered:</strong> When user takes desired action</p>
+              <p><strong>Properties:</strong> Conversion value, attribution</p>
+              <p><strong>Use case:</strong> Measure business impact</p>
+            </div>
+            
+            <div class="integration-card">
+              <h4>📊 Custom Events</h4>
+              <p><strong>Triggered:</strong> Your business-specific actions</p>
+              <p><strong>Properties:</strong> Custom data you define</p>
+              <p><strong>Use case:</strong> Track unique business metrics</p>
+            </div>
+          </div>
+          
+          <h2>📈 Downstream Integrations</h2>
+          
+          <h3>Popular Destinations</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>📊 Google Analytics</h4>
+              <p>Enhanced conversion tracking</p>
+            </div>
+            <div class="metric-card">
+              <h4>📧 Klaviyo</h4>
+              <p>Behavioral email triggers</p>
+            </div>
+            <div class="metric-card">
+              <h4>💰 Salesforce</h4>
+              <p>Lead scoring and attribution</p>
+            </div>
+            <div class="metric-card">
+              <h4>📱 Mixpanel</h4>
+              <p>Product analytics and funnels</p>
+            </div>
+          </div>
+          
+          <h2>📞 Support & Resources</h2>
+          
+          <div class="metric-card">
+            <h3>Need Help?</h3>
+            <p>Our integration specialists are here to help you get the most out of your Segment connection.</p>
+            <p><strong>Available support:</strong></p>
+            <ul>
+              <li>Setup assistance and configuration</li>
+              <li>Custom event mapping and filtering</li>
+              <li>Troubleshooting and optimization</li>
+              <li>Best practices consultation</li>
+            </ul>
+            <button style="background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-sm); margin-top: 1rem;">Contact Integration Support</button>
+          </div>
+          
+          <h2>🔄 Data Synchronization</h2>
+          
+          <h3>User Identity Mapping</h3>
+          <div class="metric-card">
+            <h4>Automatic User Linking</h4>
+            <p>Boostly automatically syncs user identities with Segment, ensuring consistent user tracking across your entire data stack.</p>
+            <p><strong>Benefits:</strong></p>
+            <ul>
+              <li>Unified user profiles across all tools</li>
+              <li>Consistent attribution and analytics</li>
+              <li>Better personalization capabilities</li>
+            </ul>
+          </div>
+          
+          <h3>Real-time Data Flow</h3>
+          <div class="metric-card">
+            <h4>Event Processing</h4>
+            <p><strong>Latency:</strong> < 5 seconds from action to Segment</p>
+            <p><strong>Reliability:</strong> 99.9% delivery rate with automatic retries</p>
+            <p><strong>Volume:</strong> Handles millions of events per day</p>
+          </div>
+          
+          <h2>🎛️ Advanced Configuration</h2>
+          
+          <h3>Event Filtering & Customization</h3>
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>Available Options</h4>
+            <ul>
+              <li><strong>Event Selection:</strong> Choose which events to send</li>
+              <li><strong>Property Mapping:</strong> Customize event property names</li>
+              <li><strong>Data Enrichment:</strong> Add custom properties to all events</li>
+              <li><strong>Filtering Rules:</strong> Send events based on conditions</li>
+            </ul>
+            <p><strong>Setup:</strong> Contact support to configure advanced options</p>
+          </div>
+          
+          <h2>Troubleshooting</h2>
+          
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm);">
+            <h4>Common Issues</h4>
+            <ul>
+              <li><strong>Events not appearing:</strong> Check Write Key and network connectivity</li>
+              <li><strong>Duplicate events:</strong> Ensure Segment is only initialized once</li>
+              <li><strong>Missing properties:</strong> Verify user identification is working</li>
+            </ul>
+          </div>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 1rem;">
+            <h4>✅ Verification Checklist</h4>
+            <ul style="margin: 0;">
+              <li>Events appear in Segment debugger within 5 minutes</li>
+              <li>User properties are correctly mapped</li>
+              <li>Custom events include Boostly context</li>
+              <li>No duplicate or missing events</li>
+            </ul>
+          </div>
+        `
+      },
+      
+      'templates': {
+        title: 'Template Library',
+        content: `
+          <h1>Template Library</h1>
+          <p>Pre-built flow templates designed to maximize conversions. Choose from proven patterns used by thousands of successful companies.</p>
+          
+          <h2>Popular Templates</h2>
+          
+          <div class="metric-card">
+            <h3>🎉 Welcome Flow</h3>
+            <p><strong>Use case:</strong> New user onboarding</p>
+            <p><strong>Average conversion lift:</strong> +22%</p>
+            <p><strong>Steps:</strong> Welcome message → Feature highlights → First action</p>
+            <p><strong>Best for:</strong> SaaS products, web apps, subscription services</p>
+            <button style="background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: var(--radius-sm); margin-top: 0.5rem;">Use Template</button>
+          </div>
+          
+          <div class="metric-card">
+            <h3>⬆️ Upgrade Prompt</h3>
+            <p><strong>Use case:</strong> Trial to paid conversion</p>
+            <p><strong>Average conversion lift:</strong> +35%</p>
+            <p><strong>Steps:</strong> Feature showcase → Benefits → Pricing → CTA</p>
+            <p><strong>Best for:</strong> Freemium products, trial periods</p>
+            <button style="background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: var(--radius-sm); margin-top: 0.5rem;">Use Template</button>
+          </div>
+          
+          <div class="metric-card">
+            <h3>🔄 Re-engagement Flow</h3>
+            <p><strong>Use case:</strong> Inactive user activation</p>
+            <p><strong>Average conversion lift:</strong> +18%</p>
+            <p><strong>Steps:</strong> "We miss you" → New features → Special offer</p>
+            <p><strong>Best for:</strong> Users who haven't logged in recently</p>
+            <button style="background: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: var(--radius-sm); margin-top: 0.5rem;">Use Template</button>
+          </div>
+          
+          <h2>Industry-Specific Templates</h2>
+          
+          <h3>E-commerce</h3>
+          <ul>
+            <li><strong>Cart Abandonment Recovery:</strong> Win back lost sales</li>
+            <li><strong>Product Recommendation:</strong> Increase average order value</li>
+            <li><strong>First Purchase Incentive:</strong> Convert browsers to buyers</li>
+          </ul>
+          
+          <h3>SaaS</h3>
+          <ul>
+            <li><strong>Feature Discovery:</strong> Highlight unused features</li>
+            <li><strong>Usage Milestone:</strong> Celebrate user achievements</li>
+            <li><strong>Billing Reminder:</strong> Reduce payment failures</li>
+          </ul>
+          
+          <h3>Content & Media</h3>
+          <ul>
+            <li><strong>Newsletter Signup:</strong> Grow your subscriber base</li>
+            <li><strong>Premium Content Gate:</strong> Convert to paid subscriptions</li>
+            <li><strong>Social Sharing Prompt:</strong> Increase viral growth</li>
+          </ul>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>🚀 Pro Tip</h4>
+            <p style="margin: 0;">Start with a template that matches your primary goal, then customize based on your specific user journey and business metrics.</p>
+          </div>
+        `
+      },
+      
+      'best-practices': {
+        title: 'Best Practices',
+        content: `
+          <h1>Flow Best Practices</h1>
+          <p>Learn from the most successful flows and avoid common pitfalls. These practices are based on analysis of millions of user interactions.</p>
+          
+          <h2>Design Principles</h2>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+            <h4>✅ Do This</h4>
+            <ul style="margin: 0;">
+              <li><strong>Keep it simple:</strong> 2-3 steps maximum for best completion rates</li>
+              <li><strong>Clear value proposition:</strong> Explain the benefit upfront</li>
+              <li><strong>Strong CTAs:</strong> Use action-oriented button text</li>
+              <li><strong>Mobile-first design:</strong> 60% of users are on mobile</li>
+              <li><strong>Progress indicators:</strong> Show users where they are</li>
+            </ul>
+          </div>
+          
+          <div style="background: #dc3545; color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-bottom: 2rem;">
+            <h4>❌ Avoid This</h4>
+            <ul style="margin: 0;">
+              <li><strong>Too many steps:</strong> Each step reduces completion by ~20%</li>
+              <li><strong>Generic messaging:</strong> Personalize based on user context</li>
+              <li><strong>Weak CTAs:</strong> Avoid "Click here" or "Learn more"</li>
+              <li><strong>Poor timing:</strong> Don't interrupt critical user actions</li>
+              <li><strong>No exit option:</strong> Always provide a way to dismiss</li>
+            </ul>
+          </div>
+          
+          <h2>Performance Benchmarks</h2>
+          
+          <h3>Industry Averages</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>Completion Rate</h4>
+              <p><strong>Excellent:</strong> >70%</p>
+              <p><strong>Good:</strong> 50-70%</p>
+              <p><strong>Needs work:</strong> <50%</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>Conversion Rate</h4>
+              <p><strong>Excellent:</strong> >15%</p>
+              <p><strong>Good:</strong> 8-15%</p>
+              <p><strong>Needs work:</strong> <8%</p>
+            </div>
+          </div>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>📈 Success Formula</h4>
+            <p style="margin: 0;">Right Message + Right Time + Right User = High Converting Flow. Focus on user context and timing over flashy design.</p>
+          </div>
+        `
+      },
+      
+      'statistical-significance': {
+        title: 'Statistical Significance',
+        content: `
+          <h1>Understanding Statistical Significance</h1>
+          <p>Statistical significance helps you determine if your A/B test results are reliable or just due to random chance.</p>
+          
+          <h2>What is Statistical Significance?</h2>
+          
+          <div class="metric-card">
+            <h3>📊 Definition</h3>
+            <p>Statistical significance indicates the probability that your test results occurred by chance. A 95% confidence level means there's only a 5% chance the results are due to random variation.</p>
+          </div>
+          
+          <h2>Confidence Levels</h2>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>90% Confidence</h4>
+              <p><strong>Risk:</strong> 10% chance of error</p>
+              <p><strong>Use for:</strong> Low-risk decisions</p>
+              <p><strong>Sample size:</strong> Smaller required</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>95% Confidence</h4>
+              <p><strong>Risk:</strong> 5% chance of error</p>
+              <p><strong>Use for:</strong> Standard business decisions</p>
+              <p><strong>Sample size:</strong> Industry standard</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>99% Confidence</h4>
+              <p><strong>Risk:</strong> 1% chance of error</p>
+              <p><strong>Use for:</strong> Critical business changes</p>
+              <p><strong>Sample size:</strong> Much larger required</p>
+            </div>
+          </div>
+          
+          <h2>Key Metrics to Monitor</h2>
+          
+          <h3>P-Value</h3>
+          <div class="metric-card">
+            <p><strong>What it means:</strong> Probability that results occurred by chance</p>
+            <p><strong>Significance threshold:</strong> p < 0.05 (for 95% confidence)</p>
+            <p><strong>Interpretation:</strong> Lower p-values indicate stronger evidence</p>
+          </div>
+          
+          <h3>Confidence Interval</h3>
+          <div class="metric-card">
+            <p><strong>What it shows:</strong> Range where the true effect likely falls</p>
+            <p><strong>Example:</strong> "Conversion lift: 15% ± 3%" means true lift is likely between 12-18%</p>
+            <p><strong>Narrow intervals:</strong> More precise estimates</p>
+          </div>
+          
+          <h2>Common Mistakes</h2>
+          
+          <div style="background: #dc3545; color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>❌ Peeking Too Early</h4>
+            <p style="margin: 0;">Checking results before reaching significance inflates false positive rates. Wait for your predetermined sample size.</p>
+          </div>
+          
+          <div style="background: #dc3545; color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>❌ Multiple Testing</h4>
+            <p style="margin: 0;">Testing multiple metrics without adjustment increases error rates. Focus on one primary metric per test.</p>
+          </div>
+          
+          <h2>Best Practices</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Pre-determine Sample Size</h3>
+              <p>Calculate required sample size before starting your test using power analysis.</p>
+            </li>
+            
+            <li>
+              <h3>Set Significance Level</h3>
+              <p>Choose your confidence level (typically 95%) before collecting data.</p>
+            </li>
+            
+            <li>
+              <h3>Wait for Completion</h3>
+              <p>Don't stop tests early just because they reach significance - complete your planned duration.</p>
+            </li>
+          </ol>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>🎯 Key Takeaway</h4>
+            <p style="margin: 0;">Statistical significance tells you if results are reliable, but business significance tells you if they matter. A 0.1% improvement might be statistically significant but not worth implementing.</p>
+          </div>
+        `
+      },
+      
+      'reading-results': {
+        title: 'Reading Results',
+        content: `
+          <h1>How to Read A/B Test Results</h1>
+          <p>Learn to interpret your test data correctly and make informed decisions based on statistical evidence.</p>
+          
+          <h2>Results Dashboard Overview</h2>
+          
+          <div class="metric-card">
+            <h3>📈 Sample Results Interpretation</h3>
+            <p><strong>Control (A):</strong> 1,247 visitors, 87 conversions (6.98%)</p>
+            <p><strong>Variant (B):</strong> 1,253 visitors, 112 conversions (8.94%)</p>
+            <p><strong>Improvement:</strong> +28.1% relative lift</p>
+            <p><strong>Confidence:</strong> 95% (p = 0.032)</p>
+            <p><strong>Status:</strong> ✅ Statistically significant winner</p>
+          </div>
+          
+          <h2>Key Metrics Explained</h2>
+          
+          <h3>Conversion Rate</h3>
+          <div class="metric-card">
+            <p><strong>Formula:</strong> Conversions ÷ Visitors × 100</p>
+            <p><strong>Example:</strong> 112 ÷ 1,253 × 100 = 8.94%</p>
+            <p><strong>What to look for:</strong> Consistent difference between variants</p>
+          </div>
+          
+          <h3>Relative Lift</h3>
+          <div class="metric-card">
+            <p><strong>Formula:</strong> (Variant Rate - Control Rate) ÷ Control Rate × 100</p>
+            <p><strong>Example:</strong> (8.94% - 6.98%) ÷ 6.98% × 100 = +28.1%</p>
+            <p><strong>What it means:</strong> Percentage improvement over the original</p>
+          </div>
+          
+          <h3>Absolute Lift</h3>
+          <div class="metric-card">
+            <p><strong>Formula:</strong> Variant Rate - Control Rate</p>
+            <p><strong>Example:</strong> 8.94% - 6.98% = +1.96 percentage points</p>
+            <p><strong>What it means:</strong> Raw difference in conversion rates</p>
+          </div>
+          
+          <h2>Result Scenarios</h2>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>✅ Clear Winner</h4>
+            <p><strong>Scenario:</strong> 95%+ confidence, meaningful lift (>10%)</p>
+            <p><strong>Action:</strong> Implement the winning variant</p>
+            <p style="margin: 0;"><strong>Example:</strong> Variant B wins with 95% confidence and +25% lift</p>
+          </div>
+          
+          <div style="background: #ffc107; color: black; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>⚠️ Inconclusive</h4>
+            <p><strong>Scenario:</strong> <95% confidence or very small effect</p>
+            <p><strong>Action:</strong> Run longer or try a different approach</p>
+            <p style="margin: 0;"><strong>Example:</strong> 85% confidence with +3% lift</p>
+          </div>
+          
+          <div style="background: #dc3545; color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>❌ Negative Result</h4>
+            <p><strong>Scenario:</strong> Variant performs significantly worse</p>
+            <p><strong>Action:</strong> Keep original, analyze why variant failed</p>
+            <p style="margin: 0;"><strong>Example:</strong> Variant B loses with 95% confidence and -15% lift</p>
+          </div>
+          
+          <h2>Advanced Analysis</h2>
+          
+          <h3>Segment Performance</h3>
+          <ul>
+            <li><strong>Device type:</strong> Mobile vs desktop results</li>
+            <li><strong>Traffic source:</strong> Organic vs paid performance</li>
+            <li><strong>User type:</strong> New vs returning visitor behavior</li>
+            <li><strong>Geographic:</strong> Regional performance differences</li>
+          </ul>
+          
+          <h3>Time-Based Analysis</h3>
+          <ul>
+            <li><strong>Day of week:</strong> Weekday vs weekend patterns</li>
+            <li><strong>Time trends:</strong> Performance over test duration</li>
+            <li><strong>Seasonality:</strong> Holiday or event impacts</li>
+          </ul>
+          
+          <h2>Decision Framework</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Check Statistical Significance</h3>
+              <p>Ensure results meet your confidence threshold (typically 95%)</p>
+            </li>
+            
+            <li>
+              <h3>Evaluate Practical Significance</h3>
+              <p>Is the improvement large enough to matter for your business?</p>
+            </li>
+            
+            <li>
+              <h3>Consider Implementation Cost</h3>
+              <p>Weigh the effort required against expected benefits</p>
+            </li>
+            
+            <li>
+              <h3>Plan Rollout Strategy</h3>
+              <p>Gradual rollout vs full implementation based on confidence level</p>
+            </li>
+          </ol>
+          
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>📋 Results Checklist</h4>
+            <ul style="margin: 0;">
+              <li>✅ Reached minimum sample size</li>
+              <li>✅ Test ran for minimum duration</li>
+              <li>✅ Results are statistically significant</li>
+              <li>✅ Effect size is practically meaningful</li>
+              <li>✅ No external factors affected results</li>
+            </ul>
+          </div>
+        `
+      },
+      
+      'test-duration': {
+        title: 'Test Duration',
+        content: `
+          <h1>Optimal Test Duration</h1>
+          <p>Running tests for the right amount of time is crucial for reliable results. Too short and you'll miss significance; too long and you'll waste time.</p>
+          
+          <h2>Minimum Duration Guidelines</h2>
+          
+          <div class="metric-card">
+            <h3>⏰ Standard Recommendations</h3>
+            <p><strong>Minimum duration:</strong> 1-2 weeks</p>
+            <p><strong>Typical range:</strong> 2-4 weeks</p>
+            <p><strong>Maximum recommended:</strong> 8 weeks</p>
+            <p><strong>Why:</strong> Captures weekly patterns and reduces noise</p>
+          </div>
+          
+          <h2>Factors Affecting Duration</h2>
+          
+          <h3>Traffic Volume</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>High Traffic</h4>
+              <p><strong>Volume:</strong> >10,000 visitors/week</p>
+              <p><strong>Duration:</strong> 1-2 weeks</p>
+              <p><strong>Advantage:</strong> Faster results</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>Medium Traffic</h4>
+              <p><strong>Volume:</strong> 1,000-10,000 visitors/week</p>
+              <p><strong>Duration:</strong> 2-4 weeks</p>
+              <p><strong>Standard:</strong> Most common scenario</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>Low Traffic</h4>
+              <p><strong>Volume:</strong> <1,000 visitors/week</p>
+              <p><strong>Duration:</strong> 4-8 weeks</p>
+              <p><strong>Challenge:</strong> Longer time to significance</p>
+            </div>
+          </div>
+          
+          <h3>Conversion Rate Impact</h3>
+          <div class="metric-card">
+            <h4>Sample Size Requirements</h4>
+            <p><strong>Current rate 1%:</strong> ~40,000 visitors per variant</p>
+            <p><strong>Current rate 5%:</strong> ~8,000 visitors per variant</p>
+            <p><strong>Current rate 10%:</strong> ~4,000 visitors per variant</p>
+            <p><strong>Rule:</strong> Lower conversion rates need larger samples</p>
+          </div>
+          
+          <h2>Weekly Patterns</h2>
+          
+          <h3>Why Full Weeks Matter</h3>
+          <ul>
+            <li><strong>Weekday vs Weekend:</strong> Different user behavior patterns</li>
+            <li><strong>B2B vs B2C:</strong> Business cycles affect conversion rates</li>
+            <li><strong>Seasonal effects:</strong> Monthly and quarterly patterns</li>
+            <li><strong>Marketing campaigns:</strong> Promotional periods impact results</li>
+          </ul>
+          
+          <h3>Business Cycle Considerations</h3>
+          <div class="metric-card">
+            <h4>B2B Products</h4>
+            <p><strong>Peak days:</strong> Tuesday-Thursday</p>
+            <p><strong>Low periods:</strong> Weekends, holidays</p>
+            <p><strong>Recommendation:</strong> Run for complete business weeks</p>
+          </div>
+          
+          <div class="metric-card">
+            <h4>B2C Products</h4>
+            <p><strong>Peak days:</strong> Varies by industry</p>
+            <p><strong>Weekend effect:</strong> Often higher conversion</p>
+            <p><strong>Recommendation:</strong> Include full weekend cycles</p>
+          </div>
+          
+          <h2>When to Stop Early</h2>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>✅ Safe to Stop Early</h4>
+            <ul style="margin: 0;">
+              <li>Reached predetermined sample size</li>
+              <li>95%+ confidence for 3+ consecutive days</li>
+              <li>Large effect size (>25% improvement)</li>
+              <li>Business urgency with acceptable risk</li>
+            </ul>
+          </div>
+          
+          <div style="background: #dc3545; color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>❌ Don't Stop Early When</h4>
+            <ul style="margin: 0;">
+              <li>Results are fluctuating daily</li>
+              <li>Haven't completed one full week</li>
+              <li>Sample size is below minimum</li>
+              <li>External events may have influenced results</li>
+            </ul>
+          </div>
+          
+          <h2>Extended Testing Scenarios</h2>
+          
+          <h3>When to Run Longer</h3>
+          <ol class="step-list">
+            <li>
+              <h3>Seasonal Business</h3>
+              <p>Include multiple cycles for businesses with strong seasonal patterns</p>
+            </li>
+            
+            <li>
+              <h3>Long Sales Cycles</h3>
+              <p>B2B products may need 4-6 weeks to capture full conversion funnel</p>
+            </li>
+            
+            <li>
+              <h3>Low Traffic Sites</h3>
+              <p>May need 6-8 weeks to reach statistical significance</p>
+            </li>
+          </ol>
+          
+          <h2>Duration Planning Tool</h2>
+          
+          <div class="metric-card">
+            <h3>📊 Quick Calculator</h3>
+            <p><strong>Step 1:</strong> Current conversion rate × Weekly visitors = Weekly conversions</p>
+            <p><strong>Step 2:</strong> Target sample size ÷ Weekly conversions = Weeks needed</p>
+            <p><strong>Step 3:</strong> Add 1 week buffer for weekly patterns</p>
+            <p><strong>Example:</strong> 5% rate × 2,000 visitors = 100 conversions/week<br>
+            4,000 target ÷ 100 = 40 weeks per variant = 2-3 weeks total</p>
+          </div>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>⚡ Pro Tip</h4>
+            <p style="margin: 0;">Plan your test duration before starting. It's better to run a properly powered test for 3 weeks than an underpowered test for 6 weeks.</p>
+          </div>
+        `
+      },
+      
+      'custom-events': {
+        title: 'Custom Events',
+        content: `
+          <h1>Custom Events Tracking</h1>
+          <p>Track specific user actions and business events beyond standard flow interactions to gain deeper insights into user behavior.</p>
+          
+          <h2>Event Types</h2>
+          
+          <div class="metric-card">
+            <h3>🎯 Action Events</h3>
+            <p><strong>Purpose:</strong> Track specific user actions</p>
+            <p><strong>Examples:</strong> Button clicks, form submissions, feature usage</p>
+            <p><strong>Use case:</strong> Measure engagement and feature adoption</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>📊 Business Events</h3>
+            <p><strong>Purpose:</strong> Track business-critical milestones</p>
+            <p><strong>Examples:</strong> Purchases, subscriptions, upgrades</p>
+            <p><strong>Use case:</strong> Revenue attribution and ROI measurement</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>🔄 Lifecycle Events</h3>
+            <p><strong>Purpose:</strong> Track user journey progression</p>
+            <p><strong>Examples:</strong> Onboarding completion, trial expiration</p>
+            <p><strong>Use case:</strong> Optimize user experience and retention</p>
+          </div>
+          
+          <h2>Event Properties</h2>
+          
+          <h3>Standard Properties</h3>
+          <ul>
+            <li><strong>Event Name:</strong> Descriptive action identifier</li>
+            <li><strong>User ID:</strong> Unique user identifier</li>
+            <li><strong>Timestamp:</strong> When the event occurred</li>
+            <li><strong>Session ID:</strong> Current user session</li>
+          </ul>
+          
+          <h3>Custom Properties</h3>
+          <ul>
+            <li><strong>Revenue:</strong> Monetary value (for purchase events)</li>
+            <li><strong>Category:</strong> Event grouping</li>
+            <li><strong>Source:</strong> Where the action originated</li>
+            <li><strong>Metadata:</strong> Additional context data</li>
+          </ul>
+          
+          <h2>Implementation Guide</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Plan Your Events</h3>
+              <p>Define what actions are important for your business goals:</p>
+              <ul>
+                <li>Key user actions (sign up, purchase, upgrade)</li>
+                <li>Feature usage (search, export, share)</li>
+                <li>Engagement milestones (profile completion, first project)</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Set Up Event Tracking</h3>
+              <p>Contact support to implement custom event tracking for your specific needs.</p>
+            </li>
+            
+            <li>
+              <h3>Test Your Events</h3>
+              <p>Verify events are firing correctly:</p>
+              <ul>
+                <li>Check event appears in dashboard</li>
+                <li>Validate all properties are captured</li>
+                <li>Test across different devices and browsers</li>
+              </ul>
+            </li>
+          </ol>
+          
+          <h2>Best Practices</h2>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>✅ Do This</h4>
+            <ul style="margin: 0;">
+              <li>Use consistent naming conventions</li>
+              <li>Include relevant context in properties</li>
+              <li>Track both successful and failed actions</li>
+              <li>Document your event schema</li>
+            </ul>
+          </div>
+          
+          <div style="background: #dc3545; color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>❌ Avoid This</h4>
+            <ul style="margin: 0;">
+              <li>Tracking too many irrelevant events</li>
+              <li>Inconsistent event naming</li>
+              <li>Missing important context data</li>
+              <li>Not testing event implementation</li>
+            </ul>
+          </div>
+          
+          <h2>Common Use Cases</h2>
+          
+          <h3>E-commerce</h3>
+          <ul>
+            <li><strong>Product View:</strong> Track product page visits</li>
+            <li><strong>Add to Cart:</strong> Monitor shopping behavior</li>
+            <li><strong>Purchase:</strong> Revenue and conversion tracking</li>
+            <li><strong>Review Submitted:</strong> User engagement measurement</li>
+          </ul>
+          
+          <h3>SaaS Products</h3>
+          <ul>
+            <li><strong>Feature Used:</strong> Track feature adoption</li>
+            <li><strong>Export Data:</strong> Monitor advanced usage</li>
+            <li><strong>Invite Sent:</strong> Viral growth tracking</li>
+            <li><strong>Subscription Upgraded:</strong> Revenue expansion</li>
+          </ul>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>📈 Pro Tip</h4>
+            <p style="margin: 0;">Start with 5-10 key events that directly relate to your business goals. You can always add more later as your analytics needs grow.</p>
+          </div>
+        `
+      },
+      
+      'conversion-funnels': {
+        title: 'Conversion Funnels',
+        content: `
+          <h1>Conversion Funnel Analysis</h1>
+          <p>Understand your user journey and identify where visitors drop off in your conversion process to optimize each step.</p>
+          
+          <h2>What is a Conversion Funnel?</h2>
+          
+          <div class="metric-card">
+            <h3>📊 Funnel Definition</h3>
+            <p>A conversion funnel tracks users through a series of steps leading to a desired outcome, showing where users drop off and where you can improve.</p>
+            <p><strong>Example:</strong> Visit → Sign Up → Trial → Purchase</p>
+          </div>
+          
+          <h2>Funnel Types</h2>
+          
+          <div class="metric-card">
+            <h3>🛒 E-commerce Funnel</h3>
+            <p><strong>Steps:</strong> Product View → Add to Cart → Checkout → Purchase</p>
+            <p><strong>Key metric:</strong> Purchase conversion rate</p>
+            <p><strong>Typical rates:</strong> 2-5% overall conversion</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>💼 SaaS Funnel</h3>
+            <p><strong>Steps:</strong> Landing Page → Sign Up → Onboarding → Activation → Subscription</p>
+            <p><strong>Key metric:</strong> Trial to paid conversion</p>
+            <p><strong>Typical rates:</strong> 15-25% trial to paid</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>📧 Lead Generation Funnel</h3>
+            <p><strong>Steps:</strong> Ad Click → Landing Page → Form Fill → Lead Qualification → Sale</p>
+            <p><strong>Key metric:</strong> Lead to customer conversion</p>
+            <p><strong>Typical rates:</strong> 5-15% lead to customer</p>
+          </div>
+          
+          <h2>Funnel Metrics</h2>
+          
+          <h3>Key Performance Indicators</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>Conversion Rate</h4>
+              <p><strong>Formula:</strong> (Step Completions ÷ Step Entries) × 100</p>
+              <p><strong>Example:</strong> 500 checkouts ÷ 2,000 cart additions = 25%</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>Drop-off Rate</h4>
+              <p><strong>Formula:</strong> 100% - Conversion Rate</p>
+              <p><strong>Example:</strong> 100% - 25% = 75% drop-off</p>
+            </div>
+          </div>
+          
+          <h3>Advanced Metrics</h3>
+          <ul>
+            <li><strong>Time to Convert:</strong> How long users take to complete the funnel</li>
+            <li><strong>Funnel Velocity:</strong> Speed of progression through steps</li>
+            <li><strong>Cohort Analysis:</strong> How different user groups perform</li>
+            <li><strong>Revenue per Visitor:</strong> Overall funnel value</li>
+          </ul>
+          
+          <h2>Funnel Analysis Process</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Define Your Funnel Steps</h3>
+              <p>Map out the critical path users take to convert:</p>
+              <ul>
+                <li>Start with the end goal (purchase, signup, etc.)</li>
+                <li>Work backwards to identify required steps</li>
+                <li>Keep it simple - 3-5 steps maximum</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Set Up Tracking</h3>
+              <p>Ensure each funnel step is properly tracked:</p>
+              <ul>
+                <li>Page views for each step</li>
+                <li>Button clicks and form submissions</li>
+                <li>Completion events</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Analyze Drop-off Points</h3>
+              <p>Identify where users are leaving:</p>
+              <ul>
+                <li>Calculate conversion rate for each step</li>
+                <li>Find the biggest drop-off points</li>
+                <li>Prioritize improvements by impact</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Optimize and Test</h3>
+              <p>Improve the weakest steps first:</p>
+              <ul>
+                <li>A/B test different approaches</li>
+                <li>Reduce friction and complexity</li>
+                <li>Improve messaging and design</li>
+              </ul>
+            </li>
+          </ol>
+          
+          <h2>Common Drop-off Causes</h2>
+          
+          <h3>Technical Issues</h3>
+          <ul>
+            <li><strong>Slow loading times:</strong> >3 seconds loses 40% of users</li>
+            <li><strong>Mobile optimization:</strong> Poor mobile experience</li>
+            <li><strong>Form errors:</strong> Validation and usability issues</li>
+            <li><strong>Payment problems:</strong> Failed transactions</li>
+          </ul>
+          
+          <h3>User Experience Issues</h3>
+          <ul>
+            <li><strong>Too many steps:</strong> Overly complex process</li>
+            <li><strong>Unclear value:</strong> Users don't understand benefits</li>
+            <li><strong>Trust concerns:</strong> Security and credibility issues</li>
+            <li><strong>Unexpected costs:</strong> Hidden fees or charges</li>
+          </ul>
+          
+          <h2>Optimization Strategies</h2>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>🚀 High-Impact Improvements</h4>
+            <ul style="margin: 0;">
+              <li>Reduce form fields by 50%</li>
+              <li>Add progress indicators</li>
+              <li>Include social proof and testimonials</li>
+              <li>Optimize for mobile devices</li>
+              <li>Simplify checkout process</li>
+            </ul>
+          </div>
+          
+          <h2>Funnel Reporting</h2>
+          
+          <h3>Dashboard Setup</h3>
+          <ul>
+            <li><strong>Funnel visualization:</strong> Step-by-step conversion rates</li>
+            <li><strong>Trend analysis:</strong> Performance over time</li>
+            <li><strong>Segment comparison:</strong> Different user groups</li>
+            <li><strong>Goal tracking:</strong> Progress toward targets</li>
+          </ul>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>🎯 Success Formula</h4>
+            <p style="margin: 0;">Focus on the biggest drop-off point first. A 10% improvement in your worst-performing step often has more impact than optimizing multiple smaller issues.</p>
+          </div>
+        `
+      },
+      
+      'exporting-data': {
+        title: 'Exporting Data',
+        content: `
+          <h1>Data Export & Reporting</h1>
+          <p>Export your analytics data for deeper analysis, reporting, and integration with other business tools.</p>
+          
+          <h2>Export Options</h2>
+          
+          <div class="metric-card">
+            <h3>📊 CSV Export</h3>
+            <p><strong>Best for:</strong> Spreadsheet analysis, basic reporting</p>
+            <p><strong>Includes:</strong> Raw event data, user properties, timestamps</p>
+            <p><strong>Limitations:</strong> Up to 100,000 rows per export</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>📈 Dashboard Reports</h3>
+            <p><strong>Best for:</strong> Executive summaries, stakeholder updates</p>
+            <p><strong>Includes:</strong> Charts, graphs, key metrics</p>
+            <p><strong>Formats:</strong> PDF, PNG, scheduled delivery</p>
+          </div>
+          
+          <div class="metric-card">
+            <h3>🔗 API Access</h3>
+            <p><strong>Best for:</strong> Real-time integrations, custom analysis</p>
+            <p><strong>Includes:</strong> Live data feeds, webhook notifications</p>
+            <p><strong>Requirements:</strong> Technical implementation needed</p>
+          </div>
+          
+          <h2>Available Data Types</h2>
+          
+          <h3>Flow Performance Data</h3>
+          <ul>
+            <li><strong>Flow views:</strong> When and how often flows were displayed</li>
+            <li><strong>Completion rates:</strong> Step-by-step progression data</li>
+            <li><strong>Conversion events:</strong> Final goal achievements</li>
+            <li><strong>A/B test results:</strong> Variant performance comparison</li>
+          </ul>
+          
+          <h3>User Behavior Data</h3>
+          <ul>
+            <li><strong>User sessions:</strong> Visit duration and page views</li>
+            <li><strong>Custom events:</strong> Tracked business actions</li>
+            <li><strong>User properties:</strong> Demographics and attributes</li>
+            <li><strong>Funnel progression:</strong> Multi-step journey data</li>
+          </ul>
+          
+          <h3>Revenue Data</h3>
+          <ul>
+            <li><strong>Purchase events:</strong> Transaction details and amounts</li>
+            <li><strong>Revenue attribution:</strong> Flow impact on sales</li>
+            <li><strong>Customer lifetime value:</strong> Long-term user value</li>
+            <li><strong>Cohort analysis:</strong> User group performance</li>
+          </ul>
+          
+          <h2>Export Process</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Select Date Range</h3>
+              <p>Choose the time period for your export:</p>
+              <ul>
+                <li><strong>Last 30 days:</strong> Recent performance analysis</li>
+                <li><strong>Custom range:</strong> Specific campaign periods</li>
+                <li><strong>Full history:</strong> Complete data archive</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Choose Data Filters</h3>
+              <p>Refine your export to include relevant data:</p>
+              <ul>
+                <li><strong>Specific flows:</strong> Individual campaign data</li>
+                <li><strong>User segments:</strong> Targeted audience analysis</li>
+                <li><strong>Event types:</strong> Particular action categories</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Select Export Format</h3>
+              <p>Choose the format that works best for your needs:</p>
+              <ul>
+                <li><strong>CSV:</strong> For spreadsheet analysis</li>
+                <li><strong>JSON:</strong> For technical integrations</li>
+                <li><strong>PDF:</strong> For presentation and sharing</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Download or Schedule</h3>
+              <p>Get your data immediately or set up recurring exports:</p>
+              <ul>
+                <li><strong>Instant download:</strong> Immediate file delivery</li>
+                <li><strong>Email delivery:</strong> Sent to specified recipients</li>
+                <li><strong>Scheduled reports:</strong> Weekly or monthly automation</li>
+              </ul>
+            </li>
+          </ol>
+          
+          <h2>Data Analysis Tips</h2>
+          
+          <h3>Spreadsheet Analysis</h3>
+          <div class="metric-card">
+            <h4>Essential Formulas</h4>
+            <p><strong>Conversion Rate:</strong> =COUNTIF(Status,"Converted")/COUNT(Status)</p>
+            <p><strong>Average Revenue:</strong> =AVERAGE(Revenue_Column)</p>
+            <p><strong>Growth Rate:</strong> =(New_Value-Old_Value)/Old_Value</p>
+          </div>
+          
+          <h3>Visualization Tools</h3>
+          <ul>
+            <li><strong>Excel/Google Sheets:</strong> Built-in charting capabilities</li>
+            <li><strong>Tableau:</strong> Advanced data visualization</li>
+            <li><strong>Power BI:</strong> Microsoft business intelligence</li>
+            <li><strong>Looker:</strong> Cloud-based analytics platform</li>
+          </ul>
+          
+          <h2>Automated Reporting</h2>
+          
+          <h3>Scheduled Reports</h3>
+          <div class="metric-card">
+            <h4>Weekly Performance Summary</h4>
+            <p><strong>Includes:</strong> Key metrics, top performing flows, conversion trends</p>
+            <p><strong>Recipients:</strong> Marketing team, executives</p>
+            <p><strong>Delivery:</strong> Every Monday at 9 AM</p>
+          </div>
+          
+          <div class="metric-card">
+            <h4>Monthly Business Review</h4>
+            <p><strong>Includes:</strong> Revenue attribution, ROI analysis, growth metrics</p>
+            <p><strong>Recipients:</strong> Leadership team, stakeholders</p>
+            <p><strong>Delivery:</strong> First business day of each month</p>
+          </div>
+          
+          <h2>Data Privacy & Security</h2>
+          
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>🔒 Security Measures</h4>
+            <ul style="margin: 0;">
+              <li>All exports are encrypted in transit and at rest</li>
+              <li>Access logs track who downloads what data</li>
+              <li>Automatic data anonymization for GDPR compliance</li>
+              <li>Secure file sharing with expiring download links</li>
+            </ul>
+          </div>
+          
+          <h2>Integration Options</h2>
+          
+          <h3>Popular Integrations</h3>
+          <ul>
+            <li><strong>Google Analytics:</strong> Combine with web analytics data</li>
+            <li><strong>Salesforce:</strong> Link to CRM and sales data</li>
+            <li><strong>HubSpot:</strong> Marketing automation integration</li>
+            <li><strong>Slack:</strong> Automated report notifications</li>
+          </ul>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>📋 Best Practice</h4>
+            <p style="margin: 0;">Set up automated weekly reports for your team and monthly executive summaries. This ensures everyone stays informed without manual work.</p>
+          </div>
+        `
+      },
+      
+      'hubspot-setup': {
+        title: 'HubSpot Setup',
+        content: `
+          <h1>HubSpot Integration Setup</h1>
+          <p>Connect Boostly with HubSpot to sync lead data, track conversions, and create targeted marketing campaigns based on user behavior.</p>
+          
+          <div style="background: linear-gradient(135deg, #ff7a59 0%, #ff5722 100%); color: white; padding: 2rem; border-radius: var(--radius); margin: 2rem 0;">
+            <h2 style="margin: 0 0 1rem 0; color: white;">🔗 HubSpot Integration Benefits</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+              <div>
+                <h4 style="color: white; margin: 0 0 0.5rem 0;">📊 Lead Scoring</h4>
+                <p style="margin: 0; opacity: 0.9;">Automatically score leads based on flow engagement</p>
+              </div>
+              <div>
+                <h4 style="color: white; margin: 0 0 0.5rem 0;">🎯 Smart Lists</h4>
+                <p style="margin: 0; opacity: 0.9;">Create dynamic lists based on user flow behavior</p>
+              </div>
+            </div>
+          </div>
+          
+          <h2>Setup Process</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>🔑 Generate HubSpot API Key</h3>
+              <div class="metric-card">
+                <p><strong>Navigate to:</strong> HubSpot Settings → Integrations → API Key</p>
+                <p><strong>Create:</strong> New private app or use existing API key</p>
+                <p><strong>Permissions needed:</strong> Contacts (read/write), Companies (read/write)</p>
+                <p><strong>Security:</strong> Keep your API key secure and never share publicly</p>
+              </div>
+            </li>
+            
+            <li>
+              <h3>⚙️ Configure Integration</h3>
+              <p>Contact our support team with your HubSpot API key to enable the integration. We'll configure the connection and test data flow.</p>
+            </li>
+            
+            <li>
+              <h3>✅ Verify Data Sync</h3>
+              <div class="metric-card">
+                <p><strong>Test contact:</strong> Create a test flow interaction</p>
+                <p><strong>Check HubSpot:</strong> Verify contact appears with flow data</p>
+                <p><strong>Timeline:</strong> Data should sync within 5-10 minutes</p>
+                <p><strong>Properties:</strong> Confirm custom properties are populated</p>
+              </div>
+            </li>
+          </ol>
+          
+          <h2>📊 Data Synchronization</h2>
+          
+          <h3>Contact Properties</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>📝 Flow Engagement</h4>
+              <p><strong>Last Flow Viewed:</strong> Most recent flow interaction</p>
+              <p><strong>Flow Completion Rate:</strong> Percentage of flows completed</p>
+              <p><strong>Total Flow Views:</strong> Lifetime engagement count</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>🎯 Conversion Data</h4>
+              <p><strong>Conversion Source:</strong> Which flow drove conversion</p>
+              <p><strong>Conversion Value:</strong> Revenue attributed to flows</p>
+              <p><strong>Conversion Date:</strong> When user converted</p>
+            </div>
+          </div>
+          
+          <h2>🎯 Marketing Automation</h2>
+          
+          <h3>Workflow Triggers</h3>
+          <ul>
+            <li><strong>Flow Completed:</strong> Trigger follow-up sequences</li>
+            <li><strong>High Engagement:</strong> Move to sales-qualified leads</li>
+            <li><strong>Conversion Event:</strong> Start customer onboarding</li>
+            <li><strong>Drop-off Detection:</strong> Re-engagement campaigns</li>
+          </ul>
+          
+          <h3>Smart List Examples</h3>
+          <div class="metric-card">
+            <h4>High-Intent Prospects</h4>
+            <p><strong>Criteria:</strong> Viewed pricing flow + completed 2+ flows</p>
+            <p><strong>Action:</strong> Assign to sales team for immediate follow-up</p>
+          </div>
+          
+          <div class="metric-card">
+            <h4>Re-engagement Candidates</h4>
+            <p><strong>Criteria:</strong> No flow activity in 30 days</p>
+            <p><strong>Action:</strong> Send targeted email with new features</p>
+          </div>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>🚀 Pro Tip</h4>
+            <p style="margin: 0;">Use HubSpot's lead scoring to automatically prioritize contacts based on their Boostly engagement levels and conversion likelihood.</p>
+          </div>
+        `
+      },
+      
+      'salesforce-connection': {
+        title: 'Salesforce Connection',
+        content: `
+          <h1>Salesforce Integration</h1>
+          <p>Connect Boostly with Salesforce to enrich lead records, track conversion attribution, and enable sales teams with behavioral insights.</p>
+          
+          <div style="background: linear-gradient(135deg, #1589ee 0%, #0070d2 100%); color: white; padding: 2rem; border-radius: var(--radius); margin: 2rem 0;">
+            <h2 style="margin: 0 0 1rem 0; color: white;">⚡ Salesforce Integration Power</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+              <div>
+                <h4 style="color: white; margin: 0 0 0.5rem 0;">📊 Lead Intelligence</h4>
+                <p style="margin: 0; opacity: 0.9;">Enrich leads with behavioral data and engagement scores</p>
+              </div>
+              <div>
+                <h4 style="color: white; margin: 0 0 0.5rem 0;">💰 Revenue Attribution</h4>
+                <p style="margin: 0; opacity: 0.9;">Track which flows contribute to closed deals</p>
+              </div>
+            </div>
+          </div>
+          
+          <h2>Integration Setup</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>🔐 Salesforce Connected App</h3>
+              <div class="metric-card">
+                <p><strong>Create:</strong> New Connected App in Salesforce Setup</p>
+                <p><strong>OAuth Scopes:</strong> Full access (full), Perform requests (api)</p>
+                <p><strong>Callback URL:</strong> Provided by Boostly support team</p>
+                <p><strong>Security:</strong> Enable OAuth settings and IP restrictions</p>
+              </div>
+            </li>
+            
+            <li>
+              <h3>🔗 Authorize Connection</h3>
+              <p>Our support team will guide you through the OAuth authorization process to securely connect your Salesforce org with Boostly.</p>
+            </li>
+            
+            <li>
+              <h3>📋 Field Mapping</h3>
+              <div class="metric-card">
+                <p><strong>Standard Fields:</strong> Email, Name, Company automatically mapped</p>
+                <p><strong>Custom Fields:</strong> Configure flow engagement and conversion tracking</p>
+                <p><strong>Activities:</strong> Log flow interactions as Salesforce activities</p>
+              </div>
+            </li>
+          </ol>
+          
+          <h2>📈 Data Enrichment</h2>
+          
+          <h3>Lead & Contact Fields</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>🎯 Engagement Metrics</h4>
+              <p><strong>Boostly Score:</strong> Overall engagement rating (0-100)</p>
+              <p><strong>Last Flow Date:</strong> Most recent interaction</p>
+              <p><strong>Flow Count:</strong> Total number of flows viewed</p>
+              <p><strong>Conversion Flow:</strong> Which flow drove conversion</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>📊 Behavioral Insights</h4>
+              <p><strong>Intent Level:</strong> High/Medium/Low based on activity</p>
+              <p><strong>Product Interest:</strong> Features viewed in flows</p>
+              <p><strong>Engagement Trend:</strong> Increasing/Stable/Declining</p>
+              <p><strong>Conversion Probability:</strong> ML-powered prediction</p>
+            </div>
+          </div>
+          
+          <h2>💼 Sales Team Benefits</h2>
+          
+          <h3>Enhanced Lead Qualification</h3>
+          <ul>
+            <li><strong>Behavioral Scoring:</strong> Prioritize leads based on engagement</li>
+            <li><strong>Intent Signals:</strong> Identify when prospects are ready to buy</li>
+            <li><strong>Feature Interest:</strong> Tailor sales conversations to user interests</li>
+            <li><strong>Engagement History:</strong> Full timeline of user interactions</li>
+          </ul>
+          
+          <h3>Automated Workflows</h3>
+          <div class="metric-card">
+            <h4>High-Intent Lead Alert</h4>
+            <p><strong>Trigger:</strong> Boostly Score > 80 + Pricing flow viewed</p>
+            <p><strong>Action:</strong> Create task for sales rep + send Slack notification</p>
+          </div>
+          
+          <div class="metric-card">
+            <h4>Opportunity Attribution</h4>
+            <p><strong>Trigger:</strong> Opportunity created for Boostly-sourced lead</p>
+            <p><strong>Action:</strong> Tag opportunity with originating flow data</p>
+          </div>
+          
+          <h2>📉 Reporting & Analytics</h2>
+          
+          <h3>Custom Reports</h3>
+          <ul>
+            <li><strong>Flow ROI Report:</strong> Revenue attributed to each flow</li>
+            <li><strong>Lead Source Analysis:</strong> Conversion rates by flow type</li>
+            <li><strong>Sales Velocity:</strong> Time from flow to closed deal</li>
+            <li><strong>Engagement Trends:</strong> Flow performance over time</li>
+          </ul>
+          
+          <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>🏆 Success Metric</h4>
+            <p style="margin: 0;">Companies using Boostly + Salesforce integration see 40% higher lead-to-opportunity conversion rates and 25% shorter sales cycles.</p>
+          </div>
+        `
+      },
+      
+      'webhook-configuration': {
+        title: 'Webhook Configuration',
+        content: `
+          <h1>Webhook Configuration</h1>
+          <p>Set up real-time webhooks to receive instant notifications when users interact with your flows, enabling immediate responses and integrations.</p>
+          
+          <h2>What are Webhooks?</h2>
+          
+          <div class="metric-card">
+            <h3>🔔 Real-time Notifications</h3>
+            <p>Webhooks are HTTP callbacks that Boostly sends to your server immediately when specific events occur, allowing you to react in real-time to user behavior.</p>
+            <p><strong>Use cases:</strong> Instant lead alerts, custom integrations, real-time analytics</p>
+          </div>
+          
+          <h2>Supported Events</h2>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>👁️ Flow Events</h4>
+              <ul>
+                <li><strong>flow.viewed:</strong> User sees a flow</li>
+                <li><strong>flow.completed:</strong> User finishes entire flow</li>
+                <li><strong>flow.abandoned:</strong> User exits without completing</li>
+                <li><strong>step.completed:</strong> User completes individual step</li>
+              </ul>
+            </div>
+            
+            <div class="metric-card">
+              <h4>🎯 Conversion Events</h4>
+              <ul>
+                <li><strong>conversion.completed:</strong> User converts</li>
+                <li><strong>lead.qualified:</strong> Lead meets qualification criteria</li>
+                <li><strong>revenue.attributed:</strong> Revenue tracked to flow</li>
+                <li><strong>goal.achieved:</strong> Custom goal completion</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2>Setup Process</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>🔧 Prepare Your Endpoint</h3>
+              <div class="metric-card">
+                <p><strong>URL Requirements:</strong> HTTPS endpoint that accepts POST requests</p>
+                <p><strong>Response:</strong> Return 200 status code to acknowledge receipt</p>
+                <p><strong>Timeout:</strong> Respond within 10 seconds</p>
+                <p><strong>Security:</strong> Verify webhook signatures (provided by support)</p>
+              </div>
+            </li>
+            
+            <li>
+              <h3>📝 Configure Webhooks</h3>
+              <p>Contact our support team to configure webhooks for your account. Provide:</p>
+              <ul>
+                <li>Your endpoint URL</li>
+                <li>Events you want to receive</li>
+                <li>Any custom headers needed</li>
+                <li>Retry preferences</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>✅ Test & Validate</h3>
+              <div class="metric-card">
+                <p><strong>Test Events:</strong> We'll send test webhooks to verify setup</p>
+                <p><strong>Monitoring:</strong> Check webhook delivery status in dashboard</p>
+                <p><strong>Debugging:</strong> View failed deliveries and retry attempts</p>
+              </div>
+            </li>
+          </ol>
+          
+          <h2>📊 Webhook Payload Structure</h2>
+          
+          <h3>Standard Payload Format</h3>
+          <div class="metric-card">
+            <h4>Common Fields</h4>
+            <ul>
+              <li><strong>event:</strong> Event type (e.g., "flow.completed")</li>
+              <li><strong>timestamp:</strong> When the event occurred (ISO 8601)</li>
+              <li><strong>user_id:</strong> Unique identifier for the user</li>
+              <li><strong>session_id:</strong> Current user session</li>
+              <li><strong>flow_id:</strong> Identifier of the flow involved</li>
+            </ul>
+          </div>
+          
+          <h2>🔄 Common Use Cases</h2>
+          
+          <h3>Instant Lead Alerts</h3>
+          <div class="metric-card">
+            <h4>High-Intent Notification</h4>
+            <p><strong>Trigger:</strong> User completes pricing flow</p>
+            <p><strong>Action:</strong> Send Slack message to sales team</p>
+            <p><strong>Benefit:</strong> Immediate follow-up while interest is high</p>
+          </div>
+          
+          <h3>Custom Analytics</h3>
+          <div class="metric-card">
+            <h4>Real-time Dashboard</h4>
+            <p><strong>Trigger:</strong> Any conversion event</p>
+            <p><strong>Action:</strong> Update internal analytics dashboard</p>
+            <p><strong>Benefit:</strong> Live conversion tracking and reporting</p>
+          </div>
+          
+          <h3>Marketing Automation</h3>
+          <div class="metric-card">
+            <h4>Behavioral Triggers</h4>
+            <p><strong>Trigger:</strong> User abandons onboarding flow</p>
+            <p><strong>Action:</strong> Add to re-engagement email sequence</p>
+            <p><strong>Benefit:</strong> Automated recovery of lost prospects</p>
+          </div>
+          
+          <h2>🔒 Security & Reliability</h2>
+          
+          <h3>Security Features</h3>
+          <ul>
+            <li><strong>Signature Verification:</strong> HMAC signatures to verify authenticity</li>
+            <li><strong>HTTPS Only:</strong> All webhooks sent over encrypted connections</li>
+            <li><strong>IP Allowlisting:</strong> Restrict webhooks to specific IP ranges</li>
+            <li><strong>Rate Limiting:</strong> Protection against webhook flooding</li>
+          </ul>
+          
+          <h3>Delivery Guarantees</h3>
+          <ul>
+            <li><strong>Retry Logic:</strong> Automatic retries with exponential backoff</li>
+            <li><strong>Dead Letter Queue:</strong> Failed webhooks stored for manual retry</li>
+            <li><strong>Monitoring:</strong> Real-time delivery status and alerts</li>
+            <li><strong>Logging:</strong> Complete audit trail of all webhook attempts</li>
+          </ul>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>⚡ Performance Tip</h4>
+            <p style="margin: 0;">Process webhooks asynchronously in your application to ensure fast response times and prevent timeouts during high-traffic periods.</p>
+          </div>
+        `
+      },
+      
+      'usage-limits': {
+        title: 'Usage Limits',
+        content: `
+          <h1>Understanding Usage Limits</h1>
+          <p>Learn about your plan's usage limits, how they're calculated, and what happens when you approach or exceed them.</p>
+          
+          <h2>Current Usage Overview</h2>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h3>📊 Monthly Active Users (MAUs)</h3>
+              <p style="font-size: 2rem; font-weight: bold; color: var(--primary); margin: 0.5rem 0;">7,234 / 10,000</p>
+              <div style="background: var(--border-light); height: 12px; border-radius: 6px; margin: 1rem 0;">
+                <div style="background: var(--primary); height: 100%; width: 72%; border-radius: 6px;"></div>
+              </div>
+              <p style="color: var(--muted); margin: 0;">72% of limit used • Resets monthly</p>
+            </div>
+            
+            <div class="metric-card">
+              <h3>🔗 API Calls</h3>
+              <p style="font-size: 2rem; font-weight: bold; color: var(--success); margin: 0.5rem 0;">847K / 1M</p>
+              <div style="background: var(--border-light); height: 12px; border-radius: 6px; margin: 1rem 0;">
+                <div style="background: var(--success); height: 100%; width: 85%; border-radius: 6px;"></div>
+              </div>
+              <p style="color: var(--muted); margin: 0;">85% of limit used • Resets monthly</p>
+            </div>
+          </div>
+          
+          <h2>Plan Limits Breakdown</h2>
+          
+          <h3>Growth Plan (£79/month)</h3>
+          <div class="metric-card">
+            <h4>Included Limits</h4>
+            <ul>
+              <li><strong>Monthly Active Users:</strong> 10,000 MAUs</li>
+              <li><strong>API Calls:</strong> 1,000,000 per month</li>
+              <li><strong>Flows:</strong> Unlimited</li>
+              <li><strong>A/B Tests:</strong> Unlimited concurrent tests</li>
+              <li><strong>Team Members:</strong> Up to 5 users</li>
+              <li><strong>Data Retention:</strong> 2 years</li>
+              <li><strong>Support:</strong> Priority email support</li>
+            </ul>
+          </div>
+          
+          <h2>📈 How Limits Are Calculated</h2>
+          
+          <h3>Monthly Active Users (MAUs)</h3>
+          <div class="metric-card">
+            <h4>Definition & Counting</h4>
+            <p><strong>What counts:</strong> Unique users who interact with any Boostly flow during the calendar month</p>
+            <p><strong>Tracking method:</strong> Based on user ID, email, or anonymous session</p>
+            <p><strong>Reset schedule:</strong> 1st of each month at 00:00 UTC</p>
+            <p><strong>Grace period:</strong> 10% overage allowed without charges</p>
+          </div>
+          
+          <h3>API Calls</h3>
+          <div class="metric-card">
+            <h4>What Counts as API Calls</h4>
+            <ul>
+              <li><strong>Flow requests:</strong> Loading and displaying flows</li>
+              <li><strong>Event tracking:</strong> Custom events and conversions</li>
+              <li><strong>User identification:</strong> Setting user properties</li>
+              <li><strong>Analytics queries:</strong> Dashboard and reporting requests</li>
+            </ul>
+            <p><strong>Not counted:</strong> Static asset loads, failed requests, health checks</p>
+          </div>
+          
+          <h2>⚠️ Approaching Limits</h2>
+          
+          <h3>Notification System</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>75% Warning</h4>
+              <p><strong>When:</strong> 75% of limit reached</p>
+              <p><strong>Action:</strong> Email notification sent</p>
+              <p><strong>Recommendation:</strong> Monitor usage closely</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>90% Alert</h4>
+              <p><strong>When:</strong> 90% of limit reached</p>
+              <p><strong>Action:</strong> Email + dashboard alert</p>
+              <p><strong>Recommendation:</strong> Consider upgrading plan</p>
+            </div>
+            
+            <div class="metric-card">
+              <h4>100% Limit</h4>
+              <p><strong>When:</strong> Limit exceeded</p>
+              <p><strong>Action:</strong> Service restrictions apply</p>
+              <p><strong>Recommendation:</strong> Upgrade immediately</p>
+            </div>
+          </div>
+          
+          <h2>🚀 What Happens When Limits Are Exceeded</h2>
+          
+          <h3>MAU Overage</h3>
+          <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>⚠️ Soft Limit Enforcement</h4>
+            <ul style="margin: 0;">
+              <li><strong>110% of limit:</strong> Overage charges apply (£0.01 per additional MAU)</li>
+              <li><strong>150% of limit:</strong> Account review and upgrade recommendation</li>
+              <li><strong>200% of limit:</strong> New flow creation temporarily disabled</li>
+            </ul>
+          </div>
+          
+          <h3>API Call Overage</h3>
+          <div style="background: #f8d7da; border: 1px solid #f5c6cb; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>❌ Hard Limit Enforcement</h4>
+            <ul style="margin: 0;">
+              <li><strong>100% of limit:</strong> API requests return 429 (rate limited)</li>
+              <li><strong>Existing flows:</strong> Continue to work normally</li>
+              <li><strong>New requests:</strong> Blocked until next billing cycle</li>
+              <li><strong>Upgrade option:</strong> Immediate limit increase available</li>
+            </ul>
+          </div>
+          
+          <h2>📉 Optimizing Usage</h2>
+          
+          <h3>Reduce MAU Count</h3>
+          <ul>
+            <li><strong>Targeted flows:</strong> Show flows only to relevant users</li>
+            <li><strong>Frequency capping:</strong> Limit how often users see flows</li>
+            <li><strong>Audience segmentation:</strong> Focus on high-value user segments</li>
+            <li><strong>Bot filtering:</strong> Exclude automated traffic</li>
+          </ul>
+          
+          <h3>Optimize API Usage</h3>
+          <ul>
+            <li><strong>Batch requests:</strong> Combine multiple events into single calls</li>
+            <li><strong>Client-side caching:</strong> Cache flow configurations locally</li>
+            <li><strong>Conditional loading:</strong> Only load flows when needed</li>
+            <li><strong>Event sampling:</strong> Track subset of non-critical events</li>
+          </ul>
+          
+          <h2>💳 Upgrade Options</h2>
+          
+          <div class="metric-card">
+            <h3>Instant Upgrades Available</h3>
+            <p><strong>Pro Plan (£199/month):</strong> 25,000 MAUs, 2.5M API calls</p>
+            <p><strong>Enterprise (£499/month):</strong> 100,000 MAUs, 10M API calls</p>
+            <p><strong>Custom Plans:</strong> Higher limits available on request</p>
+            <button style="background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-sm); margin-top: 1rem;">Upgrade Plan</button>
+          </div>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>📊 Usage Monitoring</h4>
+            <p style="margin: 0;">Set up usage alerts in your dashboard to receive notifications before reaching limits. This helps you plan upgrades and avoid service interruptions.</p>
+          </div>
+        `
+      },
+      
+      'team-management': {
+        title: 'Team Management',
+        content: `
+          <h1>Team Management</h1>
+          <p>Manage your team members, control access permissions, and collaborate effectively on your Boostly flows and campaigns.</p>
+          
+          <h2>Current Team Overview</h2>
+          
+          <div class="metric-card">
+            <h3>👥 Team Status</h3>
+            <p><strong>Plan:</strong> Growth Plan (up to 5 team members)</p>
+            <p><strong>Current members:</strong> 3 of 5 seats used</p>
+            <p><strong>Available seats:</strong> 2 remaining</p>
+            <p><strong>Billing:</strong> No additional cost for current usage</p>
+          </div>
+          
+          <h2>👤 Team Members</h2>
+          
+          <div style="display: grid; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h4 style="margin: 0;">Jane Developer (You)</h4>
+                  <p style="margin: 0; color: var(--muted);">jane@company.com • Owner</p>
+                </div>
+                <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.8rem;">Active</span>
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h4 style="margin: 0;">Mike Marketing</h4>
+                  <p style="margin: 0; color: var(--muted);">mike@company.com • Admin</p>
+                </div>
+                <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.8rem;">Active</span>
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h4 style="margin: 0;">Sarah Sales</h4>
+                  <p style="margin: 0; color: var(--muted);">sarah@company.com • Viewer</p>
+                </div>
+                <span style="background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.8rem;">Pending</span>
+              </div>
+            </div>
+          </div>
+          
+          <button style="background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-sm);">+ Invite Team Member</button>
+          
+          <h2>🔐 Permission Levels</h2>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>👑 Owner</h4>
+              <p><strong>Full access</strong> to all features</p>
+              <ul style="font-size: 0.9rem;">
+                <li>Manage billing & plan</li>
+                <li>Add/remove team members</li>
+                <li>All flow permissions</li>
+                <li>Account settings</li>
+                <li>Delete account</li>
+              </ul>
+            </div>
+            
+            <div class="metric-card">
+              <h4>🔧 Admin</h4>
+              <p><strong>Management access</strong> for operations</p>
+              <ul style="font-size: 0.9rem;">
+                <li>Create & edit flows</li>
+                <li>View all analytics</li>
+                <li>Manage integrations</li>
+                <li>Export data</li>
+                <li>Team member management</li>
+              </ul>
+            </div>
+            
+            <div class="metric-card">
+              <h4>👁️ Viewer</h4>
+              <p><strong>Read-only access</strong> for monitoring</p>
+              <ul style="font-size: 0.9rem;">
+                <li>View flows & results</li>
+                <li>Access analytics</li>
+                <li>Export reports</li>
+                <li>View team activity</li>
+                <li>No editing permissions</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2>📨 Inviting Team Members</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Send Invitation</h3>
+              <p>Enter team member's email and select their permission level. They'll receive an invitation email with setup instructions.</p>
+            </li>
+            
+            <li>
+              <h3>Account Creation</h3>
+              <p>New members create their Boostly account using the invitation link. Existing users are automatically added to your team.</p>
+            </li>
+            
+            <li>
+              <h3>Access Granted</h3>
+              <p>Once accepted, team members can immediately access your Boostly account based on their assigned permissions.</p>
+            </li>
+          </ol>
+          
+          <h2>📈 Team Activity & Collaboration</h2>
+          
+          <h3>Activity Tracking</h3>
+          <div class="metric-card">
+            <h4>Recent Team Activity</h4>
+            <ul style="margin: 0;">
+              <li><strong>Mike Marketing</strong> created "Product Demo Flow" • 2 hours ago</li>
+              <li><strong>Jane Developer</strong> updated targeting rules • 1 day ago</li>
+              <li><strong>Sarah Sales</strong> exported conversion report • 2 days ago</li>
+            </ul>
+          </div>
+          
+          <h3>Collaboration Features</h3>
+          <ul>
+            <li><strong>Flow Comments:</strong> Leave notes and feedback on flows</li>
+            <li><strong>Change History:</strong> Track who made what changes when</li>
+            <li><strong>Shared Dashboards:</strong> Team-wide analytics views</li>
+            <li><strong>Notification Settings:</strong> Get alerts for team activities</li>
+          </ul>
+          
+          <h2>🔒 Security & Access Control</h2>
+          
+          <h3>Security Features</h3>
+          <ul>
+            <li><strong>SSO Integration:</strong> Single sign-on with Google, Microsoft (Enterprise)</li>
+            <li><strong>Two-Factor Auth:</strong> Required for all team members</li>
+            <li><strong>IP Restrictions:</strong> Limit access to specific IP ranges (Enterprise)</li>
+            <li><strong>Session Management:</strong> Automatic logout after inactivity</li>
+          </ul>
+          
+          <h3>Access Logs</h3>
+          <div class="metric-card">
+            <h4>Audit Trail</h4>
+            <p>Complete log of all team member actions including:</p>
+            <ul>
+              <li>Login/logout events</li>
+              <li>Flow creation and modifications</li>
+              <li>Data exports and API access</li>
+              <li>Permission changes</li>
+            </ul>
+          </div>
+          
+          <h2>💳 Team Billing</h2>
+          
+          <h3>Seat-Based Pricing</h3>
+          <div class="metric-card">
+            <h4>Current Plan Limits</h4>
+            <p><strong>Growth Plan:</strong> Up to 5 team members included</p>
+            <p><strong>Additional seats:</strong> £15/month per extra member</p>
+            <p><strong>Pro Plan:</strong> Up to 15 team members included</p>
+            <p><strong>Enterprise:</strong> Unlimited team members</p>
+          </div>
+          
+          <h3>Billing Management</h3>
+          <ul>
+            <li><strong>Automatic billing:</strong> Added seats billed immediately</li>
+            <li><strong>Proration:</strong> Partial month charges calculated daily</li>
+            <li><strong>Seat removal:</strong> Credits applied to next billing cycle</li>
+            <li><strong>Usage alerts:</strong> Notifications when approaching seat limits</li>
+          </ul>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>🎆 Team Success Tip</h4>
+            <p style="margin: 0;">Start with Admin permissions for key team members, then adjust based on their actual usage patterns. This ensures smooth collaboration while maintaining security.</p>
+          </div>
+        `
+      },
+      
+      'cancellation-policy': {
+        title: 'Cancellation Policy',
+        content: `
+          <h1>Cancellation Policy</h1>
+          <p>Understand your options for canceling or modifying your Boostly subscription, including refund policies and data retention.</p>
+          
+          <h2>📋 Cancellation Options</h2>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h3>⏸️ Pause Subscription</h3>
+              <p><strong>Duration:</strong> Up to 3 months</p>
+              <p><strong>Cost:</strong> No charges during pause</p>
+              <p><strong>Data:</strong> Fully preserved</p>
+              <p><strong>Reactivation:</strong> Instant resume</p>
+              <p><strong>Best for:</strong> Temporary breaks, seasonal businesses</p>
+            </div>
+            
+            <div class="metric-card">
+              <h3>❌ Full Cancellation</h3>
+              <p><strong>Effective:</strong> End of current billing period</p>
+              <p><strong>Access:</strong> Continues until period ends</p>
+              <p><strong>Data:</strong> Retained for 90 days</p>
+              <p><strong>Reactivation:</strong> Available within 90 days</p>
+              <p><strong>Best for:</strong> Permanent discontinuation</p>
+            </div>
+          </div>
+          
+          <h2>📅 Cancellation Timeline</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Immediate Effect</h3>
+              <p><strong>What happens:</strong> Cancellation request processed</p>
+              <p><strong>Access:</strong> Full access continues until end of billing period</p>
+              <p><strong>Billing:</strong> No future charges scheduled</p>
+              <p><strong>Confirmation:</strong> Email confirmation sent</p>
+            </li>
+            
+            <li>
+              <h3>End of Billing Period</h3>
+              <p><strong>What happens:</strong> Account moves to canceled status</p>
+              <p><strong>Access:</strong> Dashboard access becomes read-only</p>
+              <p><strong>Flows:</strong> All flows stop displaying to users</p>
+              <p><strong>Data:</strong> Analytics data remains accessible</p>
+            </li>
+            
+            <li>
+              <h3>90-Day Grace Period</h3>
+              <p><strong>What happens:</strong> Data retention period begins</p>
+              <p><strong>Access:</strong> Limited dashboard access for data export</p>
+              <p><strong>Reactivation:</strong> Full restoration available</p>
+              <p><strong>Support:</strong> Continued access to help resources</p>
+            </li>
+            
+            <li>
+              <h3>After 90 Days</h3>
+              <p><strong>What happens:</strong> Account and data permanently deleted</p>
+              <p><strong>Recovery:</strong> No data recovery possible</p>
+              <p><strong>Reactivation:</strong> Must start as new account</p>
+              <p><strong>Compliance:</strong> GDPR and data protection compliance</p>
+            </li>
+          </ol>
+          
+          <h2>💰 Refund Policy</h2>
+          
+          <h3>Refund Eligibility</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div style="background: var(--success); color: white; padding: 1.5rem; border-radius: var(--radius-sm);">
+              <h4>✅ Eligible for Refund</h4>
+              <ul style="margin: 0;">
+                <li>Cancellation within 30 days of initial signup</li>
+                <li>Technical issues preventing service use</li>
+                <li>Billing errors or duplicate charges</li>
+                <li>Service downtime exceeding SLA (Enterprise)</li>
+              </ul>
+            </div>
+            
+            <div style="background: #dc3545; color: white; padding: 1.5rem; border-radius: var(--radius-sm);">
+              <h4>❌ Not Eligible for Refund</h4>
+              <ul style="margin: 0;">
+                <li>Cancellation after 30-day period</li>
+                <li>Change of business needs</li>
+                <li>Unused portion of subscription</li>
+                <li>Overage charges for usage limits</li>
+              </ul>
+            </div>
+          </div>
+          
+          <h3>Refund Process</h3>
+          <ol class="step-list">
+            <li>
+              <h3>Submit Request</h3>
+              <p>Contact support with your refund request and reason. Include account details and relevant documentation.</p>
+            </li>
+            
+            <li>
+              <h3>Review Process</h3>
+              <p>Our team reviews your request within 2 business days. We may request additional information or clarification.</p>
+            </li>
+            
+            <li>
+              <h3>Refund Processing</h3>
+              <p>Approved refunds are processed within 5-7 business days to your original payment method.</p>
+            </li>
+          </ol>
+          
+          <h2>📊 Data & Export Options</h2>
+          
+          <h3>Before Cancellation</h3>
+          <div class="metric-card">
+            <h4>Recommended Data Exports</h4>
+            <ul>
+              <li><strong>Analytics Data:</strong> All historical performance metrics</li>
+              <li><strong>Flow Configurations:</strong> Complete flow setups and settings</li>
+              <li><strong>User Data:</strong> Segmentation and user properties</li>
+              <li><strong>Integration Settings:</strong> Third-party connection details</li>
+              <li><strong>Team Information:</strong> User roles and permissions</li>
+            </ul>
+            <button style="background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-sm); margin-top: 1rem;">Export All Data</button>
+          </div>
+          
+          <h3>Data Formats</h3>
+          <ul>
+            <li><strong>CSV:</strong> Analytics and user data</li>
+            <li><strong>JSON:</strong> Flow configurations and settings</li>
+            <li><strong>PDF:</strong> Reports and documentation</li>
+            <li><strong>API:</strong> Programmatic data access (during active period)</li>
+          </ul>
+          
+          <h2>🔄 Reactivation Process</h2>
+          
+          <h3>Within 90 Days</h3>
+          <div class="metric-card">
+            <h4>Full Account Restoration</h4>
+            <p><strong>Process:</strong> Contact support to reactivate</p>
+            <p><strong>Timeline:</strong> Reactivation within 24 hours</p>
+            <p><strong>Data:</strong> Complete restoration of all data</p>
+            <p><strong>Billing:</strong> Resumes at previous plan level</p>
+            <p><strong>Flows:</strong> All flows reactivated automatically</p>
+          </div>
+          
+          <h3>After 90 Days</h3>
+          <div class="metric-card">
+            <h4>New Account Required</h4>
+            <p><strong>Process:</strong> Sign up as new customer</p>
+            <p><strong>Data:</strong> No previous data available</p>
+            <p><strong>Setup:</strong> Complete reconfiguration needed</p>
+            <p><strong>Pricing:</strong> Current plan pricing applies</p>
+          </div>
+          
+          <h2>📞 How to Cancel</h2>
+          
+          <div class="metric-card">
+            <h3>Cancellation Methods</h3>
+            <p><strong>Self-Service:</strong> Account Settings → Billing → Cancel Subscription</p>
+            <p><strong>Email Support:</strong> Send request to support@boostly.com</p>
+            <p><strong>Live Chat:</strong> Available during business hours</p>
+            <p><strong>Phone:</strong> Call our support line for immediate assistance</p>
+            
+            <div style="margin-top: 1.5rem;">
+              <button style="background: #dc3545; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-sm);">Cancel Subscription</button>
+            </div>
+          </div>
+          
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>🤝 We're Here to Help</h4>
+            <p style="margin: 0;">Before canceling, consider reaching out to our team. We may be able to address your concerns, adjust your plan, or provide solutions that better fit your needs.</p>
+          </div>
+        `
+      },
+      
+      'managing-plan': {
+        title: 'Managing Your Plan',
+        content: `
+          <h1>Managing Your Boostly Plan</h1>
+          <p>Everything you need to know about your subscription, billing, and plan management.</p>
+          
+          <h2>Current Plan Overview</h2>
+          
+          <div class="metric-card">
+            <h3>Your Current Plan: Growth</h3>
+            <p><strong>Monthly cost:</strong> £79/month</p>
+            <p><strong>Billing cycle:</strong> Monthly (next bill: Jan 15, 2025)</p>
+            <p><strong>Features included:</strong></p>
+            <ul>
+              <li>Up to 10,000 MAUs</li>
+              <li>Unlimited flows</li>
+              <li>A/B testing</li>
+              <li>Advanced analytics</li>
+              <li>Priority support</li>
+            </ul>
+          </div>
+          
+          <h2>Usage This Month</h2>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+            <div class="metric-card">
+              <h4>Monthly Active Users</h4>
+              <p style="font-size: 2rem; font-weight: bold; color: var(--primary); margin: 0;">7,234</p>
+              <p style="color: var(--muted); margin: 0;">of 10,000 limit (72%)</p>
+              <div style="background: var(--border-light); height: 8px; border-radius: 4px; margin-top: 0.5rem;">
+                <div style="background: var(--primary); height: 100%; width: 72%; border-radius: 4px;"></div>
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <h4>API Calls</h4>
+              <p style="font-size: 2rem; font-weight: bold; color: var(--success); margin: 0;">847K</p>
+              <p style="color: var(--muted); margin: 0;">of 1M limit (85%)</p>
+              <div style="background: var(--border-light); height: 8px; border-radius: 4px; margin-top: 0.5rem;">
+                <div style="background: var(--success); height: 100%; width: 85%; border-radius: 4px;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <h2>Upgrading Your Plan</h2>
+          
+          <ol class="step-list">
+            <li>
+              <h3>Compare Plans</h3>
+              <p>Visit our <a href="pricing.html">pricing page</a> to see all available plans and features.</p>
+            </li>
+            
+            <li>
+              <h3>Upgrade Process</h3>
+              <p>Upgrades take effect immediately:</p>
+              <ul>
+                <li>Go to Settings → Billing</li>
+                <li>Click "Upgrade Plan"</li>
+                <li>Select your new plan</li>
+                <li>Confirm payment method</li>
+              </ul>
+            </li>
+            
+            <li>
+              <h3>Prorated Billing</h3>
+              <p>You'll be charged the prorated difference for the current billing period.</p>
+            </li>
+          </ol>
+          
+          <h2>Downgrading Your Plan</h2>
+          
+          <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 1.5rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+            <h4>⚠️ Important Notes</h4>
+            <ul style="margin: 0;">
+              <li>Downgrades take effect at the end of your current billing cycle</li>
+              <li>You'll retain access to premium features until then</li>
+              <li>Some data may be archived if you exceed new plan limits</li>
+            </ul>
+          </div>
+          
+          <h2>Payment Methods</h2>
+          
+          <h3>Accepted Payment Methods</h3>
+          <ul>
+            <li>💳 Credit/Debit Cards (Visa, Mastercard, Amex)</li>
+            <li>🏦 Bank Transfer (Enterprise plans only)</li>
+            <li>📄 Invoice Billing (Annual plans over £1,000)</li>
+          </ul>
+          
+          <h3>Updating Payment Information</h3>
+          <ol class="step-list">
+            <li>
+              <h4>Access Billing Settings</h4>
+              <p>Go to Settings → Billing → Payment Methods</p>
+            </li>
+            
+            <li>
+              <h4>Add New Method</h4>
+              <p>Click "Add Payment Method" and enter your card details</p>
+            </li>
+            
+            <li>
+              <h4>Set as Default</h4>
+              <p>Make your new method the default for future charges</p>
+            </li>
+          </ol>
+          
+          <h2>Billing History</h2>
+          
+          <p>Access all your invoices and payment history:</p>
+          <ul>
+            <li><strong>Download invoices:</strong> PDF format for accounting</li>
+            <li><strong>Payment receipts:</strong> Emailed automatically</li>
+            <li><strong>Usage reports:</strong> Detailed monthly usage breakdown</li>
+          </ul>
+          
+          <h2>Enterprise Features</h2>
+          
+          <div class="metric-card">
+            <h3>Available for Enterprise Plans</h3>
+            <ul>
+              <li><strong>Custom contracts:</strong> Tailored terms and pricing</li>
+              <li><strong>Volume discounts:</strong> Reduced rates for high usage</li>
+              <li><strong>Dedicated support:</strong> Direct access to our team</li>
+              <li><strong>SLA guarantees:</strong> 99.9% uptime commitment</li>
+              <li><strong>Advanced security:</strong> SSO, audit logs, compliance</li>
+            </ul>
+          </div>
+          
+          <div style="background: var(--primary); color: white; padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 2rem;">
+            <h4>💬 Need Help?</h4>
+            <p style="margin: 0;">Our billing team is here to help with any questions about your plan, usage, or payments. <a href="contact.html" style="color: white;">Contact us</a> anytime.</p>
+          </div>
+        `
+      }
+    };
+
+    function showGuide(guideId) {
+      // Update active nav item
+      document.querySelectorAll('.guide-nav a').forEach(link => {
+        link.classList.remove('active');
+      });
+      document.querySelector(`[href="#${guideId}"]`).classList.add('active');
+      
+      // Update content
+      const guide = guides[guideId];
+      if (guide) {
+        document.getElementById('guide-content').innerHTML = guide.content;
+      }
+      
+      // Update URL hash
+      window.location.hash = guideId;
+    }
+    
+    // Load guide from URL hash on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const hash = window.location.hash.substring(1);
+      if (hash && guides[hash]) {
+        showGuide(hash);
+      }
+      
+      // Set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

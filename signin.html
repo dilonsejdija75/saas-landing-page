@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign In — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding: 4rem 0;">
+      <div class="container">
+        <div style="max-width: 400px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 3rem;">
+            <h1>Welcome back</h1>
+            <p class="muted">Sign in to your Boostly account</p>
+          </div>
+
+          <div style="background: white; padding: 2.5rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <form id="signin-form">
+              <div class="form-row">
+                <label for="email">Username or Email</label>
+                <input id="email" type="text" required placeholder="Dilon or you@company.com" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+              
+              <div class="form-row">
+                <label for="password">Password</label>
+                <input id="password" type="password" required placeholder="Enter your password" style="padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius-sm); width: 100%;">
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0;">
+                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                  <input type="checkbox" id="remember">
+                  <span style="font-size: 0.9rem;">Remember me</span>
+                </label>
+                <a href="#" onclick="forgotPassword()" style="font-size: 0.9rem; color: var(--primary);">Forgot password?</a>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Sign In</button>
+              
+              <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: var(--muted); margin-bottom: 1rem;">Don't have an account?</p>
+                <a href="trial-setup.html" class="btn btn-outline" style="width: 100%;">Start Free Trial</a>
+              </div>
+            </form>
+          </div>
+
+          <!-- Demo Account -->
+          <div style="background: var(--border-light); padding: 1.5rem; border-radius: var(--radius); margin-top: 2rem; text-align: center;">
+            <p style="margin: 0 0 1rem 0; font-weight: 600;">Try the demo account</p>
+            <p style="margin: 0 0 1rem 0; color: var(--muted); font-size: 0.9rem;">Username: Dilon<br>Password: demo</p>
+            <button onclick="fillDemo()" class="btn btn-outline btn-sm">Fill Demo Credentials</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">🔒 SOC 2</span>
+          <span class="badge">🛡️ GDPR</span>
+          <span class="badge">⭐ 4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html#integrations">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© 2025 Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signin-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      // Demo validation
+      if (email === 'Dilon' && password === 'demo') {
+        localStorage.setItem('userLoggedIn', 'true');
+        localStorage.setItem('userName', 'Dilon Demo');
+        localStorage.setItem('userEmail', 'dilon@demo.com');
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Invalid credentials. Use the demo account or start a free trial.');
+      }
+    });
+
+    function fillDemo() {
+      document.getElementById('email').value = 'Dilon';
+      document.getElementById('password').value = 'demo';
+    }
+
+    function forgotPassword() {
+      alert('Password reset link sent to your email address.');
+    }
+  </script>
+</body>
+</html>

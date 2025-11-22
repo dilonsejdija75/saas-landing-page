@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DataViz Case Study — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 6rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h1 style="color: white; font-size: 3rem; margin-bottom: 1.5rem;">DataViz boosts feature adoption by 180%</h1>
+          <p class="lede" style="color: rgba(255,255,255,0.9);">How this analytics platform drove adoption of advanced features</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0; text-align: center;">
+          <div>
+            <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">180%</div>
+            <div style="color: var(--muted);">Feature adoption increase</div>
+          </div>
+          <div>
+            <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">92%</div>
+            <div style="color: var(--muted);">User satisfaction score</div>
+          </div>
+          <div>
+            <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">£400K</div>
+            <div style="color: var(--muted);">Additional revenue impact</div>
+          </div>
+        </div>
+
+        <h2>The Challenge</h2>
+        <p>DataViz, a business intelligence platform, had a problem common to feature-rich SaaS products: users were only scratching the surface. Despite having powerful advanced analytics capabilities, most users stuck to basic reporting. The issues were:</p>
+        <ul>
+          <li>Only 15% of users discovered advanced features</li>
+          <li>Complex feature set intimidated new users</li>
+          <li>No clear progression path from basic to advanced usage</li>
+          <li>Advanced features were hidden in menus and subpages</li>
+        </ul>
+
+        <h2>The Approach</h2>
+        <p>DataViz worked with Boostly to create a progressive feature discovery system that gradually introduced advanced capabilities:</p>
+        
+        <h3>1. Usage-Based Triggers</h3>
+        <p>Instead of overwhelming users upfront, advanced features were introduced contextually when users demonstrated readiness through their current usage patterns.</p>
+
+        <h3>2. Success-Driven Prompts</h3>
+        <p>After users completed basic tasks successfully, they received targeted suggestions for related advanced features that could enhance their workflow.</p>
+
+        <h3>3. Interactive Feature Tours</h3>
+        <p>Created guided tours that showed the value of advanced features using the user's own data, making the benefits immediately tangible.</p>
+
+        <h3>4. Progressive Complexity</h3>
+        <p>Designed a learning path that built complexity gradually, ensuring users felt confident at each step before moving to more advanced capabilities.</p>
+
+        <h2>Implementation Strategy</h2>
+        <div style="background: var(--border-light); padding: 2rem; border-radius: var(--radius); margin: 2rem 0;">
+          <h3>Phase 1: User Behavior Analysis</h3>
+          <p>Analyzed 6 months of user data to identify natural progression patterns and optimal trigger points for feature introduction.</p>
+          
+          <h3>Phase 2: Feature Mapping</h3>
+          <p>Created a feature complexity hierarchy and mapped logical progression paths from basic to advanced functionality.</p>
+          
+          <h3>Phase 3: Contextual Onboarding</h3>
+          <p>Implemented smart prompts that appeared at the right moment in the user's workflow, not just during initial onboarding.</p>
+        </div>
+
+        <h2>Results by Feature Category</h2>
+        <div style="display: grid; gap: 1.5rem; margin: 2rem 0;">
+          <div style="display: grid; grid-template-columns: 200px 1fr 100px; gap: 1rem; align-items: center; padding: 1rem; background: var(--bg-secondary); border-radius: var(--radius-sm);">
+            <strong>Custom Dashboards</strong>
+            <div style="background: var(--border); height: 8px; border-radius: 4px; position: relative;">
+              <div style="background: var(--success); height: 100%; width: 85%; border-radius: 4px;"></div>
+            </div>
+            <span style="color: var(--success); font-weight: 600;">+250%</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 200px 1fr 100px; gap: 1rem; align-items: center; padding: 1rem; background: var(--bg-secondary); border-radius: var(--radius-sm);">
+            <strong>Advanced Filters</strong>
+            <div style="background: var(--border); height: 8px; border-radius: 4px; position: relative;">
+              <div style="background: var(--primary); height: 100%; width: 70%; border-radius: 4px;"></div>
+            </div>
+            <span style="color: var(--primary); font-weight: 600;">+190%</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 200px 1fr 100px; gap: 1rem; align-items: center; padding: 1rem; background: var(--bg-secondary); border-radius: var(--radius-sm);">
+            <strong>Data Exports</strong>
+            <div style="background: var(--border); height: 8px; border-radius: 4px; position: relative;">
+              <div style="background: var(--accent); height: 100%; width: 60%; border-radius: 4px;"></div>
+            </div>
+            <span style="color: var(--accent); font-weight: 600;">+165%</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 200px 1fr 100px; gap: 1rem; align-items: center; padding: 1rem; background: var(--bg-secondary); border-radius: var(--radius-sm);">
+            <strong>API Integration</strong>
+            <div style="background: var(--border); height: 8px; border-radius: 4px; position: relative;">
+              <div style="background: #ffd93d; height: 100%; width: 45%; border-radius: 4px;"></div>
+            </div>
+            <span style="color: #ffd93d; font-weight: 600;">+120%</span>
+          </div>
+        </div>
+
+        <h2>Business Impact</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+          <div style="background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+            <h3>Revenue Metrics</h3>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin: 1rem 0; display: flex; justify-content: space-between;">
+                <span>Plan upgrades</span>
+                <strong style="color: var(--success);">+67%</strong>
+              </li>
+              <li style="margin: 1rem 0; display: flex; justify-content: space-between;">
+                <span>Feature-based upsells</span>
+                <strong style="color: var(--success);">+145%</strong>
+              </li>
+              <li style="margin: 1rem 0; display: flex; justify-content: space-between;">
+                <span>Customer LTV</span>
+                <strong style="color: var(--success);">+89%</strong>
+              </li>
+            </ul>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+            <h3>User Experience</h3>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin: 1rem 0; display: flex; justify-content: space-between;">
+                <span>User satisfaction</span>
+                <strong style="color: var(--primary);">92%</strong>
+              </li>
+              <li style="margin: 1rem 0; display: flex; justify-content: space-between;">
+                <span>Feature discovery rate</span>
+                <strong style="color: var(--primary);">+280%</strong>
+              </li>
+              <li style="margin: 1rem 0; display: flex; justify-content: space-between;">
+                <span>Support tickets</span>
+                <strong style="color: var(--success);">-45%</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <blockquote style="margin: 3rem 0; padding: 2rem; background: var(--bg-secondary); border-left: 4px solid var(--primary);">
+          <p style="font-size: 1.25rem; font-style: italic;">"Boostly helped us unlock the full potential of our product. Users are now discovering and using features we spent years building but that were previously hidden. The impact on our revenue has been transformational."</p>
+          <cite style="margin-top: 1rem; display: block;">
+            <strong>Sarah Kim, VP Product at DataViz</strong>
+          </cite>
+        </blockquote>
+
+        <h2>Lessons Learned</h2>
+        <div style="display: grid; gap: 1.5rem; margin: 2rem 0;">
+          <div style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius); border-left: 4px solid var(--primary);">
+            <h4>Timing is Everything</h4>
+            <p>Introducing features at the right moment in the user journey dramatically increased adoption rates compared to upfront feature tours.</p>
+          </div>
+          <div style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius); border-left: 4px solid var(--accent);">
+            <h4>Context Drives Value</h4>
+            <p>Showing features with the user's actual data made the value proposition immediately clear and compelling.</p>
+          </div>
+          <div style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius); border-left: 4px solid var(--success);">
+            <h4>Progressive Complexity Works</h4>
+            <p>Building user confidence through gradual complexity increase led to higher advanced feature adoption.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: var(--border-light); border-radius: var(--radius);">
+          <h3>Unlock your product's hidden potential</h3>
+          <p>See how Boostly can help you increase feature adoption and drive revenue growth</p>
+          <div style="margin-top: 2rem;">
+            <a href="demo.html" class="btn btn-outline">See Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">🔒 SOC 2</span>
+          <span class="badge">🛡️ GDPR</span>
+          <span class="badge">⭐ 4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html#integrations">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© <span id="year"></span> Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

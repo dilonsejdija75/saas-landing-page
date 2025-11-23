@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Us — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div id="user-profile" class="user-profile" style="display: none; position: relative;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span id="trial-days">13</span> days left</div>
+          <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+            <div id="profile-initials" style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+            <span id="profile-email" style="color: var(--text);">jane@company.com</span>
+            <span style="color: var(--muted);">▼</span>
+          </button>
+          <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+            <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">Dashboard</a>
+            <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">Flows</a>
+            <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">Analytics</a>
+            <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">Settings</a>
+            <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">Logout</a>
+          </div>
+        </div>
+        <div id="logged-out-buttons" style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 6rem 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&h=800&fit=crop') center/cover; position: relative;">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 1;">
+          <h1 style="color: white; font-size: 3rem; margin-bottom: 1.5rem;">About Boostly</h1>
+          <p class="lede" style="color: rgba(255,255,255,0.9); font-size: 1.25rem;">We're on a mission to help SaaS companies convert more visitors into paying customers through intelligent onboarding and experimentation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div style="max-width: 1000px; margin: 0 auto;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 6rem;">
+            <div>
+              <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Our Story</h2>
+              <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-light);">Founded in 2023, Boostly was born from the frustration of seeing great products struggle with user activation and conversion. Our founders, experienced product managers and growth engineers, recognized that most SaaS companies were losing potential customers during the critical first moments of their user journey.</p>
+            </div>
+            <div style="position: relative; border-radius: 12px; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&crop=faces" alt="Team collaboration" style="width: 100%; height: 300px; object-fit: cover;">
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 2rem; color: white;">
+                <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">2023</div>
+                <div style="opacity: 0.9;">Founded with a vision to democratize conversion optimization</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: white; padding: 4rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); margin-bottom: 6rem; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px; opacity: 0.1; background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop'); background-size: cover; background-position: center;"></div>
+            <div style="text-align: center; margin-bottom: 3rem; position: relative; z-index: 1;">
+              <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Our Mission</h2>
+              <p style="font-size: 1.2rem; color: var(--text-light); max-width: 600px; margin: 0 auto;">To democratize conversion optimization for SaaS companies of all sizes. We believe every product team should have access to enterprise-grade onboarding and experimentation tools without the complexity or cost barriers.</p>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 6rem;">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Our Values</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+              <div style="background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); text-align: center;">
+                <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: bold;">C</div>
+                <h3 style="margin-bottom: 1rem;">Customer-First</h3>
+                <p style="color: var(--text-light);">Every feature we build starts with understanding our customers' real problems and needs.</p>
+              </div>
+              <div style="background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); text-align: center;">
+                <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: bold;">S</div>
+                <h3 style="margin-bottom: 1rem;">Simplicity</h3>
+                <p style="color: var(--text-light);">Complex problems deserve simple solutions. We make powerful tools accessible to everyone.</p>
+              </div>
+              <div style="background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); text-align: center;">
+                <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: bold;">D</div>
+                <h3 style="margin-bottom: 1rem;">Data-Driven</h3>
+                <p style="color: var(--text-light);">We practice what we preach - every decision is backed by data and experimentation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: white; padding: 4rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); margin-bottom: 6rem;">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Leadership Team</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem;">
+              <div style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&h=240&fit=crop&crop=face" alt="Alex Smith" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.5rem; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <h4 style="margin-bottom: 0.5rem;">Alex Smith</h4>
+                <div style="color: var(--primary); font-weight: 600; margin-bottom: 1rem;">CEO & Co-Founder</div>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Former VP of Growth at TechCorp. 10+ years in SaaS product management and conversion optimization.</p>
+              </div>
+              <div style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&h=240&fit=crop&crop=face" alt="Sarah Johnson" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.5rem; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <h4 style="margin-bottom: 0.5rem;">Sarah Johnson</h4>
+                <div style="color: var(--primary); font-weight: 600; margin-bottom: 1rem;">CTO & Co-Founder</div>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Former Principal Engineer at DataFlow. Expert in real-time analytics and scalable infrastructure.</p>
+              </div>
+              <div style="text-align: center;">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=240&h=240&fit=crop&crop=face" alt="Mike Chen" style="width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1.5rem; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <h4 style="margin-bottom: 0.5rem;">Mike Chen</h4>
+                <div style="color: var(--primary); font-weight: 600; margin-bottom: 1rem;">Head of Product</div>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Former Senior PM at GrowthLabs. Specialized in user onboarding and behavioral analytics.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 4rem; border-radius: 12px; text-align: center; color: white;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Join Our Team</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">We're always looking for talented individuals who share our passion for helping SaaS companies succeed.</p>
+            <a href="careers.html" class="btn" style="background: white; color: var(--primary); text-decoration: none; padding: 1rem 2rem; border-radius: 6px; font-weight: 600;">View Open Positions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">SOC 2</span>
+          <span class="badge">GDPR</span>
+          <span class="badge">4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="integrations.html">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© <span id="year"></span> Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    
+    if (mobileMenuToggle && mainNav) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+      });
+      
+      mainNav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          mobileMenuToggle.classList.remove('active');
+          mainNav.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

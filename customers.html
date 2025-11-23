@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Customers — Boostly</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Boostly</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customers.html">Customers</a>
+        <a href="demo.html">Demo</a>
+        <div id="user-profile" class="user-profile" style="display: none; position: relative;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; margin-right: 1rem;">Trial: <span id="trial-days">13</span> days left</div>
+          <button class="profile-btn" onclick="toggleProfileMenu()" style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: var(--radius-sm);">
+            <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">JD</div>
+            <span style="color: var(--text);">jane@company.com</span>
+            <span style="color: var(--muted);">▼</span>
+          </button>
+          <div id="profile-menu" class="profile-menu" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-width: 200px; z-index: 1000;">
+            <a href="dashboard.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📊 Dashboard</a>
+            <a href="flows.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">🔄 Flows</a>
+            <a href="analytics.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">📈 Analytics</a>
+            <a href="settings.html" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border);">⚙️ Settings</a>
+            <a href="#" onclick="logout()" style="display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--text);">🚪 Logout</a>
+          </div>
+        </div>
+        <div id="logged-out-buttons" style="display: flex; gap: 0.5rem;">
+          <a class="btn btn-outline" href="signin.html">Sign In</a>
+          <a class="btn btn-ghost" href="trial-setup.html">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 6rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h1 style="color: white; font-size: 3rem; margin-bottom: 1.5rem;">Loved by product teams worldwide</h1>
+          <p class="lede" style="color: rgba(255,255,255,0.9);">See how companies are using Boostly to boost their conversions</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="logos-section">
+      <div class="container">
+        <p class="logos-text">Trusted by 2,800+ SaaS companies</p>
+        <div class="logos-grid">
+          <div class="logo">Stripe</div>
+          <div class="logo">Notion</div>
+          <div class="logo">Figma</div>
+          <div class="logo">Linear</div>
+          <div class="logo">Vercel</div>
+          <div class="logo">Framer</div>
+          <div class="logo">Webflow</div>
+          <div class="logo">Airtable</div>
+          <div class="logo">Loom</div>
+          <div class="logo">Calendly</div>
+          <div class="logo">Typeform</div>
+          <div class="logo">Intercom</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 style="text-align: center;">Customer testimonials</h2>
+        <div class="testimonials" style="grid-template-columns: 1fr; gap: 3rem; max-width: 900px; margin: 3rem auto;">
+          <blockquote style="padding: 3rem;">
+            <div class="testimonial-content">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p style="font-size: 1.25rem;">"Boostly helped us increase our trial-to-paid conversion rate by 22% in just 8 weeks. The templates are incredibly practical and the A/B testing features are exactly what we needed."</p>
+              <cite>
+                <div class="avatar">M</div>
+                <div class="author-info">
+                  <strong>Maya Chen</strong>
+                  <span>Head of Growth at AcmeCRM</span>
+                </div>
+              </cite>
+            </div>
+          </blockquote>
+
+          <blockquote style="padding: 3rem;">
+            <div class="testimonial-content">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p style="font-size: 1.25rem;">"The zero infrastructure changes promise was exactly what we needed. Our engineering team loved that they didn't have to build anything custom, and we saw immediate value from day one."</p>
+              <cite>
+                <div class="avatar">J</div>
+                <div class="author-info">
+                  <strong>Jason Rodriguez</strong>
+                  <span>Product Manager at FlowOps</span>
+                </div>
+              </cite>
+            </div>
+          </blockquote>
+
+          <blockquote style="padding: 3rem;">
+            <div class="testimonial-content">
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p style="font-size: 1.25rem;">"We've tried other onboarding tools before, but Boostly's focus on revenue impact rather than just engagement metrics made all the difference. Our activation rate improved by 45%."</p>
+              <cite>
+                <div class="avatar">S</div>
+                <div class="author-info">
+                  <strong>Sarah Kim</strong>
+                  <span>VP Product at DataViz</span>
+                </div>
+              </cite>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--border-light);">
+      <div class="container">
+        <h2 style="text-align: center;">Success metrics</h2>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 3rem 0;">
+          <div style="text-align: center;">
+            <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">2,800+</div>
+            <div style="color: var(--muted);">Active customers</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">22%</div>
+            <div style="color: var(--muted);">Avg conversion lift</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">5 min</div>
+            <div style="color: var(--muted);">Average setup time</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">98%</div>
+            <div style="color: var(--muted);">Customer satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 style="text-align: center;">Case studies</h2>
+        <div style="display: grid; gap: 2rem; margin: 3rem 0;">
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&h=200&fit=crop&crop=center'); background-size: cover; background-position: center; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.7);">TechCorp</div>
+            <div>
+              <h3>300% increase in trial conversion</h3>
+              <p style="color: var(--muted); margin: 1rem 0;">B2B SaaS company transformed their onboarding experience and tripled conversion rates in 6 weeks.</p>
+              <a href="case-studies.html" class="btn btn-outline">Read Full Story</a>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; background: var(--bg-secondary); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border);">
+            <div style="background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%); background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=300&h=200&fit=crop&crop=center'); background-size: cover; background-position: center; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.7);">FlowOps</div>
+            <div>
+              <h3>75% reduction in time-to-value</h3>
+              <p style="color: var(--muted); margin: 1rem 0;">Workflow automation platform helped users reach success faster with targeted onboarding.</p>
+              <a href="case-studies.html" class="btn btn-outline">Read Full Story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--border-light);">
+      <div class="container" style="text-align: center;">
+        <h2>Join thousands of satisfied customers</h2>
+        <p class="muted">Start your free trial today and see why teams love Boostly</p>
+        <div style="margin-top: 2rem;">
+          <a href="trial-setup.html" class="btn btn-primary" style="margin-right: 1rem;">Start Free Trial</a>
+          <a href="contact.html" class="btn btn-outline">Talk to Sales</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">Boostly</div>
+        <p>Convert more visitors into customers</p>
+        <div class="security-badges">
+          <span class="badge">🔒 SOC 2</span>
+          <span class="badge">🛡️ GDPR</span>
+          <span class="badge">⭐ 4.9/5 on G2</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html#integrations">Integrations</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="blog.html">Blog</a>
+          <a href="guides.html">Guides</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="help.html">Help Center</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div>© 2025 Boostly — Built for conversion</div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Profile functionality
+    function toggleProfileMenu() {
+      const menu = document.getElementById('profile-menu');
+      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function logout() {
+      localStorage.removeItem('userLoggedIn');
+      document.getElementById('user-profile').style.display = 'none';
+      document.getElementById('logged-out-buttons').style.display = 'flex';
+    }
+
+    // Check login state on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (localStorage.getItem('userLoggedIn') === 'true') {
+        document.getElementById('user-profile').style.display = 'flex';
+        document.getElementById('logged-out-buttons').style.display = 'none';
+      }
+      
+      // Close profile menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.user-profile')) {
+          const menu = document.getElementById('profile-menu');
+          if (menu) menu.style.display = 'none';
+        }
+      });
+      
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mainNav = document.getElementById('main-nav');
+      
+      if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+          mobileMenuToggle.classList.toggle('active');
+          mainNav.classList.toggle('active');
+        });
+        
+        mainNav.addEventListener('click', (e) => {
+          if (e.target.tagName === 'A') {
+            mobileMenuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

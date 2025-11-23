@@ -415,7 +415,24 @@
     
     // Set current year in footer
     document.getElementById('year').textContent = '2025';
+    
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    
+    if (mobileMenuToggle && mainNav) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+      });
+      
+      mainNav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          mobileMenuToggle.classList.remove('active');
+          mainNav.classList.remove('active');
+        }
+      });
+    }
   </script>
-  <script src="js/app.js"></script>
 </body>
 </html>
